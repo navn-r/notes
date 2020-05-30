@@ -1,0 +1,21 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "<✏️ />"
+theme = 'book'
+
+# Book configuration
+disablePathToLower = true
+
+# Needed for mermaid/katex shortcodes
+[markup]
+[markup.goldmark.renderer]
+  unsafe = true
+
+[menu]
+[[menu.after]]
+name = "Notes Repo (Github)"
+  url = "https://github.com/navn-r/course-notes"
+  weight = 10
+
+[params]
+ BookSection = '*'
