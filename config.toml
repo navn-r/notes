@@ -1,7 +1,9 @@
-baseURL = "http://example.org/"
+baseURL = "http://navn-r.github.io/notes/"
 languageCode = "en-us"
 title = "<✏️ />"
 theme = 'book'
+
+publishDir = "docs"
 
 # Book configuration
 disablePathToLower = true
