@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Week 6" />
 <meta property="og:description" content="Week 6 Programming in C (cont.) File I/O in C  Content can be accessed as a steam (seq. read/write) File functions work with FILE *  FILE: Type rep. stream state, definition varies by platform, most likely a struct    Open FILE *fopen(const char *filename, const char *mode)  Modes: &quot;r&quot;, &quot;w&quot;, &quot;a&quot;, &quot;r&#43;&quot;, &quot;w&#43;&quot;, &quot;a&#43;&quot;  Read, Write, Append, Read &amp; Write, Write &amp; Read, Append &amp; Read Appending and Writing to a file will create a new one if the file does not exist Reading to a non-existent file will cause an error (returns NULL)    Close int fclose(FILE *stream)  Close stream when finished with the file Returns 0 if success, EOF if error Why should you close the file as soon as you&rsquo;re finished:  There is a limit on how many streams are open per process Writing may be buffered until closing No two process can open the same file (Windows only)    Formatted I/O // printf and scanf but for a given stream int fprintf(FILE *stream, const char *format, ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://navn-r.github.io/notes/CSCB09/Week-6/" />
+<meta property="og:url" content="https://navn-r.github.io/notes/CSCB09/Week-6/" />
 <meta property="article:published_time" content="2020-06-17T00:06:17+00:00" />
 <meta property="article:modified_time" content="2020-06-17T00:06:17+00:00" />
 
