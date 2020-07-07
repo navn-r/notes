@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>&lt;✏️ /&gt;</title>
-    <link>http://navn-r.github.io/notes/</link>
-    <description>Recent content on &lt;✏️ /&gt;</description>
+    <title>CSCB09 on &lt;✏️ /&gt;</title>
+    <link>http://navn-r.github.io/notes/CSCB09/</link>
+    <description>Recent content in CSCB09 on &lt;✏️ /&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 17 Jun 2020 00:06:17 +0000</lastBuildDate>
     
-	<atom:link href="http://navn-r.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://navn-r.github.io/notes/CSCB09/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -73,31 +73,6 @@ $ ./myscript Positional Parameters $ ./myscript foo bar baz # come after filenam
       
       <guid>http://navn-r.github.io/notes/CSCB09/Week-6/</guid>
       <description>Week 6 Programming in C (cont.) File I/O in C  Content can be accessed as a steam (seq. read/write) File functions work with FILE *  FILE: Type rep. stream state, definition varies by platform, most likely a struct    Open FILE *fopen(const char *filename, const char *mode)  Modes: &amp;quot;r&amp;quot;, &amp;quot;w&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;r+&amp;quot;, &amp;quot;w+&amp;quot;, &amp;quot;a+&amp;quot;  Read, Write, Append, Read &amp;amp; Write, Write &amp;amp; Read, Append &amp;amp; Read Appending and Writing to a file will create a new one if the file does not exist Reading to a non-existent file will cause an error (returns NULL)    Close int fclose(FILE *stream)  Close stream when finished with the file Returns 0 if success, EOF if error Why should you close the file as soon as you&amp;rsquo;re finished:  There is a limit on how many streams are open per process Writing may be buffered until closing No two process can open the same file (Windows only)    Formatted I/O // printf and scanf but for a given stream int fprintf(FILE *stream, const char *format, .</description>
-    </item>
-    
-    <item>
-      <title>Final Review</title>
-      <link>http://navn-r.github.io/notes/CSCA48/final-review/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://navn-r.github.io/notes/CSCA48/final-review/</guid>
-      <description>CSCA48 - Final Review Winter 2020  If you think it won&amp;rsquo;t work in C, it probably will.
- Units 1 + 2:   Variables and lockers:  Uniquely numbered in increasing order, reserved only for the program using the box to store and access information in said box.
- Three ways to get a locker:  Variable Declaration int boostMyMark = 420; // locker has been created  Return Values return boostMyMark; // new locker has been created, (copied value)  Input Parameters void killAverage(double currentAvg, double midtermMark) {.</description>
-    </item>
-    
-    <item>
-      <title>Home</title>
-      <link>http://navn-r.github.io/notes/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://navn-r.github.io/notes/index.html</guid>
-      <description>Course Notes Typed notes for my undergraduate classes at the University of Toronto, Canada.
-Note that not all courses taken throughout my degree will have typed notes, due to either choosing to hand-write them (mostly for math courses), pure laziness to type, or both.
-Course Notes thus far:
- CSCA48H3: Intro to Computer Science II CSCB09H3: Software Tools and Systems Programming  Built with Hugo using Markdown
-Site Repo
-Made with ❤️ by Navinn Ravindaran</description>
     </item>
     
   </channel>
