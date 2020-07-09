@@ -5,8 +5,17 @@
 
 {{- template "_internal/opengraph.html" . -}}
 
-<!-- OVERWRITTING BOOK THEMES CURRENT TITLE WITH THIS -->
-<title>{{ partial "docs/title" . }}</title>
+{{ $pagetitle := partial "docs/title" . }}
+{{ $title := slice $pagetitle }}
+{{ if eq (len .Section) 0 }}
+{{ $title = slice $pagetitle }}
+{{ else if not .IsSection }}
+{{ $title = $title | append .Section }}
+{{ end }}
+
+<title>{{ delimit $title " - " }}</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@420&display=swap" rel="stylesheet"> 
 
 {{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate "manifest.json" . }}
 <link rel="manifest" href="{{ $manifest.RelPermalink }}">
