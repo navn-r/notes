@@ -1,0 +1,23 @@
+baseURL = "https://navn-r.github.io/notes"
+languageCode = "en-us"
+title = "<✏️ />"
+theme = 'book'
+
+publishDir = "docs"
+
+# Book configuration
+disablePathToLower = true
+
+# Needed for mermaid/katex shortcodes
+[markup]
+[markup.goldmark.renderer]
+  unsafe = true
+
+[menu]
+[[menu.after]]
+name = "Notes Repo (Github)"
+  url = "https://github.com/navn-r/course-notes"
+  weight = 10
+
+[params]
+ BookSection = '*'
