@@ -15,8 +15,8 @@ disablePathToLower = true
 
 [menu]
 [[menu.after]]
-name = "Notes Repo (Github)"
-  url = "https://github.com/navn-r/course-notes"
+name = "Github Repo"
+  url = "https://github.com/navn-r/notes"
   weight = 10
 
 [params]
