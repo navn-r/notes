@@ -1,8 +1,10 @@
 ---
+title: "Home"
+slug: "index"
 bookHidden: true
+bookToc: false
 ---
 # Course Notes
-![travis-status](https://travis-ci.org/navn-r/course-notes.svg?branch=master) 
 
 Typed notes for my undergraduate classes at the **University of Toronto**, Canada.
 
