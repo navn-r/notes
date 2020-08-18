@@ -394,8 +394,8 @@ title: "Final Review"
       - Post Order - For deleting an entire BST:
         ```C
         if (root != NULL) {
-            inOrder(root->left); // traverses left sub-tree
-            inOrder(root->right); // traverses right sub-tree
+            postOrder(root->left); // traverses left sub-tree
+            postOrder(root->right); // traverses right sub-tree
             printf("%d\n", root->data); // operation
         }
         ```
