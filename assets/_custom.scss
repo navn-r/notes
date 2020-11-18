@@ -1,12 +1,25 @@
 .markdown {
-    pre {
-        background-color: rgba(0, 0, 0, 0.5) !important;
-    }
-    code {
-        background: rgba(100, 100, 100, 0.25);
-    }
-    blockquote {
-        background-color: rgba(255,255,255,0.03);
-        border-color: rgba(255,255,255,0.5);
-    }
+  pre {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  code {
+    background: rgba(100, 100, 100, 0.25);
+  }
+  blockquote {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+:root {
+  --gray-100: rgba(255, 255, 255, 0.1);
+  --gray-200: rgba(255, 255, 255, 0.2);
+
+  --body-background: #101010;
+  --body-font-color: #fff;
+
+  --color-link: rgb(30, 165, 255);
+  --color-visited-link: #b88dff;
+
+  --icon-filter: brightness(0) invert(1);
 }
