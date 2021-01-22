@@ -1,12 +1,15 @@
 ---
 title: "CSCC01"
 bookToc: false
+bookCollapseSection: true
 weight: 3
 ---
 
 # CSCC01 - Intro to Software Engineering
 
 Semester Taken: Fall 2020   
+
+Programming Languages: **N/A**
 
 Course Description:  
 

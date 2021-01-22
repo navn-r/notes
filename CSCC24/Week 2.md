@@ -1,0 +1,268 @@
+---
+title: Week 2
+weight: 2
+---
+
+# Week 2
+
+> Programming Languages define syntax **formally**.
+
+- **Lexical Rules**: specify the form of the 'building blocks' of a PL
+  - i.e. Comment Syntax, Tokens (keywords, literals, operators, etc.) and delimiters, White space 
+
+- **Syntax**: specifies *how* the 'building blocks' are put together
+
+
+
+## Regular Expressions
+
+#### Notation
+
+- **Kleene Star** (`*`): 0 or more repetitions
+
+- **Alternation** (`+` or `|`): denotes choice
+
+- **Grouping**: marked by parentheses `()`
+
+- **Empty/Null String**: denoted by epsilon: $\epsilon$
+
+- **Empty Language**: language with *no strings*, denoted by $\empty$ 
+
+Examples:
+
+```
+(0+1)*			0 or more of ("0" OR "1") 
+
+1*(:+;)*		0+ of "1", 0+ of (":" OR ";")
+
+(a+b)*aa(a+b)*  0+ of ("a" OR "b"), "aa", 0+ of ("a" OR "b")
+```
+
+
+
+#### Formal Definition
+
+Let $\Sigma$ denote a finite alphabet. A given string is a **Regular Expression (RE)** *iff* it can be formed from *primitive REs*
+$$
+[\empty, \epsilon, \textrm{ any } a | a \in \Sigma ]
+$$
+
+#### Rules of Applications of Regular Expressions
+
+> $a$ and $b$ are regular expressions
+
+- $a + b$: Union
+
+- $ab$ : Concatenation
+
+- $a^\star$: Kleene Closure
+
+- $(a)$: Grouping
+
+- $\Sigma^\star$: the set of all finite strings over the alphabet $\Sigma$ 
+
+#### Definition of a Regular Language
+
+> Languages that can be expressed by **Regular Expressions**.
+
+Given a RE $r$ over an alphabet $\Sigma$,  $L(r)$, *a language associated with* $r$ is defined by:
+
+- $L(\empty)$: language that contains no strings
+
+- $L(\epsilon)$: language that only contains $\{\epsilon\}$
+
+- For $a \in \Sigma$, $L(a)$: language that only contains $\{a\}$
+
+#### Rules of Regular Languages
+
+> $a$ and $b$ are regular expressions
+
+- $L(a + b) = L(a) \cup L(b)$
+
+- $L(ab) = L(a)L(b)$
+
+- $L((a)) = L(a)$
+
+- $L(a^\star) = (L(a))^\star$
+  -  $S^\star$ is the smallest superset of $S$ containing $\epsilon$ and is closed under concatenation
+
+
+
+---
+
+
+
+## Grammars
+
+- **Informal Grammar**: just rules to follow
+  - i.e. "Don't end a sentence with a preposition"
+- **Formal Grammar**
+  - **Language**: set of strings
+
+  - **Grammar**: *specifies* which strings are in the language
+
+#### Types of Formal Grammar
+
+> Chomsky's Hierarchy: ordered by ascending expressiveness.
+
+- Regular Grammars
+- Context-Free Grammars
+- Context-Sensitive Grammars
+- Phase-Structure Grammars
+
+
+
+### Context-Free Grammars
+
+> More powerful than REs.
+
+#### Parts of a Context Free Grammar
+
+- **Terminals**: atomic symbols of the language  
+  
+- **Non-Terminals**: "variables" used in the grammar
+  
+- **Start Symbol**: special non-terminal chosen as the top-level construct of the language
+  - The first non-terminal listed is chosen as the start symbol by convention
+  
+- **Productions**: set of rules that specify legal ways that a non-terminal can be rewritten as a sequence of terminals and non-terminals 
+
+#### Formal Definition of CFGs
+
+A **Context-Free Grammar** $G$ is a tuple $\{\Sigma, V, S, P\}$ where
+
+- $\Sigma$: set of terminals
+
+- $V$: set of non-terminals
+
+- $S$: Start Symbol where $S \in V$
+
+- $P$: set of productions
+  - Rule Form: $X \Longrightarrow w$, where $X \in V, w \in (\Sigma \cup V)^\star$
+
+**_Note_**: $\Sigma \cap V = \empty$ 
+
+- A **Production Rule** $X \Longrightarrow w$ can be applied to a string in the form of $sXt$ where $s,t \in (\Sigma \cup V)^\star$ to produce a string $swt$   
+
+- A grammar $G$ *generates* string $s$ if $\exists$ a finite sequence of applications of productions, such that the first rule is applied to the start symbol, and the last rule produces $s$, $s \in \Sigma^\star$. Written as $G \Rightarrow^\star s$.  
+
+##### Definition of a Context-Free Language
+
+> Languages that can be expressed by **Context-Free Grammars**.
+
+The *language generated* by a grammar $G$ is $L(G) = \{s \mid G \Rightarrow^\star s\}$
+
+
+
+### Regular Grammars
+
+> More restricted than CFGs.
+
+#### Productions in a Regular Grammar
+
+- **Left Recursive**: 0 or 1 non-terminal, appears as the *left-most* symbol on the RHS of the rule
+
+  ```
+  <S> ::= <T> a b	
+  <T> ::= a | <T> b
+  ```
+
+- **Right Recursive**:  0 or 1 non-terminal, appears as the *right-most* symbol on the RHS of rule
+
+  ```
+  <S> ::= a <T>
+  <T> ::= b <T> | a <T>
+  ```
+
+
+
+### Backus-Naur Form (BNF)
+
+> The notation typically used to describe **Context-Free Grammars**.
+
+- **Non-Terminals**: `<NonTerminal>`
+- **OR**: `|`
+- **Productions**: `LHS ::= RHS` *or* `LHS ==> RHS`
+
+#### Extended Backus-Naur Form (EBNF)
+
+> Extensions to BNF to make it more concise, but **_not_** more powerful
+
+- **Repetitions**: `{ x }` - 0 or more repetitions of `x`
+  - $x^+$: one or more repetitions
+  - $x^n$: maximum of $n$ repetitions
+  
+- **Optional**: `[ x ]` - 0 or 1 occurrences of `x`
+
+- **Grouping**: `()`
+
+  
+
+### Derivations
+
+> The sequence of applications of productions to generate a string.
+
+- A string is in the language generated by a grammar **_iff_** there is a derivation for it
+
+  
+
+Example, Write `3.14` using the following CFG:
+
+```bash
+<r> ==> <p> . <p>
+<p> ==> <d> | <d> <p>
+<d> ==> 0 | ... | 9		# ... just means 1 through 8
+```
+Solution: 
+```bash
+<r> ==> <p> . <p>
+	==> <d> . <d> <p>
+	==> 3 . 1 <d>
+	==> 3 . 1 4
+```
+
+
+
+### Parse Trees
+
+> Shows the structure within a string of the language.
+
+- **Parsing** is the process of producing a parse tree.
+
+- A string is in the language generated by a grammar **_iff_** there is a parse tree for the string.
+
+#### Structure of a Parse Tree
+
+- **Root**: start symbol
+
+- **Leaf**: terminal
+
+- **Internal Node**: non-terminal
+  - Children correspond *in-order*, to the RHS of one of its products in the grammar
+  
+    
+
+### Syntactic Ambiguity
+
+- A grammar is ambiguous **_iff_** it generates a string for where there are two or more **Parse Trees**
+
+- A string is ambiguous w/r/t a grammar **_iff_** that grammar generates two or more **Parse Trees**
+
+**Note**: Two or more *derivations* does not mean a string is ambiguous.
+
+#### Dealing with Ambiguity
+
+- Include **Delimiters**
+  
+  - i.e. Curly Brackets, `fi`, etc.
+  
+- Impose **Associativity** and **Precedence**
+  - i.e. Multiplication gets higher precedence than Addition
+  
+  - Introduce a non-terminal for each precedence level
+  
+  - For the same precedence level, operators can be 
+  
+    - **Left Associative**: recursive term *before* non-recursive
+  
+    - **Right Associative**: recursive term *after* non-recursive

@@ -196,6 +196,3 @@ The `C` compiler futher breaks down into:
     rect.o : rect.c rect.h
     # copy the output to your Makefile
     ```
-{{< katex >}}
-{{</ katex >}}
-

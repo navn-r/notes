@@ -787,8 +787,3 @@ title: "Final Review"
         - Methods: Same as parent **_but_** each child has a different implementation
           - `Piano: smashOnSomeonesHead()` $\rightarrow$ `"Smash Head on Piano"`
           - `Guitar: smashOnSomeonesHead()` $\rightarrow$ `"Smash Guitar on Head"`
-
-
-
-{{< katex >}}
-{{</ katex >}}

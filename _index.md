@@ -12,5 +12,6 @@ Course Notes thus far:
 - CSCA48H3: Intro to Computer Science II  
 - CSCB09H3: Software Tools and Systems Programming
 - CSCC01H3: Intro to Software Engineering
+- CSCC24H3: Principles of Programming Languages
 
 Made with ❤️ by [Navinn Ravindaran](https://navn-r.github.io)

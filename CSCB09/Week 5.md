@@ -161,6 +161,3 @@ printf("%lu\n", 3)   // Bad since 3 is `int`
     typedef coin { HEAD, TAIL } coin;
     typedef int coin; // illegal since `typedef coin` is already defined
     ```
-
-{{< katex >}}
-{{</ katex >}}

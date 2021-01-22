@@ -1,6 +1,7 @@
 ---
 title: "CSCA48"
 bookToc: false
+bookCollapseSection: true
 weight: 1
 ---
 

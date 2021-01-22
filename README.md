@@ -1,7 +1,7 @@
 ---
 bookHidden: true
 ---
-# Notes
+# Notes `<✏️/>`
 [![Build Status](https://travis-ci.com/navn-r/notes.svg?branch=src)](https://travis-ci.com/navn-r/notes)
 
 Typed notes for my undergraduate classes at the **University of Toronto**, Canada.
@@ -10,6 +10,7 @@ Course Notes thus far:
 - CSCA48H3: Intro to Computer Science II  
 - CSCB09H3: Software Tools and Systems Programming
 - CSCC01H3: Intro to Software Engineering
+- CSCC24H3: Principles of Programming Languages
 
 `src` branch: 
   - Folders containing the *actual* notes, typed with Markdown  
