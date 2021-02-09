@@ -6,4 +6,8 @@ Types of Translation # Compilation: translated before execution
 Lexical Rules: specify the form of the &amp;lsquo;building blocks&amp;rsquo; of a PL
 i.e. Comment Syntax, Tokens (keywords, literals, operators, etc.) and delimiters, White space Syntax: specifies how the &amp;lsquo;building blocks&amp;rsquo; are put together
 Regular Expressions # Notation # Kleene Star (*): 0 or more repetitions
-Alternation (+ or |): denotes choice</description></item></channel></rss>
+Alternation (+ or |): denotes choice</description></item><item><title>Week 3</title><link>https://navn-r.github.io/notes/CSCC24/Week-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn-r.github.io/notes/CSCC24/Week-3/</guid><description>Week 3 # Higher-Order Procedures # Procedures as returned values.
+All modern functional PLs manipulates functions as values.
+; f, g are functions and (f (g)) is well-defined (define (compose f g) (lambda x (f (g x)))) ; returns the composed function map # Usage:
+(map proc l1 l2 ... ln) proc: n-ary procedure (expects n arguments)
+l1, ..., ln: lists of length m</description></item></channel></rss>
