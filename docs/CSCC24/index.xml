@@ -10,4 +10,8 @@ Alternation (+ or |): denotes choice</description></item><item><title>Week 3</ti
 All modern functional PLs manipulates functions as values.
 ; f, g are functions and (f (g)) is well-defined (define (compose f g) (lambda x (f (g x)))) ; returns the composed function map # Usage:
 (map proc l1 l2 ... ln) proc: n-ary procedure (expects n arguments)
-l1, ..., ln: lists of length m</description></item></channel></rss>
+l1, ..., ln: lists of length m</description></item><item><title>Week 4</title><link>https://navn-r.github.io/notes/CSCC24/Week-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn-r.github.io/notes/CSCC24/Week-4/</guid><description>Week 4 # Local Bindings # Creating variables with a local scope, and bind them to the result of expressions
+Scope: Visibility of variables let # Usage:
+(let ([var1 expr1] ... [varn exprn]) body) expr1, ..., exprn are evaluated in an undefined order, has the appearance of running in parallel
+The scope of var1, ..., varn is body
+Note: vari is not in the scope of [varj, exprj] when i !</description></item></channel></rss>
