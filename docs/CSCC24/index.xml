@@ -14,4 +14,6 @@ l1, ..., ln: lists of length m</description></item><item><title>Week 4</title><l
 Scope: Visibility of variables let # Usage:
 (let ([var1 expr1] ... [varn exprn]) body) expr1, ..., exprn are evaluated in an undefined order, has the appearance of running in parallel
 The scope of var1, ..., varn is body
-Note: vari is not in the scope of [varj, exprj] when i !</description></item></channel></rss>
+Note: vari is not in the scope of [varj, exprj] when i !</description></item><item><title>Week 5</title><link>https://navn-r.github.io/notes/CSCC24/Week-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn-r.github.io/notes/CSCC24/Week-5/</guid><description>Week 5 # Tail Recursion # Consider the following function
+(define (len xs) (if (empty? xs) 0 (+ 1 (len (rest xs))))) ; trace (len &amp;#39;(1 2)) (+ 1 (len &amp;#39;(2))) (+ 1 (+ 1 (len &amp;#39;()))) (+ 1 (+ 1 0)) (+ 1 1) 2 The space complexity for this is precisely $O(n)$, where $n$ is the length of xs.
+For a small enough stack space, and large enough list, this function can result in a Stack Overflow.</description></item></channel></rss>
