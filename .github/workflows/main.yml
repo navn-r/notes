@@ -1,0 +1,53 @@
+name: Build & Deploy
+
+# Controls when the action will run.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout Pages Branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          submodules: recursive
+
+      - name: Delete old build files
+        run: rm -rf docs content
+
+      - name: Clone Source Files
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          path: ./content
+
+      - name: Setup Content
+        run: cd ./content && rm -f starter.tex && mv README.md _index.md
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest"
+
+      - uses: actions/cache@v2
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Cleanup
+        run: rm -rf content
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: .

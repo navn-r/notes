@@ -1,8 +1,11 @@
 ---
+title: "Home"
+slug: "index"
 bookHidden: true
+bookToc: false
 ---
-# Notes `<✏️/>`
-[![Build Status](https://travis-ci.com/navn-r/notes.svg?branch=src)](https://travis-ci.com/navn-r/notes)
+# Notes
+[![Build & Deploy](https://github.com/navn-r/notes/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/navn-r/notes/actions/workflows/main.yml)
 
 Typed notes for my undergraduate classes at the **University of Toronto**, Canada.
 
@@ -12,13 +15,13 @@ Course Notes thus far:
 - CSCC01H3: Intro to Software Engineering
 - CSCC24H3: Principles of Programming Languages
 
-`src` branch: 
+`main` branch: 
   - Folders containing the *actual* notes, typed with Markdown  
   - `starter.tex`: Starter File used for LaTeX notes/assignments
 
-`master` branch: 
+`gh-pages` branch: 
   - Static site generated with Hugo with [book](https://github.com/alex-shpak/hugo-book/) theme
-  - Automated build from `src` and deployment using TravisCI and Github Pages
+  - Automated build from `main` and deployment using Github Actions and Github Pages
 
 
-Made with ❤️ by [Navinn Ravindaran](https://navn-r.github.io)
+Made with ❤️ by [Navinn Ravindaran](https://navn.me)
