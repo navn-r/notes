@@ -18,10 +18,9 @@ Course Notes thus far:
 `main` branch: 
   - Folders containing the *actual* notes, typed with Markdown  
   - `starter.tex`: Starter File used for LaTeX notes/assignments
+  - Automated build and deployment using Github Actions and Github Pages
 
 `gh-pages` branch: 
   - Static site generated with Hugo with [book](https://github.com/alex-shpak/hugo-book/) theme
-  - Automated build from `main` and deployment using Github Actions and Github Pages
-
 
 Made with ❤️ by [Navinn Ravindaran](https://navn.me)
