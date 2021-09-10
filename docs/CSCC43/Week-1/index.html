@@ -2,9 +2,13 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Week 1 #  There&rsquo;s supposed to be notes here, can you find it?">
+<meta name=description content="Week 1 #  Database Management System (DBMS) #    Database: A structured system to persist data over a long period of time, with certain rules imposing it
+  DBMS: Software to manage databases
+ Manages data from multiple databases Enforces rules on the data    Types of DMBS #   Relational (RDBMS)  Examples: PostgreSQL, MySQL, Oracle, SQLite   Hierarchical Networked Object-Oriented NoSQL  Key Concepts Overview #  Data Model #   A collection of tools for describing data, data relationships and semantics, and consistency constraints">
 <meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Week 1">
-<meta property="og:description" content="Week 1 #  There&rsquo;s supposed to be notes here, can you find it?">
+<meta property="og:description" content="Week 1 #  Database Management System (DBMS) #    Database: A structured system to persist data over a long period of time, with certain rules imposing it
+  DBMS: Software to manage databases
+ Manages data from multiple databases Enforces rules on the data    Types of DMBS #   Relational (RDBMS)  Examples: PostgreSQL, MySQL, Oracle, SQLite   Hierarchical Networked Object-Oriented NoSQL  Key Concepts Overview #  Data Model #   A collection of tools for describing data, data relationships and semantics, and consistency constraints">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://navn-r.github.io/notes/CSCC43/Week-1/"><meta property="article:section" content="CSCC43">
 <title>Week 1 - CSCC43</title>
@@ -13,7 +17,7 @@
 <link rel=manifest href=/notes/manifest.json>
 <link rel=icon href=/notes/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/notes/book.min.df5a456cf46d25aa914664ad0773c0a00d2997679f7b64d7f96a0bee2c94d2bb.css integrity="sha256-31pFbPRtJaqRRmStB3PAoA0pl2efe2TX+WoL7iyU0rs=">
-<script defer src=/notes/en.search.min.5e6554434cd49ca2a992a3b9a2f98bd1af766a4dfc212607976023bde7801132.js integrity="sha256-XmVUQ0zUnKKpkqO5ovmL0a92ak38ISYHl2AjveeAETI="></script>
+<script defer src=/notes/en.search.min.0a9b9868a5fdca7a088e782414383c5e12a8cbb3bcb78773c2b35f6c847061ef.js integrity="sha256-CpuYaKX9ynoIjngkFDg8XhKoy7O8t4dzwrNfbIRwYe8="></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -168,14 +172,313 @@ Github Repo
 </label>
 </div>
 <aside class="hidden clearfix">
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#database-management-system-dbms>Database Management System (DBMS)</a>
+<ul>
+<li><a href=#types-of-dmbs>Types of DMBS</a></li>
+</ul>
+</li>
+<li><a href=#key-concepts-overview>Key Concepts Overview</a>
+<ul>
+<li><a href=#data-model>Data Model</a></li>
+<li><a href=#database-instance-and-schema>Database Instance and Schema</a></li>
+<li><a href=#database-languages>Database Languages</a></li>
+<li><a href=#structured-query-language-sql>Structured Query Language (SQL)</a></li>
+<li><a href=#database-engine>Database Engine</a></li>
+<li><a href=#database-users>Database Users</a></li>
+</ul>
+</li>
+<li><a href=#relational-data-model>Relational Data Model</a>
+<ul>
+<li><a href=#definitions>Definitions</a></li>
+<li><a href=#integrity-constraints>Integrity Constraints</a></li>
+<li><a href=#keys>Keys</a></li>
+<li><a href=#primary-key>Primary Key</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </aside>
 </header>
 <article class=markdown><h1 id=week-1>
 Week 1
 <a class=anchor href=#week-1>#</a>
 </h1>
-<p>There&rsquo;s supposed to be notes here, can you find it?</p>
+<h2 id=database-management-system-dbms>
+Database Management System (DBMS)
+<a class=anchor href=#database-management-system-dbms>#</a>
+</h2>
+<ul>
+<li>
+<p><strong>Database</strong>: A structured system to persist data over a long period of time, with certain rules imposing it</p>
+</li>
+<li>
+<p><strong>DBMS</strong>: Software to manage databases</p>
+<ul>
+<li>Manages data from multiple databases</li>
+<li>Enforces rules on the data</li>
+</ul>
+</li>
+</ul>
+<h3 id=types-of-dmbs>
+Types of DMBS
+<a class=anchor href=#types-of-dmbs>#</a>
+</h3>
+<ul>
+<li><strong>Relational</strong> (RDBMS)
+<ul>
+<li>Examples: PostgreSQL, MySQL, Oracle, SQLite</li>
+</ul>
+</li>
+<li>Hierarchical</li>
+<li>Networked</li>
+<li>Object-Oriented</li>
+<li>NoSQL</li>
+</ul>
+<h2 id=key-concepts-overview>
+Key Concepts Overview
+<a class=anchor href=#key-concepts-overview>#</a>
+</h2>
+<h3 id=data-model>
+Data Model
+<a class=anchor href=#data-model>#</a>
+</h3>
+<blockquote>
+<p>A collection of tools for describing data, data relationships and semantics, and consistency constraints</p>
+</blockquote>
+<h4 id=types-of-data-models>
+Types of Data Models
+<a class=anchor href=#types-of-data-models>#</a>
+</h4>
+<ul>
+<li>
+<p><strong>Relational</strong></p>
+<ul>
+<li>Data is stored in tables with rows and columns</li>
+</ul>
+</li>
+<li>
+<p>Entity-Relationship</p>
+<ul>
+<li>Mainly used for db design</li>
+</ul>
+</li>
+<li>
+<p>Object-based</p>
+<ul>
+<li>Object-oriented and Object-relational models</li>
+</ul>
+</li>
+<li>
+<p>Semi-structured (XML)</p>
+</li>
+<li>
+<p>Hierarchical</p>
+</li>
+<li>
+<p>Network</p>
+</li>
+</ul>
+<h3 id=database-instance-and-schema>
+Database Instance and Schema
+<a class=anchor href=#database-instance-and-schema>#</a>
+</h3>
+<blockquote>
+<p>Similar to types and variables in programming languages</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Logical Schema</strong>: Overall logical structure of the db (variable types)</p>
+</li>
+<li>
+<p><strong>Physical Schema</strong>: Overall physical structure of the db</p>
+</li>
+<li>
+<p><strong>Instance</strong>: Snapshot of the db contents, <em>at a particular point in time</em> (variable value)</p>
+</li>
+</ul>
+<h3 id=database-languages>
+Database Languages
+<a class=anchor href=#database-languages>#</a>
+</h3>
+<ul>
+<li>
+<p><strong>Definition Language (DDL)</strong>: Notation for defining a db schema</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-SQL data-lang=SQL><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> students (
+	ID		char(<span style=color:#ae81ff>5</span>),
+	name	varchar(<span style=color:#ae81ff>20</span>)
+)
+</code></pre></div><pre tabindex=0><code>
+</code></pre></li>
+<li>
+<p><strong>Manipulation Language (DML)</strong>: Query Language (creating, reading, updating, deleting data)</p>
+<ul>
+<li>Types: Procedural and Declarative DML</li>
+</ul>
+</li>
+</ul>
+<h3 id=structured-query-language-sql>
+Structured Query Language (SQL)
+<a class=anchor href=#structured-query-language-sql>#</a>
+</h3>
+<ul>
+<li>Non procedural; One query always returns one table</li>
+<li><strong>Not</strong> a Turing machine equivalent language</li>
+<li>Usually embedded in other languages (Java, JS, Ruby)</li>
+</ul>
+<p>Example</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-SQL data-lang=SQL><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> students <span style=color:#66d9ef>WHERE</span> ID <span style=color:#66d9ef>IS</span> <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>
+</code></pre></div><h3 id=database-engine>
+Database Engine
+<a class=anchor href=#database-engine>#</a>
+</h3>
+<blockquote>
+<p>A DBMS is partitioned into modules, each with its own responsibility</p>
+</blockquote>
+<p>Functional Components:</p>
+<ul>
+<li>Storage Manager</li>
+<li>Query Processor</li>
+<li>Transaction Manager</li>
+</ul>
+<h3 id=database-users>
+Database Users
+<a class=anchor href=#database-users>#</a>
+</h3>
+<blockquote>
+<p>Who uses databases, and for what?</p>
+</blockquote>
+<ul>
+<li>
+<p>Naive Users (Average consumers)</p>
+<ul>
+<li>Uses Client-facing app interfaces/GUIs to indirectly communicate with the db</li>
+</ul>
+</li>
+<li>
+<p>Application Programmers</p>
+<ul>
+<li>Writes embedded SQL</li>
+</ul>
+</li>
+<li>
+<p>Sophisticated Users (Analysts + Scientists)</p>
+<ul>
+<li>Uses tools to query data from the db</li>
+</ul>
+</li>
+<li>
+<p>Database Admininistrators (DBA)</p>
+<ul>
+<li>Has central control over the db system</li>
+<li>General functions:
+<ul>
+<li>Grants authorization to access data</li>
+<li>Periodically backs up db</li>
+<li>Monitors disk space and running jobs</li>
+<li>Schema definition and modification permissions</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id=relational-data-model>
+Relational Data Model
+<a class=anchor href=#relational-data-model>#</a>
+</h2>
+<ul>
+<li>2D Tables logically represent data</li>
+<li>Relational Algebra is used for manipulating relations (tables)</li>
+<li>Set-based: Arbitrary row and column ordering</li>
+</ul>
+<h3 id=definitions>
+Definitions
+<a class=anchor href=#definitions>#</a>
+</h3>
+<ul>
+<li>$R$: Relation/Table Name</li>
+<li><strong>Attribute</strong>: Column heading (defined in schema)</li>
+<li><strong>Tuple</strong>: Row of <em>atomic</em> cells</li>
+<li><strong>Arity</strong>: Number of attributes $m = |\textrm{schema}(R)|$</li>
+<li><strong>Cardinality</strong>: Number of tuples $n = |R|$</li>
+<li><strong>Domain</strong>: Set of allowed values for each attribute
+<ul>
+<li><code>null</code> is a member of every domain (can use it anywhere), this may cause problems (not null constraints)</li>
+</ul>
+</li>
+</ul>
+<h4 id=notation>
+Notation
+<a class=anchor href=#notation>#</a>
+</h4>
+<p>Attributes</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>tuple</span>[<span style=color:#a6e22e>attr</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>value</span>
+
+<span style=color:#75715e>// Alternatively
+</span><span style=color:#75715e></span><span style=color:#a6e22e>tuple</span>.<span style=color:#a6e22e>attr</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>value</span>
+</code></pre></div><p>Multiple Attributes</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>tuple</span>[<span style=color:#a6e22e>attr1</span>, <span style=color:#a6e22e>attr2</span>] <span style=color:#f92672>=</span> <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>value1</span>, <span style=color:#a6e22e>value2</span><span style=color:#f92672>&gt;</span>
+        
+<span style=color:#75715e>// Generally
+</span><span style=color:#75715e></span><span style=color:#a6e22e>tuple</span>[<span style=color:#a6e22e>A1</span>, ..., <span style=color:#a6e22e>AN</span>] <span style=color:#f92672>=</span> <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>tuple</span>[<span style=color:#a6e22e>A1</span>], ..., <span style=color:#a6e22e>tuple</span>[<span style=color:#a6e22e>AN</span>]<span style=color:#f92672>&gt;</span>
+</code></pre></div><h3 id=integrity-constraints>
+Integrity Constraints
+<a class=anchor href=#integrity-constraints>#</a>
+</h3>
+<blockquote>
+<p>Property that must be satisfied by all db instances</p>
+</blockquote>
+<ul>
+<li>A db is <strong>legal</strong> if it satisfies all integrity constraints</li>
+</ul>
+<h4 id=tuple--domain-constraints>
+Tuple + Domain Constraints
+<a class=anchor href=#tuple--domain-constraints>#</a>
+</h4>
+<blockquote>
+<p>Expresses conditions on values of each tuple, independently of others</p>
+</blockquote>
+<p><strong>Tuple Constraint</strong>: Multiple Attributes</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#75715e>// Net, Gross, Deductions are attributes
+</span><span style=color:#75715e></span><span style=color:#a6e22e>Net</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Gross</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>Deductions</span>
+</code></pre></div><p><strong>Domain Constraint</strong>: Single attributes</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-SQL data-lang=SQL>STUDENT_ID <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span> <span style=color:#66d9ef>AND</span> <span style=color:#66d9ef>LENGTH</span>(STUDENT_ID) <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>5</span>
+</code></pre></div><h3 id=keys>
+Keys
+<a class=anchor href=#keys>#</a>
+</h3>
+<blockquote>
+<p>Set of attributes that <strong>uniquely identifies</strong> tuples in a relation</p>
+</blockquote>
+<h4 id=formal-definition>
+Formal Definition
+<a class=anchor href=#formal-definition>#</a>
+</h4>
+<p>“A set of attributes $K \subset R$ is a <strong>superkey</strong> if $R$ <em>does not</em> contain two distinct tuples $t_1$ and $t_2$ such that $t_1[K] = t_2[K]$”</p>
+<ul>
+<li>$K$ is a <strong>minimal superkey</strong> for $R$ if $K$ is the smallest key it can be, i.e. $\nexists$ $K'$ | $K' \subset K$ (nothing smaller)
+<ul>
+<li>Also known as a <strong>candidate key</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id=primary-key>
+Primary Key
+<a class=anchor href=#primary-key>#</a>
+</h3>
+<ul>
+<li>
+<p>Each relation must have a non-null primary key</p>
+</li>
+<li>
+<p>Candidate keys are chosen to be the primary key</p>
+</li>
+<li>
+<p>Relations reference each other using them (foreign keys)</p>
+</li>
+</ul>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
@@ -188,7 +491,33 @@ Week 1
 </div>
 <aside class=book-toc>
 <div class=book-toc-content>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#database-management-system-dbms>Database Management System (DBMS)</a>
+<ul>
+<li><a href=#types-of-dmbs>Types of DMBS</a></li>
+</ul>
+</li>
+<li><a href=#key-concepts-overview>Key Concepts Overview</a>
+<ul>
+<li><a href=#data-model>Data Model</a></li>
+<li><a href=#database-instance-and-schema>Database Instance and Schema</a></li>
+<li><a href=#database-languages>Database Languages</a></li>
+<li><a href=#structured-query-language-sql>Structured Query Language (SQL)</a></li>
+<li><a href=#database-engine>Database Engine</a></li>
+<li><a href=#database-users>Database Users</a></li>
+</ul>
+</li>
+<li><a href=#relational-data-model>Relational Data Model</a>
+<ul>
+<li><a href=#definitions>Definitions</a></li>
+<li><a href=#integrity-constraints>Integrity Constraints</a></li>
+<li><a href=#keys>Keys</a></li>
+<li><a href=#primary-key>Primary Key</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </div>
 </aside>
 </main>
