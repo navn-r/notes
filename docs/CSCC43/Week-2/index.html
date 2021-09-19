@@ -21,7 +21,7 @@ SELECT tuples FROM arelation WHERE predicate  Operators are compose-able; output
 <link rel=manifest href=/notes/manifest.json>
 <link rel=icon href=/notes/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/notes/book.min.df5a456cf46d25aa914664ad0773c0a00d2997679f7b64d7f96a0bee2c94d2bb.css integrity="sha256-31pFbPRtJaqRRmStB3PAoA0pl2efe2TX+WoL7iyU0rs=">
-<script defer src=/notes/en.search.min.923f12cabbc9a61423fc0793a38d20b35d63190001709ae14e99c9c803667643.js integrity="sha256-kj8SyrvJphQj/AeTo40gs11jGQABcJrhTpnJyANmdkM="></script>
+<script defer src=/notes/en.search.min.82982fccf05b816133f3a94c48657d63959057d0e49bc8b03bcf80e60f90b29f.js integrity="sha256-gpgvzPBbgWEz86lMSGV9Y5WQV9Dkm8iwO8+A5g+Qsp8="></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -411,19 +411,19 @@ Constraints
 </ul>
 <p><strong>Example</strong>:</p>
 <p>Schema:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#f92672>#</span> <span style=color:#66d9ef>Primary</span> <span style=color:#66d9ef>Key</span>: certificateID
-MovieExecutive (
-	name: varchar,
-    address: varchar,
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#75715e>-- Primary Key: certificateID
+</span><span style=color:#75715e></span>MovieExecutive (
+	name: string,
+    address: string,
     certificateID: int,
     netWorth: int
 )
 
-<span style=color:#f92672>#</span> <span style=color:#66d9ef>Primary</span> <span style=color:#66d9ef>Key</span>: name
-<span style=color:#f92672>#</span> <span style=color:#66d9ef>Foreign</span> <span style=color:#66d9ef>Key</span>: presidentCertificateI
-Studio (
-	name: varchar,
-    address: varchar,
+<span style=color:#75715e>-- Primary Key: name
+</span><span style=color:#75715e>-- Foreign Key: presidentCertificateID
+</span><span style=color:#75715e></span>Studio (
+	name: string,
+    address: string,
     presidentCertificateID: int
 )
 </code></pre></div><p>Problem:</p>
