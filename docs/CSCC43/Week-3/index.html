@@ -2,24 +2,26 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="CSCC24 - Principles of Programming Languages #  Semester Taken: Winter 2021
-Programming Languages: TBA
-Course Description:
- Major topics in the design, definition, analysis, and implementation of modern programming languages.
-Study of programming paradigms:
- Procedural (C, Java, Python) Functional (Scheme, ML, Haskell) Logic programming (Prolog, Mercury)   Course Page">
-<meta name=theme-color content="#FFFFFF"><meta property="og:title" content="CSCC24">
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://navn-r.github.io/notes/CSCC24/">
-<title>CSCC24</title>
+<meta name=description content="Week 3 #  Limitations of Relational Algebra #    RA is set based
+  Expensive to eliminate duplicates, order output
+  Need a way to apply scalar expressions to values
+  Values/Attributes that are not there, can be more important than what is there
+  Non-Set Extensions #  Bag Semantics #   Relations are bags (multi-sets)  Set semantics for Bags">
+<meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Week 3">
+<meta property="og:description" content="Week 3 #  Limitations of Relational Algebra #    RA is set based
+  Expensive to eliminate duplicates, order output
+  Need a way to apply scalar expressions to values
+  Values/Attributes that are not there, can be more important than what is there
+  Non-Set Extensions #  Bag Semantics #   Relations are bags (multi-sets)  Set semantics for Bags">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://navn-r.github.io/notes/CSCC43/Week-3/"><meta property="article:section" content="CSCC43">
+<title>Week 3 - CSCC43</title>
 <link rel=preconnect href=https://fonts.gstatic.com>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@420&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel=stylesheet>
 <link rel=manifest href=/notes/manifest.json>
 <link rel=icon href=/notes/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/notes/book.min.df5a456cf46d25aa914664ad0773c0a00d2997679f7b64d7f96a0bee2c94d2bb.css integrity="sha256-31pFbPRtJaqRRmStB3PAoA0pl2efe2TX+WoL7iyU0rs=">
 <script defer src=/notes/en.search.min.e1a9615fe7081bf3d764c98c52fa9ee2d75339fa092927d15452e2fc238eec4d.js integrity="sha256-4alhX+cIG/PXZMmMUvqe4tdTOfoJKSfRVFLi/COO7E0="></script>
-<link rel=alternate type=application/rss+xml href=https://navn-r.github.io/notes/CSCC24/index.xml title="<✏️ />">
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -102,9 +104,9 @@ Study of programming paradigms:
 </ul>
 </li>
 <li>
-<input type=checkbox id=section-717d341229bce3459525c2c9d3ec32a6 class=toggle checked>
+<input type=checkbox id=section-717d341229bce3459525c2c9d3ec32a6 class=toggle>
 <label for=section-717d341229bce3459525c2c9d3ec32a6 class="flex justify-between">
-<a href=https://navn-r.github.io/notes/CSCC24/ class=active>CSCC24</a>
+<a href=https://navn-r.github.io/notes/CSCC24/>CSCC24</a>
 </label>
 <ul>
 <li>
@@ -140,7 +142,7 @@ Study of programming paradigms:
 </ul>
 </li>
 <li>
-<input type=checkbox id=section-63a4e50557aed8f6e298fc725d63cc32 class=toggle>
+<input type=checkbox id=section-63a4e50557aed8f6e298fc725d63cc32 class=toggle checked>
 <label for=section-63a4e50557aed8f6e298fc725d63cc32 class="flex justify-between">
 <a href=https://navn-r.github.io/notes/CSCC43/>CSCC43</a>
 </label>
@@ -152,7 +154,7 @@ Study of programming paradigms:
 <a href=https://navn-r.github.io/notes/CSCC43/Week-2/>Week 2</a>
 </li>
 <li>
-<a href=https://navn-r.github.io/notes/CSCC43/Week-3/>Week 3</a>
+<a href=https://navn-r.github.io/notes/CSCC43/Week-3/ class=active>Week 3</a>
 </li>
 </ul>
 </li>
@@ -174,28 +176,185 @@ Github Repo
 <label for=menu-control>
 <img src=/notes/svg/menu.svg class=book-icon alt=Menu>
 </label>
-<strong>CSCC24</strong>
+<strong>Week 3</strong>
 <label for=toc-control>
+<img src=/notes/svg/toc.svg class=book-icon alt="Table of Contents">
 </label>
 </div>
-</header>
-<article class=markdown><h1 id=cscc24---principles-of-programming-languages>
-CSCC24 - Principles of Programming Languages
-<a class=anchor href=#cscc24---principles-of-programming-languages>#</a>
-</h1>
-<p>Semester Taken: Winter 2021</p>
-<p>Programming Languages: <strong>TBA</strong></p>
-<p>Course Description:</p>
-<blockquote>
-<p>Major topics in the design, definition, analysis, and implementation of modern programming languages.</p>
-<p>Study of programming paradigms:</p>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
 <ul>
-<li>Procedural (<code>C</code>, <code>Java</code>, <code>Python</code>)</li>
-<li>Functional (<code>Scheme</code>, <code>ML</code>, <code>Haskell</code>)</li>
-<li>Logic programming (<code>Prolog</code>, <code>Mercury</code>)</li>
+<li>
+<ul>
+<li></li>
+<li><a href=#non-set-extensions>Non-Set Extensions</a></li>
 </ul>
-</blockquote>
-<p><a href=https://utsc.calendar.utoronto.ca/course/CSCC24H3>Course Page</a></p>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=week-3>
+Week 3
+<a class=anchor href=#week-3>#</a>
+</h1>
+<h4 id=limitations-of-relational-algebra>
+Limitations of Relational Algebra
+<a class=anchor href=#limitations-of-relational-algebra>#</a>
+</h4>
+<ul>
+<li>
+<p>RA is set based</p>
+</li>
+<li>
+<p>Expensive to eliminate duplicates, order output</p>
+</li>
+<li>
+<p>Need a way to apply scalar expressions to values</p>
+</li>
+<li>
+<p>Values/Attributes that are <em>not</em> there, can be more important than what <em>is</em> there</p>
+</li>
+</ul>
+<h3 id=non-set-extensions>
+Non-Set Extensions
+<a class=anchor href=#non-set-extensions>#</a>
+</h3>
+<h4 id=bag-semantics>
+Bag Semantics
+<a class=anchor href=#bag-semantics>#</a>
+</h4>
+<ul>
+<li>Relations are bags (multi-sets)</li>
+</ul>
+<p><strong>Set semantics for Bags</strong></p>
+<ul>
+<li>
+<p>Union: Unordered concatenation</p>
+</li>
+<li>
+<p>Intersection: Minimum count of each value in left bag and right bag</p>
+</li>
+<li>
+<p>Difference: Takes the difference between the occurrences in the right bag and the left</p>
+</li>
+<li>
+<p>Union and intersection no longer distribute</p>
+</li>
+</ul>
+<h4 id=duplicate-elimination-delta>
+Duplicate Elimination ($\delta$)
+<a class=anchor href=#duplicate-elimination-delta>#</a>
+</h4>
+<ul>
+<li>
+<p>Turns a bag into a set</p>
+</li>
+<li>
+<p>Notation: $T = \delta(R)$</p>
+</li>
+</ul>
+<h4 id=aggregation>
+Aggregation
+<a class=anchor href=#aggregation>#</a>
+</h4>
+<ul>
+<li>
+<p><code>SUM, AVG, MIN, MAX, COUNT</code></p>
+</li>
+<li>
+<p>Includes the duplicates</p>
+</li>
+</ul>
+<h4 id=grouping-gamma-and-aggregating>
+Grouping ($\gamma$) and Aggregating
+<a class=anchor href=#grouping-gamma-and-aggregating>#</a>
+</h4>
+<ul>
+<li>
+<p>Group tuples based on a similar/related key</p>
+</li>
+<li>
+<p><strong>Grouping key</strong>: subset of attributes to test equality</p>
+</li>
+<li>
+<p>Notation: $\gamma_{A, B, C, f(X), g(Y), h(Z)}(R)$</p>
+<ul>
+<li>
+<p>Grouping keys: $A, B, C$</p>
+</li>
+<li>
+<p>Attributes: $X, Y, Z$</p>
+</li>
+<li>
+<p>Commutative aggregate Functions: $f, g, h$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id=extended-projection-pi_l>
+Extended Projection ($\pi_L$)
+<a class=anchor href=#extended-projection-pi_l>#</a>
+</h4>
+<ul>
+<li>
+<p>Notation: $\pi_L(R)$</p>
+</li>
+<li>
+<p>$L$ contains any of the following:</p>
+<ul>
+<li>
+<p>One attribute of $R$</p>
+</li>
+<li>
+<p>Rename of attributes expression $x \rightarrow y$</p>
+</li>
+<li>
+<p>Rename expression $E \rightarrow z$</p>
+<ul>
+<li>$E$: expression involving attributes of $R$, constants, arithmetic & string operators</li>
+<li>$z$: new name of the resulting attribute (return value of $E$)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id=sorting-tau>
+Sorting ($\tau$)
+<a class=anchor href=#sorting-tau>#</a>
+</h4>
+<ul>
+<li>
+<p>Sorts tuples in a relation based on its attributes</p>
+</li>
+<li>
+<p>Notation: $\tau_L(R)$:</p>
+<ul>
+<li>$L$: List of tuples, sort is based on the first tuple, fall-back to the next if tie</li>
+<li>Default is ascending order, $-$ is descending</li>
+</ul>
+</li>
+</ul>
+<h4 id=outer-join->
+Outer Join (⟗)
+<a class=anchor href=#outer-join->#</a>
+</h4>
+<ul>
+<li>
+<p>Extends the Inner Join by padding the relation with NULL ($\bot$) values</p>
+</li>
+<li>
+<p>Notation: $T = R ⟗ S$</p>
+</li>
+<li>
+<p>Padding Type:</p>
+<ul>
+<li>LEFT (⟕): Pads tuples in the left relation with NULL if there is no matching tuple in the right relation</li>
+<li>RIGHT (⟖): Reverse of left join (pads right)</li>
+<li>FULL (⟗): Pads both</li>
+</ul>
+</li>
+</ul>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
@@ -206,6 +365,20 @@ CSCC24 - Principles of Programming Languages
 </div>
 <label for=menu-control class="hidden book-menu-overlay"></label>
 </div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li></li>
+<li><a href=#non-set-extensions>Non-Set Extensions</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
 </main>
 <link rel=stylesheet href=/notes/katex/katex.min.css>
 <script defer src=/notes/katex/katex.min.js></script>

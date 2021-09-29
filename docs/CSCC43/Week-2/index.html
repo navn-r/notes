@@ -4,13 +4,13 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="Week 2 #  Relational Algebra #   A procedural language, consisting of a set of operations mapping one relation to another
  Query Format:
-SELECT tuples FROM arelation WHERE predicate  Operators are compose-able; output is a relation  Unary Operators #  Select ($\sigma$) #    Removes unwanted rows, preserves arity (same schema as input relation)
+SELECT tuples FROM a_relation WHERE predicate  Operators are compose-able; output is a relation  Unary Operators #  Select ($\sigma$) #    Removes unwanted rows, preserves arity (same schema as input relation)
   Notation: $\sigma_p(R)$
  $R$: Relation $p$: Selection predicate, a boolean formula of terms and connectives    Example: $\sigma_{\textrm{age} \ge 21}(\textrm{people})$">
 <meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Week 2">
 <meta property="og:description" content="Week 2 #  Relational Algebra #   A procedural language, consisting of a set of operations mapping one relation to another
  Query Format:
-SELECT tuples FROM arelation WHERE predicate  Operators are compose-able; output is a relation  Unary Operators #  Select ($\sigma$) #    Removes unwanted rows, preserves arity (same schema as input relation)
+SELECT tuples FROM a_relation WHERE predicate  Operators are compose-able; output is a relation  Unary Operators #  Select ($\sigma$) #    Removes unwanted rows, preserves arity (same schema as input relation)
   Notation: $\sigma_p(R)$
  $R$: Relation $p$: Selection predicate, a boolean formula of terms and connectives    Example: $\sigma_{\textrm{age} \ge 21}(\textrm{people})$">
 <meta property="og:type" content="article">
@@ -21,7 +21,7 @@ SELECT tuples FROM arelation WHERE predicate  Operators are compose-able; output
 <link rel=manifest href=/notes/manifest.json>
 <link rel=icon href=/notes/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/notes/book.min.df5a456cf46d25aa914664ad0773c0a00d2997679f7b64d7f96a0bee2c94d2bb.css integrity="sha256-31pFbPRtJaqRRmStB3PAoA0pl2efe2TX+WoL7iyU0rs=">
-<script defer src=/notes/en.search.min.82982fccf05b816133f3a94c48657d63959057d0e49bc8b03bcf80e60f90b29f.js integrity="sha256-gpgvzPBbgWEz86lMSGV9Y5WQV9Dkm8iwO8+A5g+Qsp8="></script>
+<script defer src=/notes/en.search.min.e1a9615fe7081bf3d764c98c52fa9ee2d75339fa092927d15452e2fc238eec4d.js integrity="sha256-4alhX+cIG/PXZMmMUvqe4tdTOfoJKSfRVFLi/COO7E0="></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -153,6 +153,9 @@ SELECT tuples FROM arelation WHERE predicate  Operators are compose-able; output
 <li>
 <a href=https://navn-r.github.io/notes/CSCC43/Week-2/ class=active>Week 2</a>
 </li>
+<li>
+<a href=https://navn-r.github.io/notes/CSCC43/Week-3/>Week 3</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -204,7 +207,7 @@ Relational Algebra
 <p>A procedural language, consisting of a set of operations mapping one relation to another</p>
 </blockquote>
 <p><strong>Query Format:</strong></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> tuples <span style=color:#66d9ef>FROM</span> arelation <span style=color:#66d9ef>WHERE</span> predicate
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> tuples <span style=color:#66d9ef>FROM</span> a_relation <span style=color:#66d9ef>WHERE</span> predicate
 </code></pre></div><ul>
 <li>Operators are compose-able; output is a relation</li>
 </ul>
@@ -307,8 +310,21 @@ Natural Join ($\bowtie$)
 <li>
 <p>Notation: $T = R \bowtie S$</p>
 <ul>
-<li>$\textrm{schema}(T) = \textrm{schema}(R) \cup \textrm{schema}(S)$</li>
-<li>$|T| \le |R| * |S|$, usually around $\textrm{max}(|R|, |S|)$</li>
+<li>
+<p>$\textrm{schema}(T) = \textrm{schema}(R) \cup \textrm{schema}(S)$</p>
+</li>
+<li>
+<p>$|T| \le |R| * |S|$, usually around $\textrm{max}(|R|, |S|)$</p>
+</li>
+<li>
+<p>Commutative, Associative, and no ambiguous N-Arity joins ($A \bowtie B \bowtie C$ is unambiguous)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Equivalent to $\pi(\sigma_\theta(R \cross S))$</p>
+<ul>
+<li>Projects away attributes</li>
 </ul>
 </li>
 <li>
@@ -318,6 +334,45 @@ Natural Join ($\bowtie$)
 <li>If there is <strong>complete</strong> overlap: $\bowtie$ = $\cap$</li>
 </ul>
 </li>
+</ul>
+<h4 id=theta-join-theta>
+Theta Join ($\theta$)
+<a class=anchor href=#theta-join-theta>#</a>
+</h4>
+<ul>
+<li>
+<p>Returns the pairwise combo of rows that satisfy $\theta = p$, where $p$ is some predicate</p>
+</li>
+<li>
+<p>Notation: $T = R \bowtie_\theta S$</p>
+<ul>
+<li>$|T| \le |R| * |S|$</li>
+</ul>
+</li>
+<li>
+<p>Doesn’t have to be an equality predicate, <em>any works</em></p>
+</li>
+<li>
+<p>Equivalent to $\sigma_\theta(R \cross S)$</p>
+<ul>
+<li><strong>No overlap</strong> in schemas</li>
+<li>Doesn’t project away attributes, doesn’t discard dangling tuples</li>
+</ul>
+</li>
+</ul>
+<h4 id=equijoin>
+Equijoin
+<a class=anchor href=#equijoin>#</a>
+</h4>
+<ul>
+<li>Special case of Theta Join</li>
+<li>Notation: $T = R \bowtie_{A = X, B = Y \dots} S$
+<ul>
+<li>Attributes names in $R$ and $S$ can differ</li>
+</ul>
+</li>
+<li>Like Natural Join, but for arbitrary attributes</li>
+<li>Equivalent to $R \bowtie \rho(S)$</li>
 </ul>
 <h4 id=additive-operators-cup-cap-->
 Additive Operators ($\cup$, $\cap$, $-$)
