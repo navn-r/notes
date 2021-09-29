@@ -13,7 +13,7 @@ weight: 2
 **Query Format:**
 
 ```sql
-SELECT tuples FROM arelation WHERE predicate
+SELECT tuples FROM a_relation WHERE predicate
 ```
 
 - Operators are compose-able; output is a relation
@@ -82,20 +82,46 @@ SELECT tuples FROM arelation WHERE predicate
 #### Natural Join ($\bowtie$)
 
 - Also combines two relations into a single relation, accounts for **attribute names**
-
 - Tuples are joined if the attribute is shared between both relations
-
 - Notation: $T = R \bowtie S$
 
   - $\textrm{schema}(T) = \textrm{schema}(R) \cup \textrm{schema}(S)$
+  
   - $|T| \le |R| * |S|$, usually around $\textrm{max}(|R|, |S|)$
-
+  
+  - Commutative, Associative, and no ambiguous N-Arity joins ($A \bowtie B \bowtie C$ is unambiguous)
+  
+- Equivalent to $\pi(\sigma_\theta(R \cross S))$
+  - Projects away attributes
+  
 - Special schema cases:
 
   - If there is **no** overlap:  $\bowtie$ = $\cross$ and $|T| = |R| * |S|$ 
   - If there is **complete** overlap: $\bowtie$ = $\cap$
 
-    
+#### Theta Join ($\theta$)
+
+- Returns the pairwise combo of rows that satisfy $\theta = p$, where $p$ is some predicate
+- Notation: $T = R \bowtie_\theta S$
+  - $|T| \le |R| * |S|$
+
+- Doesn’t have to be an equality predicate, *any works*
+
+- Equivalent to $\sigma_\theta(R \cross S)$
+  - **No overlap** in schemas
+  - Doesn’t project away attributes, doesn’t discard dangling tuples
+
+#### Equijoin
+
+- Special case of Theta Join
+- Notation: $T = R \bowtie_{A = X, B = Y \dots} S$
+  - Attributes names in $R$ and $S$ can differ
+- Like Natural Join, but for arbitrary attributes
+- Equivalent to $R \bowtie \rho(S)$
+
+
+
+
 
  #### Additive Operators ($\cup$, $\cap$, $-$)
 
