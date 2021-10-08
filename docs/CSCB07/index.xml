@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCB07 on &lt;✏️ /></title><link>https://navn-r.github.io/notes/CSCB07/</link><description>Recent content in CSCB07 on &lt;✏️ /></description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://navn-r.github.io/notes/CSCB07/index.xml" rel="self" type="application/rss+xml"/><item><title>Lab Notes</title><link>https://navn-r.github.io/notes/CSCB07/labs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn-r.github.io/notes/CSCB07/labs/</guid><description>Lab Notes # Lab 3, Due 10/8/2021 23:59 EST
+Handy Links:
+https://www.regextester.com/ https://cheatography.com/davechild/cheat-sheets/regular-expressions/ Valid Hashtag is:
+Start of file: hashtag + whitespace End of file: whitespace + hashtag Everything else: whitespace + hashtag + whitespace Note: Newlines are considered white-space (\n)
+Example:
+Line: I can&amp;#39;t wait to fail POSt at #UofT! There&amp;#39;s just #Too#Many#Proofs! #Boundless\n Hashtags: #UofT!</description></item></channel></rss>
