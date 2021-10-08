@@ -14,6 +14,7 @@ Course Notes thus far:
 - CSCB09H3: Software Tools and Systems Programming
 - CSCC01H3: Intro to Software Engineering
 - CSCC24H3: Principles of Programming Languages
+- CSCC43H3: Introduction to Databases
 
 `main` branch: 
   - Folders containing the *actual* notes, typed with Markdown  
