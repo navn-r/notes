@@ -60,4 +60,4 @@ Handy Links:
 https://www.regextester.com/ https://cheatography.com/davechild/cheat-sheets/regular-expressions/ Valid Hashtag is:
 Start of file: hashtag + whitespace End of file: whitespace + hashtag Everything else: whitespace + hashtag + whitespace Note: Newlines are considered white-space (\n)
 Example:
-Line: I can&amp;#39;t wait to fail POSt at #UofT! There&amp;#39;s just #Too#Many#Proofs! #Boundless\n Hashtags: #UofT!</description></item></channel></rss>
+Line: I can&amp;#39;t wait to fail POSt at #UofT #Boundless! There&amp;#39;s just #Too#Many#Proofs! #Boundless\n Hashtags: #UofT #Boundless Make sure to escape \ characters on windows</description></item></channel></rss>
