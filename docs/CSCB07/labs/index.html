@@ -2,19 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Lab Notes #   Lab 3, Due 10/8/2021 23:59 EST
+<meta name=description content="Lab Notes #   Lab 4, Due 10/24/2021 23:59 EST
    Handy Links:
- https://www.regextester.com/ https://cheatography.com/davechild/cheat-sheets/regular-expressions/ https://www.baeldung.com/java-buffered-reader (if Scanner is not working)    Valid Hashtag is:
- Start of file: hashtag + whitespace End of file: whitespace + hashtag Everything else: whitespace + hashtag + whitespace    Note: Newlines are considered white-space (\n)
-  Example:
-Line: I can't wait to fail POSt at #UofT #Boundless!">
+ https://www.eclemma.org/userdoc/index.html https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html    Use Eclipse, don’t bother with other editors
+  Use these points for testing isEquilateral:
+Point p1 = new Point(0, 0); Point p2 = new Point(Math.sqrt(5), 0); Point p3 = new Point(Math.sqrt(5) / 2.0, Math.sqrt(15) / 2.0);   For submission, you can name the file anything
+  Code Annotations:">
 <meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Lab Notes">
-<meta property="og:description" content="Lab Notes #   Lab 3, Due 10/8/2021 23:59 EST
+<meta property="og:description" content="Lab Notes #   Lab 4, Due 10/24/2021 23:59 EST
    Handy Links:
- https://www.regextester.com/ https://cheatography.com/davechild/cheat-sheets/regular-expressions/ https://www.baeldung.com/java-buffered-reader (if Scanner is not working)    Valid Hashtag is:
- Start of file: hashtag + whitespace End of file: whitespace + hashtag Everything else: whitespace + hashtag + whitespace    Note: Newlines are considered white-space (\n)
-  Example:
-Line: I can't wait to fail POSt at #UofT #Boundless!">
+ https://www.eclemma.org/userdoc/index.html https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html    Use Eclipse, don’t bother with other editors
+  Use these points for testing isEquilateral:
+Point p1 = new Point(0, 0); Point p2 = new Point(Math.sqrt(5), 0); Point p3 = new Point(Math.sqrt(5) / 2.0, Math.sqrt(15) / 2.0);   For submission, you can name the file anything
+  Code Annotations:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://navn-r.github.io/notes/CSCB07/labs/"><meta property="article:section" content="CSCB07">
 <title>Lab Notes - CSCB07</title>
@@ -23,7 +23,7 @@ Line: I can't wait to fail POSt at #UofT #Boundless!">
 <link rel=manifest href=/notes/manifest.json>
 <link rel=icon href=/notes/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/notes/book.min.df5a456cf46d25aa914664ad0773c0a00d2997679f7b64d7f96a0bee2c94d2bb.css integrity="sha256-31pFbPRtJaqRRmStB3PAoA0pl2efe2TX+WoL7iyU0rs=">
-<script defer src=/notes/en.search.min.632f3c4557e1abec3e84da49135cd07db006d0fc31eca536673adede27c6c602.js integrity="sha256-Yy88RVfhq+w+hNpJE1zQfbAG0Pwx7KU2Zzre3ifGxgI="></script>
+<script defer src=/notes/en.search.min.48a3c2f67ffb2bcee45e9d1806085c7fd0bd336cba20e6818d8f1285b4dfb9f5.js integrity="sha256-SKPC9n/7K87kXp0YBghcf9C9M2y6IOaBjY8ShbTfufU="></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -161,10 +161,7 @@ Line: I can't wait to fail POSt at #UofT #Boundless!">
 </ul>
 </li>
 <li>
-<input type=checkbox id=section-519ea1db5f9c8fdc0c57e3b0228450e2 class=toggle checked>
-<label for=section-519ea1db5f9c8fdc0c57e3b0228450e2 class="flex justify-between">
 <a href=https://navn-r.github.io/notes/CSCB07/>CSCB07</a>
-</label>
 <ul>
 <li>
 <a href=https://navn-r.github.io/notes/CSCB07/labs/ class=active>Lab Notes</a>
@@ -195,7 +192,15 @@ Github Repo
 </label>
 </div>
 <aside class="hidden clearfix">
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#tips-for-unit-testing>Tips for Unit Testing</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </aside>
 </header>
 <article class=markdown><h1 id=lab-notes>
@@ -203,57 +208,94 @@ Lab Notes
 <a class=anchor href=#lab-notes>#</a>
 </h1>
 <blockquote>
-<p>Lab 3, <strong>Due 10/8/2021 23:59 EST</strong></p>
+<p>Lab 4, <strong>Due 10/24/2021 23:59 EST</strong></p>
 </blockquote>
 <ul>
 <li>
 <p>Handy Links:</p>
 <ul>
-<li><a href=https://www.regextester.com/>https://www.regextester.com/</a></li>
-<li><a href=https://cheatography.com/davechild/cheat-sheets/regular-expressions/>https://cheatography.com/davechild/cheat-sheets/regular-expressions/</a></li>
-<li><a href=https://www.baeldung.com/java-buffered-reader>https://www.baeldung.com/java-buffered-reader</a> (if <code>Scanner</code> is not working)</li>
+<li><a href=https://www.eclemma.org/userdoc/index.html>https://www.eclemma.org/userdoc/index.html</a></li>
+<li><a href=https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html>https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html</a></li>
 </ul>
 </li>
 <li>
-<p>Valid Hashtag is:</p>
+<p><strong>Use Eclipse</strong>, don’t bother with other editors</p>
+</li>
+<li>
+<p>Use these points for testing <code>isEquilateral</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Point p1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> 0<span style=color:#f92672>);</span>
+Point p2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>Math<span style=color:#f92672>.</span><span style=color:#a6e22e>sqrt</span><span style=color:#f92672>(</span>5<span style=color:#f92672>),</span> 0<span style=color:#f92672>);</span>
+Point p3 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>Math<span style=color:#f92672>.</span><span style=color:#a6e22e>sqrt</span><span style=color:#f92672>(</span>5<span style=color:#f92672>)</span> <span style=color:#f92672>/</span> 2<span style=color:#f92672>.</span><span style=color:#a6e22e>0</span><span style=color:#f92672>,</span> Math<span style=color:#f92672>.</span><span style=color:#a6e22e>sqrt</span><span style=color:#f92672>(</span>15<span style=color:#f92672>)</span> <span style=color:#f92672>/</span> 2<span style=color:#f92672>.</span><span style=color:#a6e22e>0</span><span style=color:#f92672>);</span>
+</code></pre></div></li>
+<li>
+<p>For submission, you can name the file anything</p>
+</li>
+<li>
+<p><strong>Code Annotations</strong>:</p>
 <ul>
-<li>Start of file: <strong><code>hashtag</code></strong> + <code>whitespace</code></li>
-<li>End of file: <code>whitespace</code> + <strong><code>hashtag</code></strong></li>
-<li>Everything else: <code>whitespace</code> + <strong><code>hashtag</code></strong> + <code>whitespace</code></li>
+<li>Green: Fully Covered</li>
+<li>Yellow: Partially Covered</li>
+<li>Red: Not Covered</li>
 </ul>
 </li>
 <li>
-<p><strong>Note</strong>: Newlines are considered white-space (<code>\n</code>)</p>
+<p>It’s fine to not cover all branches, as long as the coverage is <strong>100%</strong></p>
+<ul>
+<li><a href="https://piazza.com/class/kti52spsvua71f?cid=113">https://piazza.com/class/kti52spsvua71f?cid=113</a></li>
+</ul>
 </li>
 <li>
-<p>Example:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt>Line: 
-I can&#39;t wait to fail POSt at #UofT #Boundless! There&#39;s just #Too#Many#Proofs! #Boundless\n
+<p>To get rid of the coverage colors in the file, <em>just modify the file</em></p>
+</li>
+</ul>
+<p><img src=https://i2.paste.pics/26dd62cb3f91cf965c631aa6318c7e51.png alt=code></p>
+<h3 id=tips-for-unit-testing>
+Tips for Unit Testing
+<a class=anchor href=#tips-for-unit-testing>#</a>
+</h3>
+<ul>
+<li>
+<p>Use one assertion per test</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>// Bad Example
+</span><span style=color:#75715e></span><span style=color:#a6e22e>@Test</span>
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>testThis</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+	Point p1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> 0<span style=color:#f92672>);</span>
+	Point p2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>1<span style=color:#f92672>,</span> 1<span style=color:#f92672>);</span>
 
-Hashtags: 
-#UofT
-#Boundless 
-</code></pre></div></li>
-<li>
-<p>Make sure to escape <code>\</code> characters on windows</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>String path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;C:\\Users\\Navinn\\Documents\\TA\\CSCB07\\lab3\\src\\Tweets2020&#34;</span><span style=color:#f92672>;</span>
-</code></pre></div></li>
-<li>
-<p>Also escape <code>\</code> for Java Regex</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>// Example: Match one or more digits (\d)
-</span><span style=color:#75715e></span>Pattern p <span style=color:#f92672>=</span> Pattern<span style=color:#f92672>.</span><span style=color:#a6e22e>compile</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;[\\d]+&#34;</span><span style=color:#f92672>);</span>
-</code></pre></div></li>
-<li>
-<p>When you make a new Writer/Reader/Scanner instance, be sure to close it after you’re done</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>// Example
-</span><span style=color:#75715e></span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> pleaseCurveTheExam<span style=color:#f92672>)</span> <span style=color:#66d9ef>throws</span> IOException <span style=color:#f92672>{</span>
-    <span style=color:#75715e>// Create the scanner
-</span><span style=color:#75715e></span>    Scanner sc <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Scanner<span style=color:#f92672>(</span>System<span style=color:#f92672>.</span><span style=color:#a6e22e>in</span><span style=color:#f92672>);</span>
+    assertNotEquals<span style=color:#f92672>(</span>p1<span style=color:#f92672>,</span> p2<span style=color:#f92672>);</span>
+    assertEquals<span style=color:#f92672>(</span>p2<span style=color:#f92672>.</span><span style=color:#a6e22e>hashCode</span><span style=color:#f92672>(),</span> 8<span style=color:#f92672>);</span>
+<span style=color:#f92672>}</span>
 
-	<span style=color:#75715e>// Do some stuff here ...
-</span><span style=color:#75715e></span>
-    <span style=color:#75715e>// Close the scanner
-</span><span style=color:#75715e></span>    sc<span style=color:#f92672>.</span><span style=color:#a6e22e>close</span><span style=color:#f92672>();</span>
+<span style=color:#75715e>// Good Example
+</span><span style=color:#75715e></span><span style=color:#a6e22e>@Test</span>
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>testHashCode</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+    Point p <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>1<span style=color:#f92672>,</span> 1<span style=color:#f92672>);</span>
+    assertEquals<span style=color:#f92672>(</span>p<span style=color:#f92672>.</span><span style=color:#a6e22e>hashCode</span><span style=color:#f92672>(),</span> 1<span style=color:#f92672>);</span>
+<span style=color:#f92672>}</span>
+
+<span style=color:#a6e22e>@Test</span>
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>testEquals</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+    Point p1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> 0<span style=color:#f92672>);</span>
+	Point p2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>1<span style=color:#f92672>,</span> 1<span style=color:#f92672>);</span>
+    assertNotEquals<span style=color:#f92672>(</span>p1<span style=color:#f92672>,</span> p2<span style=color:#f92672>);</span>
+<span style=color:#f92672>}</span>
+</code></pre></div></li>
+<li>
+<p>Use assertions that match what you’re trying to test, even though it works</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>// Bad -&gt; Good (a and b are type Object)
+</span><span style=color:#75715e></span>assertTrue<span style=color:#f92672>(</span>a<span style=color:#f92672>.</span><span style=color:#a6e22e>equals</span><span style=color:#f92672>(</span>b<span style=color:#f92672>))</span> <span style=color:#f92672>-&gt;</span> assertEquals<span style=color:#f92672>(</span>a<span style=color:#f92672>,</span> b<span style=color:#f92672>)</span>
+assertEquals<span style=color:#f92672>(</span>a<span style=color:#f92672>,</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> assertNull<span style=color:#f92672>(</span>a<span style=color:#f92672>)</span>
+</code></pre></div></li>
+<li>
+<p>Try and write tests for sake of testing logic, <em>and not just for coverage</em> (focus on edge cases more)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>// Example of a dumb test
+</span><span style=color:#75715e></span><span style=color:#a6e22e>@Test</span>
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>testEquilateral</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+	Point p1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> 0<span style=color:#f92672>);</span>
+	Point p2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> 0<span style=color:#f92672>);</span>
+	Point p3 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Point<span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> 0<span style=color:#f92672>);</span>
+    Triangle T <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Triangle<span style=color:#f92672>(</span>p1<span style=color:#f92672>,</span> p2<span style=color:#f92672>,</span> p3<span style=color:#f92672>);</span>
+    assertTrue<span style=color:#f92672>(</span>T<span style=color:#f92672>.</span><span style=color:#a6e22e>isEquilateral</span><span style=color:#f92672>());</span>
 <span style=color:#f92672>}</span>
 </code></pre></div></li>
 </ul>
@@ -269,7 +311,15 @@ Hashtags:
 </div>
 <aside class=book-toc>
 <div class=book-toc-content>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#tips-for-unit-testing>Tips for Unit Testing</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </div>
 </aside>
 </main>
