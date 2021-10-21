@@ -1,6 +1,11 @@
+@import "plugins/_scrollbars";
+  
 .markdown {
   pre {
-    background-color: rgba(0, 0, 0, 0.5) !important;
+    background-color: #1B1B1B !important;
+  }
+  code {
+    background: rgba(100, 100, 100, 0.25);
   }
   blockquote {
     background-color: rgba(255, 255, 255, 0.03);
