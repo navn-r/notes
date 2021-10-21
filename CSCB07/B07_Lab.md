@@ -4,59 +4,88 @@ title: "Lab Notes"
 ---
 
 # Lab Notes
-> Lab 3, **Due 10/8/2021 23:59 EST**
+> Lab 4, **Due 10/24/2021 23:59 EST**
 
 - Handy Links:
+  - https://www.eclemma.org/userdoc/index.html
+  - https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html
 
-  - https://www.regextester.com/
-  - https://cheatography.com/davechild/cheat-sheets/regular-expressions/    
-  - https://www.baeldung.com/java-buffered-reader (if `Scanner` is not working)   
-  
-- Valid Hashtag is:
-    
-  - Start of file: **`hashtag`** + `whitespace`  
-  - End of file: `whitespace` + **`hashtag`**  
-  - Everything else: `whitespace` + **`hashtag`** + `whitespace`    
-  
-- **Note**: Newlines are considered white-space (`\n`)  
+- **Use Eclipse**, don’t bother with other editors
 
-- Example:
-
-  ```txt
-  Line: 
-  I can't wait to fail POSt at #UofT #Boundless! There's just #Too#Many#Proofs! #Boundless\n
-  
-  Hashtags: 
-  #UofT
-  #Boundless 
-  ```
-
-- Make sure to escape `\`  characters on windows
+- Use these points for testing `isEquilateral`:
 
   ```java
-  String path = "C:\\Users\\Navinn\\Documents\\TA\\CSCB07\\lab3\\src\\Tweets2020";
+  Point p1 = new Point(0, 0);
+  Point p2 = new Point(Math.sqrt(5), 0);
+  Point p3 = new Point(Math.sqrt(5) / 2.0, Math.sqrt(15) / 2.0);
   ```
 
-- Also escape `\` for Java Regex
+- For submission, you can name the file anything
+
+- **Code Annotations**:
+	- Green: Fully Covered
+	- Yellow: Partially Covered
+	- Red: Not Covered
+
+- It’s fine to not cover all branches, as long as the coverage is **100%**
+
+  - https://piazza.com/class/kti52spsvua71f?cid=113
+
+- To get rid of the coverage colors in the file, *just modify the file*
+
+![code](https://i2.paste.pics/26dd62cb3f91cf965c631aa6318c7e51.png)
+
+
+
+### Tips for Unit Testing
+
+- Use one assertion per test
 
   ```java
-  // Example: Match one or more digits (\d)
-  Pattern p = Pattern.compile("[\\d]+");
-  ```
-
-- When you make a new Writer/Reader/Scanner instance, be sure to close it after you’re done
-
-
-  ```java
-  // Example
-  public static void main(String[] pleaseCurveTheExam) throws IOException {
-      // Create the scanner
-      Scanner sc = new Scanner(System.in);
-  
-  	// Do some stuff here ...
+  // Bad Example
+  @Test
+  void testThis() {
+  	Point p1 = new Point(0, 0);
+  	Point p2 = new Point(1, 1);
       
-      // Close the scanner
-      sc.close();
+      assertNotEquals(p1, p2);
+      assertEquals(p2.hashCode(), 8);
+  }
+  
+  // Good Example
+  @Test
+  void testHashCode() {
+      Point p = new Point(1, 1);
+      assertEquals(p.hashCode(), 1);
+  }
+  
+  @Test
+  void testEquals() {
+      Point p1 = new Point(0, 0);
+  	Point p2 = new Point(1, 1);
+      assertNotEquals(p1, p2);
+  }
+  ```
+
+- Use assertions that match what you’re trying to test, even though it works
+
+  ```java
+  // Bad -> Good (a and b are type Object)
+  assertTrue(a.equals(b)) -> assertEquals(a, b)
+  assertEquals(a, null) -> assertNull(a)
+  ```
+
+- Try and write tests for sake of testing logic, *and not just for coverage* (focus on edge cases more)
+
+  ```java
+  // Example of a dumb test
+  @Test
+  void testEquilateral() {
+  	Point p1 = new Point(0, 0);
+  	Point p2 = new Point(0, 0);
+  	Point p3 = new Point(0, 0);
+      Triangle T = new Triangle(p1, p2, p3);
+      assertTrue(T.isEquilateral());
   }
   ```
 

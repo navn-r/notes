@@ -2,7 +2,7 @@
 title: "CSCB07"
 bookToc: false
 weight: 6
-bookCollapseSection: true
+bookCollapseSection: false
 ---
 
 # CSCB07H3: Software Design  
