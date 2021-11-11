@@ -4,90 +4,27 @@ title: "Lab Notes"
 ---
 
 # Lab Notes
-> Lab 4, **Due 10/24/2021 23:59 EST**
+> Lab 5, **Due 11/14/2021 23:59 EST**
 
-- Handy Links:
-  - https://www.eclemma.org/userdoc/index.html
-  - https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html
+### Quick Links
 
-- **Use Eclipse**, don’t bother with other editors
+- https://developer.android.com/studio/install
+- https://developer.android.com/training/basics/firstapp/creating-project
+- https://piazza.com/class/kti52spsvua71f?cid=329 (For AMD CPUs)
+- https://piazza.com/class/kti52spsvua71f?cid=336 (For M1 Mac Users)
 
-- Use these points for testing `isEquilateral`:
+### Files For Submission
 
-  ```java
-  Point p1 = new Point(0, 0);
-  Point p2 = new Point(Math.sqrt(5), 0);
-  Point p3 = new Point(Math.sqrt(5) / 2.0, Math.sqrt(15) / 2.0);
-  ```
+> Do not submit any code, only these screenshots are enough.
 
-- For submission, you can name the file anything
+1. Screenshot of the main activity (`EditText` with `SEND` button)
 
-- **Code Annotations**:
-	- Green: Fully Covered
-	- Yellow: Partially Covered
-	- Red: Not Covered
+   ![img1](https://cdn.imgpaste.net/2021/11/12/KJJNh6.png)
 
-- It’s fine to not cover all branches, as long as the coverage is **100%**
+2. Screenshot of the display message activity (with the message you typed earlier)
 
-  - https://piazza.com/class/kti52spsvua71f?cid=113
+   ![img2](https://cdn.imgpaste.net/2021/11/12/KJJbs4.png)
 
-- To get rid of the coverage colors in the file, *just modify the file*
-
-![code](https://i2.paste.pics/26dd62cb3f91cf965c631aa6318c7e51.png)
-
-
-
-### Tips for Unit Testing
-
-- Use one assertion per test
-
-  ```java
-  // Bad Example
-  @Test
-  void testThis() {
-  	Point p1 = new Point(0, 0);
-  	Point p2 = new Point(1, 1);
-      
-      assertNotEquals(p1, p2);
-      assertEquals(p2.hashCode(), 8);
-  }
-  
-  // Good Example
-  @Test
-  void testHashCode() {
-      Point p = new Point(1, 1);
-      assertEquals(p.hashCode(), 1);
-  }
-  
-  @Test
-  void testEquals() {
-      Point p1 = new Point(0, 0);
-  	Point p2 = new Point(1, 1);
-      assertNotEquals(p1, p2);
-  }
-  ```
-
-- Use assertions that match what you’re trying to test, even though it works
-
-  ```java
-  // Bad -> Good (a and b are type Object)
-  assertTrue(a.equals(b)) -> assertEquals(a, b)
-  assertEquals(a, null) -> assertNull(a)
-  ```
-
-- Try and write tests for sake of testing logic, *and not just for coverage* (focus on edge cases more)
-
-  ```java
-  // Example of a dumb test
-  @Test
-  void testEquilateral() {
-  	Point p1 = new Point(0, 0);
-  	Point p2 = new Point(0, 0);
-  	Point p3 = new Point(0, 0);
-      Triangle T = new Triangle(p1, p2, p3);
-      assertTrue(T.isEquilateral());
-  }
-  ```
-
-  
-
+	- It is encouraged to customize the application to learn about how stuff works. Try customizing the text and/or add an image like this
+	
+	![img3](https://cdn.imgpaste.net/2021/11/12/KJJz7T.png)
