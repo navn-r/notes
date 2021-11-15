@@ -1,6 +1,7 @@
 ---
 slug: "labs"
 title: "Lab Notes"
+bookHidden: true
 ---
 
 # Lab Notes
