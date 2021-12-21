@@ -19,7 +19,7 @@
 <link rel=manifest href=/notes/manifest.json>
 <link rel=icon href=/notes/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/notes/book.min.a5fa8f1af9f5d59d69046c978df4e917aeaeb6896f8f0a7f2bc1e18969c454b8.css integrity="sha256-pfqPGvn11Z1pBGyXjfTpF66utolvjwp/K8HhiWnEVLg=">
-<script defer src=/notes/en.search.min.3612149c9fc46206a172c149c5632fb5a936f1b8c3de9488b1cae47b5e5a3cbf.js integrity="sha256-NhIUnJ/EYgahcsFJxWMvtak28bjD3pSIscrke15aPL8="></script>
+<script defer src=/notes/en.search.min.27db69ab68bc1028079515e1b333c28c42127539230c4a78cb188c08725cf79f.js integrity="sha256-J9tpq2i8ECgHlRXhszPCjEISdTkjDEp4yxiMCHJc958="></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -220,10 +220,17 @@ Github Repo
 <ul>
 <li><a href=#definitions-and-concepts>Definitions and Concepts</a></li>
 <li><a href=#functional-dependency-rules>Functional Dependency Rules</a></li>
+<li><a href=#multivalued-dependency-rules>Multivalued Dependency Rules</a></li>
 <li><a href=#closures>Closures</a></li>
 <li><a href=#minimal-basis>Minimal Basis</a></li>
 <li><a href=#fd-projection>FD Projection</a></li>
+<li><a href=#chase-test>Chase Test</a></li>
 <li><a href=#normal-forms>Normal Forms</a></li>
+</ul>
+</li>
+<li><a href=#extensible-markup-language-xml>eXtensible Markup Language (XML)</a>
+<ul>
+<li><a href=#example-syntax-well-formed-xml>Example Syntax (Well-Formed XML)</a></li>
 </ul>
 </li>
 </ul>
@@ -1233,6 +1240,77 @@ Transitive Rule
 
 <span style=color:#75715e>-- implied by rule</span>
 <span style=color:#a6e22e>x</span> <span style=color:#f92672>-&gt;</span> z
+</code></pre></div><h3 id=multivalued-dependency-rules>
+Multivalued Dependency Rules
+<a class=anchor href=#multivalued-dependency-rules>#</a>
+</h3>
+<ul>
+<li>Splitting/combining not allowed</li>
+</ul>
+<h4 id=trivial-mvds>
+Trivial MVDs
+<a class=anchor href=#trivial-mvds>#</a>
+</h4>
+<blockquote>
+<p>Practically meaningless and do not impose anything on the relation</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#a6e22e>a1</span> a2 a3 <span style=color:#f92672>-&gt;-&gt;</span> b1 b2 b3
+
+<span style=color:#75715e>-- trivial if {b1, b2, ...} subset {a1, a2, ...}</span>
+</code></pre></div><h4 id=transitive-rule-1>
+Transitive Rule
+<a class=anchor href=#transitive-rule-1>#</a>
+</h4>
+<blockquote>
+<p>Similar to FD rule</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- given</span>
+<span style=color:#a6e22e>x</span> <span style=color:#f92672>-&gt;-&gt;</span> y
+<span style=color:#a6e22e>y</span> <span style=color:#f92672>-&gt;-&gt;</span> z
+
+<span style=color:#75715e>-- implied by rule</span>
+<span style=color:#a6e22e>x</span> <span style=color:#f92672>-&gt;-&gt;</span> z
+</code></pre></div><h4 id=fd-promotion-rule>
+FD Promotion Rule
+<a class=anchor href=#fd-promotion-rule>#</a>
+</h4>
+<blockquote>
+<p>All FDs are MVDs</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- given</span>
+<span style=color:#a6e22e>x</span> <span style=color:#f92672>-&gt;</span> y
+
+<span style=color:#75715e>-- implied by rule</span>
+<span style=color:#a6e22e>x</span> <span style=color:#f92672>-&gt;-&gt;</span> y
+</code></pre></div><h4 id=compliment-rule>
+Compliment Rule
+<a class=anchor href=#compliment-rule>#</a>
+</h4>
+<blockquote>
+<p>$X \to\to A$ implies $X \to\to (R - A)$</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- given</span>
+<span style=color:#66d9ef>R</span> <span style=color:#f92672>=</span> (a, b, c)
+
+<span style=color:#a6e22e>a</span> <span style=color:#f92672>-&gt;-&gt;</span> b
+
+<span style=color:#75715e>-- implied by rule</span>
+<span style=color:#a6e22e>a</span> <span style=color:#f92672>-&gt;-&gt;</span> c
+</code></pre></div><h4 id=suprising-rule>
+Suprising Rule
+<a class=anchor href=#suprising-rule>#</a>
+</h4>
+<blockquote>
+<p>For a given MVD, and <strong><em>any</em></strong> FD whose RHS is a subset of the RHS of the MVD</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- given </span>
+<span style=color:#66d9ef>R</span> <span style=color:#f92672>=</span> (a, b, c, d)
+
+<span style=color:#a6e22e>a</span> <span style=color:#f92672>-&gt;-&gt;</span> bc
+<span style=color:#a6e22e>d</span> <span style=color:#f92672>-&gt;</span> c  <span style=color:#75715e>-- c subset of bc</span>
+
+<span style=color:#75715e>-- implied by rule</span>
+<span style=color:#a6e22e>a</span> <span style=color:#f92672>-&gt;</span> c
 </code></pre></div><h3 id=closures>
 Closures
 <a class=anchor href=#closures>#</a>
@@ -1378,6 +1456,65 @@ Improvements
 <p>If $X$ is a set of attributes such that $X^+ = R$ ($X$ is a super key), then ignore any other sets that contain $X$</p>
 </li>
 </ul>
+<h3 id=chase-test>
+Chase Test
+<a class=anchor href=#chase-test>#</a>
+</h3>
+<blockquote>
+<p>Used to infer FDs and MVDs</p>
+</blockquote>
+<h4 id=for-functional-dependencies>
+For Functional Dependencies
+<a class=anchor href=#for-functional-dependencies>#</a>
+</h4>
+<blockquote>
+<p>For original relation $R$, decomposed relations $R_1, R_2$, and FD set $S_F$</p>
+</blockquote>
+<ol>
+<li>
+<p>Construct a tableau using the decomposed relations</p>
+</li>
+<li>
+<p>Apply FDs from $S_F$ onto the rows of the tableau</p>
+<ul>
+<li>i.e. if a row has $a, b_1, c_1, d$ and another row has $a, b_2, c, d_1$ with FD $A \to B$</li>
+<li>Then $b_1 = b_2$ in this case</li>
+</ul>
+</li>
+<li>
+<p>Repeat until you end up with a row without subscripts</p>
+<ul>
+<li>i.e. if $R = (A, B, C, D)$, you want a row on the tableau that looks like $a, b, c, d$</li>
+</ul>
+</li>
+</ol>
+<p><strong>Note</strong>: If you just want to see if a particular FD holds, you can also just compute the closure of the LHS and verify, rather than chasing</p>
+<h4 id=for-multivalued-dependencies>
+For Multivalued Dependencies
+<a class=anchor href=#for-multivalued-dependencies>#</a>
+</h4>
+<blockquote>
+<p>Same relation and FD set, use $S_M$ as the MVD set</p>
+</blockquote>
+<ol>
+<li>
+<p>Construct a tableau</p>
+</li>
+<li>
+<p>Apply FDs the same way</p>
+</li>
+<li>
+<p>For MVDs in $S_M$, create new rows (if necessary)</p>
+<ul>
+<li>i.e. if $A \to\to B$ is in $S_M$ and R = (A, B, C)</li>
+<li>Then must have rows with $a, b_1, &mldr;$ and $a, b, &mldr;$</li>
+<li><code>...</code> must be the same in both rows (want $b$ to be independant of $a$)</li>
+</ul>
+</li>
+<li>
+<p>Repeat until you end with a row without subscripts</p>
+</li>
+</ol>
 <h3 id=normal-forms>
 Normal Forms
 <a class=anchor href=#normal-forms>#</a>
@@ -1424,9 +1561,19 @@ Normal Forms
 <p>Must satisfy 2NF</p>
 </li>
 <li>
-<p>No Transitive dependencies (LHS is always a prime attribute or a super key)</p>
+<p>No Transitive dependencies (LHS must be a prime attribute or a super key)</p>
 </li>
 </ul>
+<h5 id=decomposition-steps>
+Decomposition Steps
+<a class=anchor href=#decomposition-steps>#</a>
+</h5>
+<ol>
+<li>For the FD set $S$, find the minimal basis $M$</li>
+<li>For all FDs $X \to A$ in $M$, create a new relation $R_i = (X, A)$</li>
+<li>If there isn&rsquo;t a relation whose attributes $K = {k_1, &mldr;, k_m}$ form a super key for $R$, create a new relation $R_k = (k_1, &mldr;, k_m)$</li>
+<li>Verify each $R_i$ is in 3NF, if not then decompose further</li>
+</ol>
 <h4 id=boyce-codd-normal-form-bcnf>
 Boyce-Codd Normal Form (BCNF)
 <a class=anchor href=#boyce-codd-normal-form-bcnf>#</a>
@@ -1442,6 +1589,15 @@ Boyce-Codd Normal Form (BCNF)
 <p>i.e. if $X \to Y$ is a non-trivial FD, then $X$ must be a super key</p>
 </li>
 </ul>
+<h5 id=decomposition-steps-1>
+Decomposition Steps
+<a class=anchor href=#decomposition-steps-1>#</a>
+</h5>
+<ol>
+<li>For all FDs $X \to A$ where $R = A \cup B$, set $R_1 = (X, A)$ and $R_2 = (X, B)$</li>
+<li>Project the remaining FDs onto $R_1$ and $R_2$</li>
+<li>Verify $R_1$ and $R_2$ are in BCNF, if not then decompose further</li>
+</ol>
 <h4 id=4th-normal-form-4nf>
 4th Normal Form (4NF)
 <a class=anchor href=#4th-normal-form-4nf>#</a>
@@ -1455,6 +1611,87 @@ Boyce-Codd Normal Form (BCNF)
 </li>
 <li>
 <p>i.e if $X \to\to Y$ is a non-trivial MVD, then $X$ must be a super key</p>
+</li>
+</ul>
+<h5 id=decomposition-steps-2>
+Decomposition Steps
+<a class=anchor href=#decomposition-steps-2>#</a>
+</h5>
+<ol>
+<li>For all 4NF violations (non-trivial MVDs) $X \to A$, create two new relations $R_1 = (X, A)$ and $R_2 = (X, R - A)$</li>
+<li>Find (project) all FDs and MVDs from $R$ onto $R_1$ and $R_2$</li>
+<li>Verify $R_1$ and $R_2$ are in 4NF, if not then decompose further</li>
+</ol>
+<hr>
+<h2 id=extensible-markup-language-xml>
+eXtensible Markup Language (XML)
+<a class=anchor href=#extensible-markup-language-xml>#</a>
+</h2>
+<blockquote>
+<p>Basically if HTML and JSON had a child</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Data-only format</strong>: No implied representation</p>
+</li>
+<li>
+<p>Heirarchical, Tree like data structure</p>
+</li>
+<li>
+<p>Ordering is implied</p>
+</li>
+<li>
+<p>Flexible schema</p>
+</li>
+<li>
+<p>Syntax similar but <em>stricter</em> than HTML</p>
+<ul>
+<li>Tags must always be closed</li>
+<li>Tag and Attribute names have no meaning semantically</li>
+</ul>
+</li>
+</ul>
+<h3 id=example-syntax-well-formed-xml>
+Example Syntax (Well-Formed XML)
+<a class=anchor href=#example-syntax-well-formed-xml>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;? xml version = &#34;1.0&#34; encoding = &#34;utf-8&#34; standalone = &#34;yes&#34; ?&gt;</span> 
+<span style=color:#f92672>&lt;StarMovieData&gt;</span> 
+    <span style=color:#f92672>&lt;Star</span> <span style=color:#a6e22e>starID =</span> <span style=color:#e6db74>&#34;cf&#34;</span> <span style=color:#a6e22e>starredIn =</span> <span style=color:#e6db74>&#34;sw&#34;</span><span style=color:#f92672>&gt;</span> 
+        <span style=color:#f92672>&lt;Name&gt;</span>Carrie Fisher<span style=color:#f92672>&lt;/Name&gt;</span> 
+        <span style=color:#f92672>&lt;Address&gt;</span> 
+            <span style=color:#f92672>&lt;Street&gt;</span>123 Maple St.<span style=color:#f92672>&lt;/Street&gt;</span> 
+            <span style=color:#f92672>&lt;City&gt;</span>Hollywood<span style=color:#f92672>&lt;/City&gt;</span> 
+        <span style=color:#f92672>&lt;/Address&gt;</span> 
+        <span style=color:#f92672>&lt;Address&gt;</span> 
+            <span style=color:#f92672>&lt;Street&gt;</span>5 Locust Ln.<span style=color:#f92672>&lt;/Street&gt;</span> 
+            <span style=color:#f92672>&lt;City&gt;</span>Malibu<span style=color:#f92672>&lt;/City&gt;</span> 
+        <span style=color:#f92672>&lt;/Address&gt;</span> 
+    <span style=color:#f92672>&lt;/Star&gt;</span> 
+    <span style=color:#f92672>&lt;Star</span> <span style=color:#a6e22e>starID =</span> <span style=color:#e6db74>&#34;mh&#34;</span> <span style=color:#a6e22e>starredIn =</span> <span style=color:#e6db74>&#34;sw&#34;</span><span style=color:#f92672>&gt;</span> 
+        <span style=color:#f92672>&lt;Name&gt;</span>Mark Hamill<span style=color:#f92672>&lt;/Name&gt;</span> 
+        <span style=color:#f92672>&lt;Address&gt;</span>
+        	<span style=color:#f92672>&lt;Street&gt;</span>456 Oak Rd.<span style=color:#f92672>&lt;/Street&gt;</span> 
+        	<span style=color:#f92672>&lt;City&gt;</span>Brentwood<span style=color:#f92672>&lt;/City&gt;</span> 
+        <span style=color:#f92672>&lt;/Address&gt;</span>
+    <span style=color:#f92672>&lt;/Star&gt;</span> 
+    <span style=color:#f92672>&lt;Movie</span> <span style=color:#a6e22e>movieID =</span> <span style=color:#e6db74>&#34;sw&#34;</span> <span style=color:#a6e22e>starsOf =</span> <span style=color:#e6db74>&#34;cf&#34;</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#960050;background-color:#1e0010>&#34;mh&#34;</span><span style=color:#f92672>&gt;</span>  
+        <span style=color:#f92672>&lt;Title&gt;</span>Star Wars<span style=color:#f92672>&lt;/Title&gt;</span> 
+        <span style=color:#f92672>&lt;Year&gt;</span>1977<span style=color:#f92672>&lt;/Year&gt;</span> 
+    <span style=color:#f92672>&lt;/Movie&gt;</span> 
+<span style=color:#f92672>&lt;/StarMovieData&gt;</span>
+</code></pre></div><ul>
+<li>
+<p><strong>Root Element</strong>: <code>StarMovieData</code></p>
+<ul>
+<li>There must only be one Root for it to be Well-Formed</li>
+</ul>
+</li>
+<li>
+<p><strong>Sub Elements</strong>: <code>Star, Name, Address, ...</code></p>
+</li>
+<li>
+<p><strong>Attributes</strong>: <code>starID, movieID, starredIn, starsOf, ...</code></p>
 </li>
 </ul>
 </article>
@@ -1515,10 +1752,17 @@ Boyce-Codd Normal Form (BCNF)
 <ul>
 <li><a href=#definitions-and-concepts>Definitions and Concepts</a></li>
 <li><a href=#functional-dependency-rules>Functional Dependency Rules</a></li>
+<li><a href=#multivalued-dependency-rules>Multivalued Dependency Rules</a></li>
 <li><a href=#closures>Closures</a></li>
 <li><a href=#minimal-basis>Minimal Basis</a></li>
 <li><a href=#fd-projection>FD Projection</a></li>
+<li><a href=#chase-test>Chase Test</a></li>
 <li><a href=#normal-forms>Normal Forms</a></li>
+</ul>
+</li>
+<li><a href=#extensible-markup-language-xml>eXtensible Markup Language (XML)</a>
+<ul>
+<li><a href=#example-syntax-well-formed-xml>Example Syntax (Well-Formed XML)</a></li>
 </ul>
 </li>
 </ul>
