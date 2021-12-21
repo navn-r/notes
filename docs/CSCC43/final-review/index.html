@@ -19,7 +19,7 @@
 <link rel=manifest href=/notes/manifest.json>
 <link rel=icon href=/notes/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/notes/book.min.a5fa8f1af9f5d59d69046c978df4e917aeaeb6896f8f0a7f2bc1e18969c454b8.css integrity="sha256-pfqPGvn11Z1pBGyXjfTpF66utolvjwp/K8HhiWnEVLg=">
-<script defer src=/notes/en.search.min.2b53588f86759f81272f3edf013a4f89b9eb65e46f220fe3326cb1de57e1ab0a.js integrity="sha256-K1NYj4Z1n4EnLz7fATpPibnrZeRvIg/jMmyx3lfhqwo="></script>
+<script defer src=/notes/en.search.min.3612149c9fc46206a172c149c5632fb5a936f1b8c3de9488b1cae47b5e5a3cbf.js integrity="sha256-NhIUnJ/EYgahcsFJxWMvtak28bjD3pSIscrke15aPL8="></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -214,6 +214,16 @@ Github Repo
 <ul>
 <li><a href=#data-manipulation-language-dml>Data Manipulation Language (DML)</a></li>
 <li><a href=#data-definition-language-ddl>Data Definition Language (DDL)</a></li>
+</ul>
+</li>
+<li><a href=#database-design-theory>Database Design Theory</a>
+<ul>
+<li><a href=#definitions-and-concepts>Definitions and Concepts</a></li>
+<li><a href=#functional-dependency-rules>Functional Dependency Rules</a></li>
+<li><a href=#closures>Closures</a></li>
+<li><a href=#minimal-basis>Minimal Basis</a></li>
+<li><a href=#fd-projection>FD Projection</a></li>
+<li><a href=#normal-forms>Normal Forms</a></li>
 </ul>
 </li>
 </ul>
@@ -414,7 +424,7 @@ Integrity Constraints
 <a class=anchor href=#integrity-constraints>#</a>
 </h3>
 <blockquote>
-<p>Property that must be satisfied by all db instances</p>
+<p>Property that must be satisfied by all database instances</p>
 </blockquote>
 <ul>
 <li>A db is <strong>legal</strong> if it satisfies all integrity constraints</li>
@@ -847,7 +857,7 @@ Constraints
 <a class=anchor href=#constraints>#</a>
 </h3>
 <blockquote>
-<p>Suppose $R$ and $S$ are expressions in Relational Algebra.</p>
+<p>Suppose $R$ and $S$ are expressions in Relational Algebra</p>
 </blockquote>
 <p>Notation:</p>
 <ul>
@@ -956,8 +966,8 @@ Example syntax for common queries
 <a class=anchor href=#example-syntax-for-common-queries>#</a>
 </h4>
 <ul>
-<li>
-<p>Joining two tables</p>
+<li>Joining two tables</li>
+</ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
 <span style=color:#66d9ef>FROM</span> table_1 
 <span style=color:#f92672>&lt;</span><span style=color:#66d9ef>NATURAL</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>CROSS</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>INNER</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>OUTER</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>LEFT</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>RIGHT</span><span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>JOIN</span> table_2
@@ -965,48 +975,39 @@ Example syntax for common queries
 
 <span style=color:#75715e>-- Cartesian Product
 </span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> table_1, table_2;
-</code></pre></div></li>
-<li>
-<p>Getting the count of an attribute</p>
+</code></pre></div><ul>
+<li>Getting the count of an attribute</li>
+</ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> attr, <span style=color:#66d9ef>COUNT</span>(attr) <span style=color:#66d9ef>AS</span> attr_count
 <span style=color:#66d9ef>FROM</span> my_table
 <span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> attr; <span style=color:#75715e>-- GROUP BY must be included
-</span></code></pre></div><p>``</p>
-</li>
-<li>
-<p>Inserting into another table</p>
+</span></code></pre></div><ul>
+<li>Inserting into another table</li>
+</ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> my_table (
-	<span style=color:#75715e>-- Query goes here
+<span style=color:#75715e>-- Query goes here
 </span><span style=color:#75715e></span>);
-</code></pre></div><pre tabindex=0><code>
-</code></pre></li>
-<li>
-<p>Updating one tuple</p>
+</code></pre></div><ul>
+<li>Updating one tuple</li>
+</ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>UPDATE</span> my_table 
 <span style=color:#66d9ef>SET</span> <span style=color:#f92672>&lt;</span>attribute<span style=color:#f92672>&gt;</span> <span style=color:#f92672>=</span> <span style=color:#f92672>&lt;</span>value<span style=color:#f92672>&gt;</span>
 <span style=color:#66d9ef>WHERE</span> <span style=color:#f92672>&lt;</span>predicate <span style=color:#66d9ef>on</span> tuples<span style=color:#f92672>&gt;</span>;
-</code></pre></div><pre tabindex=0><code>
-</code></pre></li>
-<li>
-<p>Deleting</p>
+</code></pre></div><ul>
+<li>Deleting</li>
+</ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DELETE</span> <span style=color:#66d9ef>FROM</span> my_table (
-	<span style=color:#75715e>-- Query goes here
+<span style=color:#75715e>-- Query goes here
 </span><span style=color:#75715e></span>);
-</code></pre></div><pre tabindex=0><code>
-</code></pre></li>
-<li>
-<p>Creating virtual views</p>
+</code></pre></div><ul>
+<li>Creating virtual views</li>
+</ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>VIEW</span> my_view (
-	<span style=color:#75715e>-- Query goes here
+<span style=color:#75715e>-- Query goes here
 </span><span style=color:#75715e></span>);
 
 <span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>VIEW</span> my_view; <span style=color:#75715e>-- Important!
-</span></code></pre></div><pre tabindex=0><code>
-
-
-</code></pre></li>
-</ul>
-<h4 id=transactions>
+</span></code></pre></div><h4 id=transactions>
 Transactions
 <a class=anchor href=#transactions>#</a>
 </h4>
@@ -1136,7 +1137,327 @@ Table Syntax
 	
 <span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> my_table
 	<span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>COLUMN</span> <span style=color:#f92672>&lt;</span>attribute<span style=color:#f92672>&gt;</span>;
-</code></pre></div></article>
+</code></pre></div><hr>
+<h2 id=database-design-theory>
+Database Design Theory
+<a class=anchor href=#database-design-theory>#</a>
+</h2>
+<blockquote>
+<p>Domain Knowledge also influences theory</p>
+</blockquote>
+<h3 id=definitions-and-concepts>
+Definitions and Concepts
+<a class=anchor href=#definitions-and-concepts>#</a>
+</h3>
+<ul>
+<li>
+<p><strong>Normalization</strong>: Eliminating redundancies in a given database schema by breaking down the relation</p>
+</li>
+<li>
+<p><strong>Functional Dependency</strong>: If two tuples have the same values for attributes $A_1, \dots, A_n$ then they must also have the same values for attributes $B_1, \dots, B_m$</p>
+<ul>
+<li>Syntax: $X \to Y$ ($X$ functionally depends on $Y$)</li>
+</ul>
+</li>
+<li>
+<p><strong>Multivalued Dependency</strong>: If you fix the values for one set of attributes $A$, then the values in other attributes $B$ are independent from the values of all other attributes in the relation</p>
+<ul>
+<li>Syntax: $A \to\to B$</li>
+</ul>
+</li>
+<li>
+<p><strong>Key</strong>: Candidate Key ($K$)</p>
+<ul>
+<li>FD Definition: $K \to R$, where $R$ is the entire relation</li>
+<li>Also known as the <em>Minimal</em> Super Key</li>
+<li>One candidate key becomes the Primary Key</li>
+</ul>
+</li>
+<li>
+<p><strong>Prime Attributes</strong>: Attributes that form a Candidate Key</p>
+</li>
+</ul>
+<h3 id=functional-dependency-rules>
+Functional Dependency Rules
+<a class=anchor href=#functional-dependency-rules>#</a>
+</h3>
+<h4 id=trivial-fds>
+Trivial FDs
+<a class=anchor href=#trivial-fds>#</a>
+</h4>
+<blockquote>
+<p>Practically meaningless and do not impose anything on the relation</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- identity</span>
+<span style=color:#a6e22e>x</span> <span style=color:#f92672>-&gt;</span> x 
+
+<span style=color:#75715e>-- same attribute on both sides</span>
+<span style=color:#a6e22e>abc</span> <span style=color:#f92672>-&gt;</span> a 
+</code></pre></div><h4 id=splitting-rule>
+Splitting Rule
+<a class=anchor href=#splitting-rule>#</a>
+</h4>
+<blockquote>
+<p>Attributes on the RHS are <strong>independent</strong> of each other</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- original</span>
+<span style=color:#a6e22e>abc</span> <span style=color:#f92672>-&gt;</span> def
+
+<span style=color:#75715e>-- refactored (singleton)</span>
+<span style=color:#a6e22e>abc</span> <span style=color:#f92672>-&gt;</span> d
+<span style=color:#a6e22e>abc</span> <span style=color:#f92672>-&gt;</span> e
+<span style=color:#a6e22e>abc</span> <span style=color:#f92672>-&gt;</span> f
+</code></pre></div><h4 id=combining-rule>
+Combining Rule
+<a class=anchor href=#combining-rule>#</a>
+</h4>
+<blockquote>
+<p>Useful to combine the RHS and identify candidate keys</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- original</span>
+<span style=color:#a6e22e>xy</span> <span style=color:#f92672>-&gt;</span> ab
+<span style=color:#a6e22e>yz</span> <span style=color:#f92672>-&gt;</span> cd
+
+<span style=color:#75715e>-- refactored</span>
+<span style=color:#a6e22e>xyz</span> <span style=color:#f92672>-&gt;</span> abcd
+</code></pre></div><h4 id=transitive-rule>
+Transitive Rule
+<a class=anchor href=#transitive-rule>#</a>
+</h4>
+<blockquote>
+<p>Can identify hidden FDs, useful for finding cycles</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=color:#75715e>-- given</span>
+<span style=color:#a6e22e>x</span> <span style=color:#f92672>-&gt;</span> y
+<span style=color:#a6e22e>y</span> <span style=color:#f92672>-&gt;</span> z
+
+<span style=color:#75715e>-- implied by rule</span>
+<span style=color:#a6e22e>x</span> <span style=color:#f92672>-&gt;</span> z
+</code></pre></div><h3 id=closures>
+Closures
+<a class=anchor href=#closures>#</a>
+</h3>
+<blockquote>
+<p>Approach to find all trivial and non-trivial FDs for a given relation ($R$) and FD set ($S$).</p>
+</blockquote>
+<h4 id=construction-algorithm>
+Construction Algorithm
+<a class=anchor href=#construction-algorithm>#</a>
+</h4>
+<ol>
+<li>
+<p>Split all FDs in $S$ into singletons, and find any implied FDs using transitivity</p>
+</li>
+<li>
+<p>List out all combinations of attributes in $R$</p>
+<ul>
+<li>Example: If $R = (A, B, C)$ then $X = {A, B, C, AB, AC, BC, ABC}$)</li>
+</ul>
+</li>
+<li>
+<p>For each combination, list out all other attributes you can reach using the given FDs</p>
+<ul>
+<li>Example: If $S = (AB \to C)$ then ${AB}^+ = {A, B, C}$</li>
+</ul>
+</li>
+<li>
+<p>Remove all rows that are trivial (LHS = RHS)</p>
+</li>
+</ol>
+<h4 id=example-table>
+Example Table
+<a class=anchor href=#example-table>#</a>
+</h4>
+<ul>
+<li>$R = (A, B, C, D, E)$</li>
+<li>$S = (AB \to C, A \to D, D \to E, AC \to B)$</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>$X$</th>
+<th>$X_s^+$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$A$</td>
+<td>${A, D, E}$</td>
+</tr>
+<tr>
+<td>$AB$</td>
+<td>${A, B, C, D, E}$</td>
+</tr>
+<tr>
+<td>$AC$</td>
+<td>${A, B, C, D, E}$</td>
+</tr>
+<tr>
+<td>$D$</td>
+<td>${D, E}$</td>
+</tr>
+</tbody>
+</table>
+<h3 id=minimal-basis>
+Minimal Basis
+<a class=anchor href=#minimal-basis>#</a>
+</h3>
+<blockquote>
+<p>The complete opposite of a closure</p>
+</blockquote>
+<ul>
+<li><strong>Definition</strong>: FD set $S' \subseteq S$ is a minimal basis if $\forall X \in S, S'$ entails (can reach) $X$</li>
+<li><em>Not</em> necessarily unique for a given FD set ($S$)</li>
+</ul>
+<h4 id=construction-algorithm-1>
+Construction Algorithm
+<a class=anchor href=#construction-algorithm-1>#</a>
+</h4>
+<ol>
+<li>
+<p>Split all FDs in $S$ into singletons, and find any implied FDs using transitivity ($S'$).</p>
+</li>
+<li>
+<p>$\forall$ Functional Dependency $X \in S'$, manually test if $(S' - X)^+ \equiv S^+$</p>
+<ul>
+<li>i.e. Remove all redundant FDs that are either trivial or implied</li>
+</ul>
+</li>
+<li>
+<p>$\forall X \in S'$, for attributes $i \in \textrm{LHS}(X)$, let $\textrm{LHS}(X') = \textrm{LHS}(X') - i$</p>
+<ul>
+<li>Manually test if $(S' - X + X')^+ \equiv S^+$</li>
+<li>i.e. Remove any redundant attributes in each FD</li>
+</ul>
+</li>
+<li>
+<p>Repeat with $S'$ as the new $S$ until minimal</p>
+</li>
+</ol>
+<h3 id=fd-projection>
+FD Projection
+<a class=anchor href=#fd-projection>#</a>
+</h3>
+<blockquote>
+<p>Used to refactor FDs when splitting a relation</p>
+</blockquote>
+<ul>
+<li>
+<p>Given a relation $R$ with FD set $S$, decompose $R$ into $R_1$ and $R_2$ with their own FD sets $S_1$ and $S_2$</p>
+</li>
+<li>
+<p>Each FD sets must only include attributes from its respective relation</p>
+</li>
+<li>
+<p>Many possible projections</p>
+</li>
+</ul>
+<h4 id=projection-algorithm>
+Projection Algorithm
+<a class=anchor href=#projection-algorithm>#</a>
+</h4>
+<p>For $R_1$:</p>
+<ol>
+<li>Set $S_1 = \empty$</li>
+<li>Compute the closure of each combination of attributes of $R_1$, and add to $S_1$ all non-trivial FDs $X \to A$ such that the RHS attribute $A \in X^+$ and $A \in R_1$</li>
+<li>Construct a minimal basis from $S_1$</li>
+</ol>
+<p>Repeat for all decomposed relations ($R_2, \dots$)</p>
+<h5 id=improvements>
+Improvements
+<a class=anchor href=#improvements>#</a>
+</h5>
+<ul>
+<li>
+<p>Ignore Trivial dependencies</p>
+</li>
+<li>
+<p>Ignore Trivial subsets ($\empty$ or $X$)</p>
+</li>
+<li>
+<p>If $X$ is a set of attributes such that $X^+ = R$ ($X$ is a super key), then ignore any other sets that contain $X$</p>
+</li>
+</ul>
+<h3 id=normal-forms>
+Normal Forms
+<a class=anchor href=#normal-forms>#</a>
+</h3>
+<blockquote>
+<p>What it means to have a ‘good’ schema</p>
+</blockquote>
+<h4 id=1st-normal-form-1nf>
+1st Normal Form (1NF)
+<a class=anchor href=#1st-normal-form-1nf>#</a>
+</h4>
+<ul>
+<li>
+<p>No multi valued attributes (no lists, arrays)</p>
+</li>
+<li>
+<p>No duplicate rows</p>
+</li>
+<li>
+<p>Not expressible in RA</p>
+</li>
+</ul>
+<h4 id=2nd-normal-form-2nf>
+2nd Normal Form (2NF)
+<a class=anchor href=#2nd-normal-form-2nf>#</a>
+</h4>
+<ul>
+<li>
+<p>Must satisfy 1NF</p>
+</li>
+<li>
+<p>No partial dependencies</p>
+</li>
+<li>
+<p>i.e. For all non-prime attributes $a$, $\exist$ FD $X \to a$ such that $X$ must be a candidate key</p>
+</li>
+</ul>
+<h4 id=3rd-normal-form-3nf>
+3rd Normal Form (3NF)
+<a class=anchor href=#3rd-normal-form-3nf>#</a>
+</h4>
+<ul>
+<li>
+<p>Must satisfy 2NF</p>
+</li>
+<li>
+<p>No Transitive dependencies (LHS is always a prime attribute or a super key)</p>
+</li>
+</ul>
+<h4 id=boyce-codd-normal-form-bcnf>
+Boyce-Codd Normal Form (BCNF)
+<a class=anchor href=#boyce-codd-normal-form-bcnf>#</a>
+</h4>
+<ul>
+<li>
+<p>Must satisfy 3NF</p>
+</li>
+<li>
+<p>No non-trivial FDs</p>
+</li>
+<li>
+<p>i.e. if $X \to Y$ is a non-trivial FD, then $X$ must be a super key</p>
+</li>
+</ul>
+<h4 id=4th-normal-form-4nf>
+4th Normal Form (4NF)
+<a class=anchor href=#4th-normal-form-4nf>#</a>
+</h4>
+<ul>
+<li>
+<p>Must satisfy BCNF</p>
+</li>
+<li>
+<p>No non-trivial MVDs</p>
+</li>
+<li>
+<p>i.e if $X \to\to Y$ is a non-trivial MVD, then $X$ must be a super key</p>
+</li>
+</ul>
+</article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 </div>
@@ -1188,6 +1509,16 @@ Table Syntax
 <ul>
 <li><a href=#data-manipulation-language-dml>Data Manipulation Language (DML)</a></li>
 <li><a href=#data-definition-language-ddl>Data Definition Language (DDL)</a></li>
+</ul>
+</li>
+<li><a href=#database-design-theory>Database Design Theory</a>
+<ul>
+<li><a href=#definitions-and-concepts>Definitions and Concepts</a></li>
+<li><a href=#functional-dependency-rules>Functional Dependency Rules</a></li>
+<li><a href=#closures>Closures</a></li>
+<li><a href=#minimal-basis>Minimal Basis</a></li>
+<li><a href=#fd-projection>FD Projection</a></li>
+<li><a href=#normal-forms>Normal Forms</a></li>
 </ul>
 </li>
 </ul>
