@@ -22,3 +22,6 @@ name = "Github Repo"
 
 [params]
  BookSection = '*'
+ BookRepo = 'https://github.com/navn-r/notes'
+ BookCommitPath = 'commit'
+ BookSearch = true
