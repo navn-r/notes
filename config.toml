@@ -25,5 +25,5 @@ name = "Github Repo"
  BookRepo = 'https://github.com/navn-r/notes'
  BookCommitPath = 'commit'
  BookSearch = true
- BookLogo = logo.svg
+ BookLogo = 'logo.svg'
  BookDateFormat = "January 2, 2006"
