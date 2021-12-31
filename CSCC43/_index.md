@@ -5,7 +5,7 @@ weight: 5
 bookCollapseSection: true
 ---
 
-# CSCC43H3: Introduction to Databases
+# CSCC43: Introduction to Databases
 
 Semester Taken: Fall 2021
 
