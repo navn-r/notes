@@ -1,6 +1,6 @@
-baseURL = "https://navn-r.github.io/notes"
+baseURL = "https://navn.me/notes"
 languageCode = "en-us"
-title = "<✏️ />"
+title = "Notes"
 theme = 'book'
 
 publishDir = "docs"
@@ -25,3 +25,5 @@ name = "Github Repo"
  BookRepo = 'https://github.com/navn-r/notes'
  BookCommitPath = 'commit'
  BookSearch = true
+ BookLogo: logo.svg
+ BookDateFormat: "January 2, 2006"
