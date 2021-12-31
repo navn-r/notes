@@ -1,6 +1,6 @@
 {
-  "name": "<✏️ />",
-  "short_name": "<✏️ />",
+  "name": "Notes",
+  "short_name": "Notes",
   "start_url": "/notes/",
   "scope": "/notes/",
   "display": "standalone",
