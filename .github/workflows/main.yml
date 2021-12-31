@@ -26,7 +26,11 @@ jobs:
           path: ./content
 
       - name: Setup Content
-        run: cd ./content && rm -f starter.tex && mv README.md _index.md
+        run: |
+          cd ./content &&
+          rm -f starter.tex &&
+          mv README.md _index.md &&
+          sed -i '{1d;8d;9s@.*@# Home@}' _index.md 
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2

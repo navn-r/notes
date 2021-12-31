@@ -1,20 +1,21 @@
+<!--
 ---
 title: "Home"
 slug: "index"
 bookHidden: true
 bookToc: false
 ---
-# Notes
-[![Build & Deploy](https://github.com/navn-r/notes/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/navn-r/notes/actions/workflows/main.yml)
+-->
+<div align="center"><img width="800" height="200" src="https://raw.githubusercontent.com/navn-r/notes/gh-pages/static/logo.svg" /></div><br />   
 
 Typed notes for my undergraduate classes at the **University of Toronto**, Canada.
 
 Course Notes thus far: 
-- CSCA48H3: Intro to Computer Science II  
-- CSCB09H3: Software Tools and Systems Programming
-- CSCC01H3: Intro to Software Engineering
-- CSCC24H3: Principles of Programming Languages
-- CSCC43H3: Introduction to Databases
+- CSCA48: Intro to Computer Science II  
+- CSCB09: Software Tools and Systems Programming
+- CSCC01: Intro to Software Engineering
+- CSCC24: Principles of Programming Languages
+- CSCC43: Introduction to Databases
 
 `main` branch: 
   - Folders containing the *actual* notes, typed with Markdown  
