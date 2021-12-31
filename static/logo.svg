@@ -30,6 +30,7 @@
           display: grid;
           place-items: center;
           font-family: 'Apple Garamond';
+          background-color: #131516;
         }
 
         h1 {
