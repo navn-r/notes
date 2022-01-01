@@ -6,7 +6,7 @@ bookHidden: true
 bookToc: false
 ---
 -->
-<div align="center"><img width="800" height="200" src="https://raw.githubusercontent.com/navn-r/notes/gh-pages/static/logo.svg" /></div><br />   
+<div align="center"><img width="800" height="200" src="https://navn.me/notes/logo.svg" /></div><br />   
 
 Typed notes for my undergraduate classes at the **University of Toronto**, Canada.
 
