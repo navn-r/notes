@@ -1,207 +1,18 @@
-<!doctype html><html lang=en dir=ltr>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Week 2 #  File Management #   How we survived without File Explorer
- Directory Tree #  / ├── Applications ├── Library ├── System ├── *Users* ├── Volumes ├── bin ├── cores ├── *dev* ├── etc -> private/etc ├── *home* -> /System/Volumes/Data/home ├── opt ├── private ├── sbin ├── tmp -> private/tmp ├── *usr* └── var -> private/var Paths #    Absolute Path: from root dir">
-<meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Week 2">
-<meta property="og:description" content="Week 2 #  File Management #   How we survived without File Explorer
- Directory Tree #  / ├── Applications ├── Library ├── System ├── *Users* ├── Volumes ├── bin ├── cores ├── *dev* ├── etc -> private/etc ├── *home* -> /System/Volumes/Data/home ├── opt ├── private ├── sbin ├── tmp -> private/tmp ├── *usr* └── var -> private/var Paths #    Absolute Path: from root dir">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://navn.me/notes/CSCB09/Week-2/"><meta property="article:section" content="CSCB09">
-<meta property="article:modified_time" content="2020-05-26T17:52:24+00:00">
-<title>Week 2 - CSCB09</title>
-<link rel=preconnect href=https://fonts.gstatic.com>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@420&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel=stylesheet>
-<link rel=manifest href=/notes/manifest.json>
-<link rel=icon href=/notes/favicon.png type=image/x-icon>
-<link rel=stylesheet href=/notes/book.min.5b161a410a07e8edac1f3ac3960626c8f0526b5c27cd5e3521db29c8d38dcb70.css integrity="sha256-WxYaQQoH6O2sHzrDlgYmyPBSa1wnzV41IdspyNONy3A=">
-<script defer src=/notes/flexsearch.min.js></script>
-<script defer src=/notes/en.search.min.4bc99afc624c65e013ae5d9323ba7f0ceb72e313351cad7cc0825f2d502ecfd7.js integrity="sha256-S8ma/GJMZeATrl2TI7p/DOty4xM1HK18wIJfLVAuz9c=" crossorigin=anonymous></script>
-</head>
-<body dir=ltr>
-<input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control>
-<main class="container flex">
-<aside class=book-menu>
-<div class=book-menu-content>
-<nav>
-<h2 class=book-brand>
-<a href=/notes/><img src=/notes/logo.svg alt=Logo><span>Notes</span>
-</a>
-</h2>
-<div class=book-search>
-<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
-<div class="book-search-spinner hidden"></div>
-<ul id=book-search-results></ul>
-</div>
-<ul>
-<li>
-<input type=checkbox id=section-41f305c5e3122bf493595a858d4129a1 class=toggle>
-<label for=section-41f305c5e3122bf493595a858d4129a1 class="flex justify-between">
-<a href=https://navn.me/notes/CSCA48/>CSCA48</a>
-</label>
-<ul>
-<li>
-<a href=https://navn.me/notes/CSCA48/final-review/>Final Review</a>
-</li>
-</ul>
-</li>
-<li>
-<input type=checkbox id=section-78a08a9976aa3e789bbd624f3262ce34 class=toggle checked>
-<label for=section-78a08a9976aa3e789bbd624f3262ce34 class="flex justify-between">
-<a href=https://navn.me/notes/CSCB09/>CSCB09</a>
-</label>
-<ul>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-1/>Week 1</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-2/ class=active>Week 2</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-3/>Week 3</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-4/>Week 4</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-5/>Week 5</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-6/>Week 6</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-7/>Week 7</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-8/>Week 8</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-9/>Week 9</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-10/>Week 10</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCB09/Week-11/>Week 11</a>
-</li>
-</ul>
-</li>
-<li>
-<input type=checkbox id=section-f93fc08454e785bc3348bdfad48cbd90 class=toggle>
-<label for=section-f93fc08454e785bc3348bdfad48cbd90 class="flex justify-between">
-<a href=https://navn.me/notes/CSCC01/>CSCC01</a>
-</label>
-<ul>
-<li>
-<a href=https://navn.me/notes/CSCC01/final-review/>Final Review</a>
-</li>
-</ul>
-</li>
-<li>
-<input type=checkbox id=section-717d341229bce3459525c2c9d3ec32a6 class=toggle>
-<label for=section-717d341229bce3459525c2c9d3ec32a6 class="flex justify-between">
-<a href=https://navn.me/notes/CSCC24/>CSCC24</a>
-</label>
-<ul>
-<li>
-<a href=https://navn.me/notes/CSCC24/Week-1/>Week 1</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCC24/Week-2/>Week 2</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCC24/Week-3/>Week 3</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCC24/Week-4/>Week 4</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCC24/Week-5/>Week 5</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCC24/Week-6/>Week 6</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCC24/Week-7/>Week 7</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCC24/Week-8/>Week 8</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCC24/Week-9/>Week 9</a>
-</li>
-<li>
-<a href=https://navn.me/notes/CSCC24/Week-10/>Week 10</a>
-</li>
-</ul>
-</li>
-<li>
-<input type=checkbox id=section-63a4e50557aed8f6e298fc725d63cc32 class=toggle>
-<label for=section-63a4e50557aed8f6e298fc725d63cc32 class="flex justify-between">
-<a href=https://navn.me/notes/CSCC43/>CSCC43</a>
-</label>
-<ul>
-<li>
-<a href=https://navn.me/notes/CSCC43/final-review/>Final Review</a>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<a href=https://github.com/navn-r/notes target=_blank rel=noopener>
-Github Repo
-</a>
-</li>
-</ul>
-</nav>
-<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-</div>
-</aside>
-<div class=book-page>
-<header class=book-header>
-<div class="flex align-center justify-between">
-<label for=menu-control>
-<img src=/notes/svg/menu.svg class=book-icon alt=Menu>
-</label>
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Week 2 #  File Management #   How we survived without File Explorer
+ Directory Tree #  / ├── Applications ├── Library ├── System ├── *Users* ├── Volumes ├── bin ├── cores ├── *dev* ├── etc -> private/etc ├── *home* -> /System/Volumes/Data/home ├── opt ├── private ├── sbin ├── tmp -> private/tmp ├── *usr* └── var -> private/var Paths #    Absolute Path: from root dir"><meta name=theme-color content="#FFFFFF"><meta property="og:title" content="Week 2"><meta property="og:description" content="Week 2 #  File Management #   How we survived without File Explorer
+ Directory Tree #  / ├── Applications ├── Library ├── System ├── *Users* ├── Volumes ├── bin ├── cores ├── *dev* ├── etc -> private/etc ├── *home* -> /System/Volumes/Data/home ├── opt ├── private ├── sbin ├── tmp -> private/tmp ├── *usr* └── var -> private/var Paths #    Absolute Path: from root dir"><meta property="og:type" content="article"><meta property="og:url" content="https://navn.me/notes/CSCB09/Week-2/"><meta property="article:section" content="CSCB09"><meta property="article:modified_time" content="2020-05-26T17:52:24+00:00"><title>Week 2 - CSCB09</title><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@420&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel=stylesheet><link rel=manifest href=/notes/manifest.json><link rel=icon href=/notes/favicon.png type=image/x-icon><link rel=stylesheet href=/notes/book.min.5b161a410a07e8edac1f3ac3960626c8f0526b5c27cd5e3521db29c8d38dcb70.css integrity="sha256-WxYaQQoH6O2sHzrDlgYmyPBSa1wnzV41IdspyNONy3A="><script defer src=/notes/flexsearch.min.js></script>
+<script defer src=/notes/en.search.min.083240ed88247f369a885897314af7ec1a11e64b3e6bfdbc1356aa8dcf605366.js integrity="sha256-CDJA7YgkfzaaiFiXMUr37BoR5ks+a/28E1aqjc9gU2Y=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a href=/notes/><img src=/notes/logo.svg alt=Logo><span>Notes</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-41f305c5e3122bf493595a858d4129a1 class=toggle>
+<label for=section-41f305c5e3122bf493595a858d4129a1 class="flex justify-between"><a href=https://navn.me/notes/CSCA48/>CSCA48</a></label><ul><li><a href=https://navn.me/notes/CSCA48/final-review/>Final Review</a></li></ul></li><li><input type=checkbox id=section-78a08a9976aa3e789bbd624f3262ce34 class=toggle checked>
+<label for=section-78a08a9976aa3e789bbd624f3262ce34 class="flex justify-between"><a href=https://navn.me/notes/CSCB09/>CSCB09</a></label><ul><li><a href=https://navn.me/notes/CSCB09/Week-1/>Week 1</a></li><li><a href=https://navn.me/notes/CSCB09/Week-2/ class=active>Week 2</a></li><li><a href=https://navn.me/notes/CSCB09/Week-3/>Week 3</a></li><li><a href=https://navn.me/notes/CSCB09/Week-4/>Week 4</a></li><li><a href=https://navn.me/notes/CSCB09/Week-5/>Week 5</a></li><li><a href=https://navn.me/notes/CSCB09/Week-6/>Week 6</a></li><li><a href=https://navn.me/notes/CSCB09/Week-7/>Week 7</a></li><li><a href=https://navn.me/notes/CSCB09/Week-8/>Week 8</a></li><li><a href=https://navn.me/notes/CSCB09/Week-9/>Week 9</a></li><li><a href=https://navn.me/notes/CSCB09/Week-10/>Week 10</a></li><li><a href=https://navn.me/notes/CSCB09/Week-11/>Week 11</a></li></ul></li><li><input type=checkbox id=section-f93fc08454e785bc3348bdfad48cbd90 class=toggle>
+<label for=section-f93fc08454e785bc3348bdfad48cbd90 class="flex justify-between"><a href=https://navn.me/notes/CSCC01/>CSCC01</a></label><ul><li><a href=https://navn.me/notes/CSCC01/final-review/>Final Review</a></li></ul></li><li><input type=checkbox id=section-717d341229bce3459525c2c9d3ec32a6 class=toggle>
+<label for=section-717d341229bce3459525c2c9d3ec32a6 class="flex justify-between"><a href=https://navn.me/notes/CSCC24/>CSCC24</a></label><ul><li><a href=https://navn.me/notes/CSCC24/Week-1/>Week 1</a></li><li><a href=https://navn.me/notes/CSCC24/Week-2/>Week 2</a></li><li><a href=https://navn.me/notes/CSCC24/Week-3/>Week 3</a></li><li><a href=https://navn.me/notes/CSCC24/Week-4/>Week 4</a></li><li><a href=https://navn.me/notes/CSCC24/Week-5/>Week 5</a></li><li><a href=https://navn.me/notes/CSCC24/Week-6/>Week 6</a></li><li><a href=https://navn.me/notes/CSCC24/Week-7/>Week 7</a></li><li><a href=https://navn.me/notes/CSCC24/Week-8/>Week 8</a></li><li><a href=https://navn.me/notes/CSCC24/Week-9/>Week 9</a></li><li><a href=https://navn.me/notes/CSCC24/Week-10/>Week 10</a></li></ul></li><li><input type=checkbox id=section-63a4e50557aed8f6e298fc725d63cc32 class=toggle>
+<label for=section-63a4e50557aed8f6e298fc725d63cc32 class="flex justify-between"><a href=https://navn.me/notes/CSCC43/>CSCC43</a></label><ul><li><a href=https://navn.me/notes/CSCC43/final-review/>Final Review</a></li></ul></li><li><a href=https://navn.me/notes/CSCB07/>CSCB07</a><ul></ul></li></ul><ul><li><a href=https://github.com/navn-r/notes target=_blank rel=noopener>Github Repo</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/notes/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Week 2</strong>
-<label for=toc-control>
-<img src=/notes/svg/toc.svg class=book-icon alt="Table of Contents">
-</label>
-</div>
-<aside class="hidden clearfix">
-<nav id=TableOfContents>
-<ul>
-<li><a href=#file-management>File Management</a>
-<ul>
-<li><a href=#directory-tree>Directory Tree</a></li>
-<li><a href=#paths>Paths</a></li>
-<li><a href=#commands>Commands</a></li>
-</ul>
-</li>
-<li><a href=#core-utilities>Core Utilities</a></li>
-</ul>
-</nav>
-</aside>
-</header>
-<article class=markdown><h1 id=week-2>
-Week 2
-<a class=anchor href=#week-2>#</a>
-</h1>
-<h2 id=file-management>
-File Management
-<a class=anchor href=#file-management>#</a>
-</h2>
-<blockquote>
-<p>How we survived without File Explorer</p>
-</blockquote>
-<h3 id=directory-tree>
-Directory Tree
-<a class=anchor href=#directory-tree>#</a>
-</h3>
-<pre tabindex=0><code>/
+<label for=toc-control><img src=/notes/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#file-management>File Management</a><ul><li><a href=#directory-tree>Directory Tree</a></li><li><a href=#paths>Paths</a></li><li><a href=#commands>Commands</a></li></ul></li><li><a href=#core-utilities>Core Utilities</a></li></ul></nav></aside></header><article class=markdown><h1 id=week-2>Week 2
+<a class=anchor href=#week-2>#</a></h1><h2 id=file-management>File Management
+<a class=anchor href=#file-management>#</a></h2><blockquote><p>How we survived without File Explorer</p></blockquote><h3 id=directory-tree>Directory Tree
+<a class=anchor href=#directory-tree>#</a></h3><pre tabindex=0><code>/
 ├── Applications
 ├── Library
 ├── System
@@ -218,242 +29,47 @@ Directory Tree
 ├── tmp -&gt; private/tmp
 ├── *usr*
 └── var -&gt; private/var
-</code></pre><h3 id=paths>
-Paths
-<a class=anchor href=#paths>#</a>
-</h3>
-<ul>
-<li>
-<p>Absolute Path: <em>from root dir</em></p>
-<ul>
-<li>eg. <code>/Users/home/projects/course-notes/index.html</code></li>
-</ul>
-</li>
-<li>
-<p>Relative Path: <em>from current dir</em></p>
-<ul>
-<li>eg. <code>course-notes/index.html</code> (if current dir is <code>/Users/home/projects/</code>)</li>
-</ul>
-</li>
-<li>
-<p>Parent Directory: <code>..</code></p>
-</li>
-<li>
-<p>Directory Itself: <code>.</code></p>
-<ul>
-<li>Some commands require the dir name, <code>.</code> simplifies this task</li>
-</ul>
-</li>
-</ul>
-<h3 id=commands>
-Commands
-<a class=anchor href=#commands>#</a>
-</h3>
-<ul>
-<li>
-<p><code>pwd</code>: <em>print working directory</em></p>
-</li>
-<li>
-<p><code>cd</code>: <em>change directory</em></p>
-</li>
-<li>
-<p><code>ls</code>: <em>list</em></p>
-<ul>
-<li><code>-a || -A</code>: include dotfiles (<code>.</code> for <code>-a</code>, <code>.. && .</code> for <code>-A</code>)</li>
-<li><code>-l</code>: include more information (size, modification time, etc.)</li>
-<li><code>-d</code>: include <em>only</em> directories</li>
-<li><code>-t</code>: sort by modification time</li>
-<li><code>-r</code>: reverse order</li>
-<li><code>-R</code>: <strong><em>recursive</em></strong> list, whole subtree</li>
-</ul>
-</li>
-<li>
-<p><code>mkdir</code>: <em>make directory</em></p>
-</li>
-<li>
-<p><code>cp</code>: <em>copy</em></p>
-<ul>
-<li><code>-R</code>: <strong><em>recursive</em></strong> copy, can possibly overwrite</li>
-</ul>
-</li>
-<li>
-<p><code>mv</code>: <em>move</em></p>
-<ul>
-<li>Can possibly replace existing files</li>
-</ul>
-</li>
-<li>
-<p><code>rmdir</code>: <em>remove dir</em></p>
-<ul>
-<li>Precondition: the current dir is empty</li>
-</ul>
-</li>
-<li>
-<p><code>rm</code>: <em>remove/delete file(s)</em></p>
-<ul>
-<li><code>-r</code>: <strong><em>recursive</em></strong> delete, used for non-empty directories</li>
-<li>No &ldquo;Recycle Bin&rdquo;/Trash</li>
-</ul>
-</li>
-</ul>
-<h2 id=core-utilities>
-Core Utilities
-<a class=anchor href=#core-utilities>#</a>
-</h2>
-<ul>
-<li>
-<p><code>cat</code>: <em>concatenation</em></p>
-<ul>
-<li>Copy files and/or <code>stdin</code> to <code>stdout</code></li>
-<li>eg.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat file1 file2 
-... <span style=color:#75715e># dumps file1</span>
-... <span style=color:#75715e># dumps file2</span>
-$ cat file1 - file2
-... <span style=color:#75715e># dumps file1</span>
-... <span style=color:#75715e># user input as stdin, use ctrl+D to exit and continue</span>
-... <span style=color:#75715e># dumps file2</span>
-$ sort myFile | uniq | cat file1 - file2
-... <span style=color:#75715e># dumps file1</span>
-... <span style=color:#75715e># dumps myFile after sorting and uniq</span>
-... <span style=color:#75715e># dumps file2</span>
-</code></pre></div></li>
-</ul>
-</li>
-<li>
-<p><code>head</code> and <code>tail</code>:</p>
-<ul>
-<li><code>head</code> starts from start of file, <code>tail</code> starts from last</li>
-<li>eg.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ head -3     <span style=color:#75715e># output first 3 lines</span>
-$ head -n -3  <span style=color:#75715e># output all except last 3 lines</span>
-$ tail -3     <span style=color:#75715e># output last 3 lines</span>
-$ tail -n +3  <span style=color:#75715e># output starting from and including line 3</span>
-</code></pre></div></li>
-</ul>
-</li>
-<li>
-<p><code>wc</code>: <em>word count</em></p>
-<ul>
-<li>Can count by words (<code>-w</code>), bytes (<code>-c</code>), lines (<code>-l</code>), characters (<code>-m</code>)</li>
-<li>eg.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ wc file1
-<span style=color:#ae81ff>2</span> <span style=color:#ae81ff>6</span> <span style=color:#ae81ff>27</span> file1 <span style=color:#75715e># 2 lines, 6 words, 27 bytes</span>
-</code></pre></div></li>
-</ul>
-</li>
-<li>
-<p><code>sort</code>:</p>
-<ul>
-<li>Sort, check if sorted, merge sorted</li>
-<li>Default sort by whole-line</li>
-<li>eg.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># sample input</span>
-Navinn CS <span style=color:#ae81ff>420</span>
-UofT  Expensive <span style=color:#ae81ff>69</span>
-GiveJobPls iNeedJob <span style=color:#ae81ff>180</span>
-
-$ sort -b -k 3,3n       <span style=color:#75715e># sort by key=3rd field, parse 3rd field as number</span>
-UofT Expensive <span style=color:#ae81ff>69</span>       <span style=color:#75715e># lowest number</span>
-GiveJobPls iNeedJob <span style=color:#ae81ff>180</span>
-Navinn CS <span style=color:#ae81ff>420</span>           <span style=color:#75715e># greatest number</span>
-</code></pre></div></li>
-</ul>
-</li>
-<li>
-<p><code>tr</code>: <em>translate</em></p>
-<ul>
-<li>
-<p>Similar to a <code>String.replace()</code> method</p>
-</li>
-<li>
-<p>eg.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tr <span style=color:#ae81ff>12</span> ab        <span style=color:#75715e># replace &#39;1&#39; with &#39;a&#39;, &#39;2&#39; with &#39;b&#39;</span>
-$ tr <span style=color:#ae81ff>1234</span> <span style=color:#e6db74>&#39;[a*]&#39;</span>  <span style=color:#75715e># replace  &#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;4&#39; with &#39;a&#39;</span>
-$ tr A-Z a-z      <span style=color:#75715e># replace Uppercase with lowercase</span>
-</code></pre></div></li>
-<li>
-<p><code>-c</code>: compliment</p>
-<ul>
-<li>eg.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tr -c <span style=color:#ae81ff>1234</span> <span style=color:#e6db74>&#39;[a*]&#39;</span> <span style=color:#75715e># replace everything except &#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;4&#39; with &#39;a&#39;</span>
-</code></pre></div></li>
-</ul>
-</li>
-<li>
-<p><code>-s</code>: squeeze</p>
-<ul>
-<li>Replace consecutive occurences by a single occurrence</li>
-<li>eg.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tr -s <span style=color:#ae81ff>12</span>              <span style=color:#75715e># can convert &#39;11122abc211&#39; to &#39;12abc21&#39;</span>
-$ tr -s <span style=color:#ae81ff>12</span> abc          <span style=color:#75715e># replaces then squeezes</span>
-$ tr -cs 0-9a-z ’<span style=color:#f92672>[</span><span style=color:#ae81ff>\n</span>*<span style=color:#f92672>]</span>’ <span style=color:#75715e># replace everything except digits and letters with line breaks</span>
-<span style=color:#75715e># then squeezes multiple line breaks -&gt; &#39;one word per line&#39;</span>
-</code></pre></div></li>
-</ul>
-</li>
-<li>
-<p><code>-d</code>: delete</p>
-<ul>
-<li>Remove occurence</li>
-<li>eg.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tr -d <span style=color:#ae81ff>12</span>    <span style=color:#75715e># removes &#39;1&#39; and 2&#39;</span>
-$ tr -ds <span style=color:#ae81ff>12</span> <span style=color:#ae81ff>3</span> <span style=color:#75715e># deletes &#39;1&#39;,&#39;2&#39; then squeezes &#39;3&#39;</span>
-</code></pre></div></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><code>tee</code>: <em>T</em></p>
-<ul>
-<li>Branching out, extra pipe (T-shaped)</li>
-<li>Copy <code>stdin</code> to <code>stdout</code>, and also copy to file (extra branch)</li>
-<li>eg.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sort | tee sortedfile | uniq
-<span style=color:#75715e># similar to sort | uniq </span>
-<span style=color:#75715e># but stdout from sort is now copied to sorted file before pipelining into uniq stdin</span>
-</code></pre></div></li>
-</ul>
-</li>
-<li>
-<p><code>yes</code>:</p>
-<ul>
-<li>Unending lines of <code>y</code></li>
-<li>Use case: if a program requires <code>[y/N]</code> a lot</li>
-<li><code>[expletive]</code>: outputs <code>expletive</code> instead of <code>y</code></li>
-</ul>
-</li>
-</ul>
-</article>
-<footer class=book-footer>
-<div class="flex flex-wrap justify-between">
-</div>
-<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-</footer>
-<div class=book-comments>
-</div>
-<label for=menu-control class="hidden book-menu-overlay"></label>
-</div>
-<aside class=book-toc>
-<div class=book-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#file-management>File Management</a>
-<ul>
-<li><a href=#directory-tree>Directory Tree</a></li>
-<li><a href=#paths>Paths</a></li>
-<li><a href=#commands>Commands</a></li>
-</ul>
-</li>
-<li><a href=#core-utilities>Core Utilities</a></li>
-</ul>
-</nav>
-</div>
-</aside>
-</main>
-<link rel=stylesheet href=/notes/katex/katex.min.css>
-<script defer src=/notes/katex/katex.min.js></script>
-<script defer src=/notes/katex/auto-render.min.js onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1}]})"></script>
-</body>
-</html>
+</code></pre><h3 id=paths>Paths
+<a class=anchor href=#paths>#</a></h3><ul><li><p>Absolute Path: <em>from root dir</em></p><ul><li>eg. <code>/Users/home/projects/course-notes/index.html</code></li></ul></li><li><p>Relative Path: <em>from current dir</em></p><ul><li>eg. <code>course-notes/index.html</code> (if current dir is <code>/Users/home/projects/</code>)</li></ul></li><li><p>Parent Directory: <code>..</code></p></li><li><p>Directory Itself: <code>.</code></p><ul><li>Some commands require the dir name, <code>.</code> simplifies this task</li></ul></li></ul><h3 id=commands>Commands
+<a class=anchor href=#commands>#</a></h3><ul><li><p><code>pwd</code>: <em>print working directory</em></p></li><li><p><code>cd</code>: <em>change directory</em></p></li><li><p><code>ls</code>: <em>list</em></p><ul><li><code>-a || -A</code>: include dotfiles (<code>.</code> for <code>-a</code>, <code>.. && .</code> for <code>-A</code>)</li><li><code>-l</code>: include more information (size, modification time, etc.)</li><li><code>-d</code>: include <em>only</em> directories</li><li><code>-t</code>: sort by modification time</li><li><code>-r</code>: reverse order</li><li><code>-R</code>: <strong><em>recursive</em></strong> list, whole subtree</li></ul></li><li><p><code>mkdir</code>: <em>make directory</em></p></li><li><p><code>cp</code>: <em>copy</em></p><ul><li><code>-R</code>: <strong><em>recursive</em></strong> copy, can possibly overwrite</li></ul></li><li><p><code>mv</code>: <em>move</em></p><ul><li>Can possibly replace existing files</li></ul></li><li><p><code>rmdir</code>: <em>remove dir</em></p><ul><li>Precondition: the current dir is empty</li></ul></li><li><p><code>rm</code>: <em>remove/delete file(s)</em></p><ul><li><code>-r</code>: <strong><em>recursive</em></strong> delete, used for non-empty directories</li><li>No &ldquo;Recycle Bin&rdquo;/Trash</li></ul></li></ul><h2 id=core-utilities>Core Utilities
+<a class=anchor href=#core-utilities>#</a></h2><ul><li><p><code>cat</code>: <em>concatenation</em></p><ul><li>Copy files and/or <code>stdin</code> to <code>stdout</code></li><li>eg.<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ cat file1 file2 
+</span></span><span style=display:flex><span>... <span style=color:#75715e># dumps file1</span>
+</span></span><span style=display:flex><span>... <span style=color:#75715e># dumps file2</span>
+</span></span><span style=display:flex><span>$ cat file1 - file2
+</span></span><span style=display:flex><span>... <span style=color:#75715e># dumps file1</span>
+</span></span><span style=display:flex><span>... <span style=color:#75715e># user input as stdin, use ctrl+D to exit and continue</span>
+</span></span><span style=display:flex><span>... <span style=color:#75715e># dumps file2</span>
+</span></span><span style=display:flex><span>$ sort myFile | uniq | cat file1 - file2
+</span></span><span style=display:flex><span>... <span style=color:#75715e># dumps file1</span>
+</span></span><span style=display:flex><span>... <span style=color:#75715e># dumps myFile after sorting and uniq</span>
+</span></span><span style=display:flex><span>... <span style=color:#75715e># dumps file2</span>
+</span></span></code></pre></div></li></ul></li><li><p><code>head</code> and <code>tail</code>:</p><ul><li><code>head</code> starts from start of file, <code>tail</code> starts from last</li><li>eg.<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ head -3     <span style=color:#75715e># output first 3 lines</span>
+</span></span><span style=display:flex><span>$ head -n -3  <span style=color:#75715e># output all except last 3 lines</span>
+</span></span><span style=display:flex><span>$ tail -3     <span style=color:#75715e># output last 3 lines</span>
+</span></span><span style=display:flex><span>$ tail -n +3  <span style=color:#75715e># output starting from and including line 3</span>
+</span></span></code></pre></div></li></ul></li><li><p><code>wc</code>: <em>word count</em></p><ul><li>Can count by words (<code>-w</code>), bytes (<code>-c</code>), lines (<code>-l</code>), characters (<code>-m</code>)</li><li>eg.<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ wc file1
+</span></span><span style=display:flex><span><span style=color:#ae81ff>2</span> <span style=color:#ae81ff>6</span> <span style=color:#ae81ff>27</span> file1 <span style=color:#75715e># 2 lines, 6 words, 27 bytes</span>
+</span></span></code></pre></div></li></ul></li><li><p><code>sort</code>:</p><ul><li>Sort, check if sorted, merge sorted</li><li>Default sort by whole-line</li><li>eg.<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># sample input</span>
+</span></span><span style=display:flex><span>Navinn CS <span style=color:#ae81ff>420</span>
+</span></span><span style=display:flex><span>UofT  Expensive <span style=color:#ae81ff>69</span>
+</span></span><span style=display:flex><span>GiveJobPls iNeedJob <span style=color:#ae81ff>180</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ sort -b -k 3,3n       <span style=color:#75715e># sort by key=3rd field, parse 3rd field as number</span>
+</span></span><span style=display:flex><span>UofT Expensive <span style=color:#ae81ff>69</span>       <span style=color:#75715e># lowest number</span>
+</span></span><span style=display:flex><span>GiveJobPls iNeedJob <span style=color:#ae81ff>180</span>
+</span></span><span style=display:flex><span>Navinn CS <span style=color:#ae81ff>420</span>           <span style=color:#75715e># greatest number</span>
+</span></span></code></pre></div></li></ul></li><li><p><code>tr</code>: <em>translate</em></p><ul><li><p>Similar to a <code>String.replace()</code> method</p></li><li><p>eg.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ tr <span style=color:#ae81ff>12</span> ab        <span style=color:#75715e># replace &#39;1&#39; with &#39;a&#39;, &#39;2&#39; with &#39;b&#39;</span>
+</span></span><span style=display:flex><span>$ tr <span style=color:#ae81ff>1234</span> <span style=color:#e6db74>&#39;[a*]&#39;</span>  <span style=color:#75715e># replace  &#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;4&#39; with &#39;a&#39;</span>
+</span></span><span style=display:flex><span>$ tr A-Z a-z      <span style=color:#75715e># replace Uppercase with lowercase</span>
+</span></span></code></pre></div></li><li><p><code>-c</code>: compliment</p><ul><li>eg.<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ tr -c <span style=color:#ae81ff>1234</span> <span style=color:#e6db74>&#39;[a*]&#39;</span> <span style=color:#75715e># replace everything except &#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;4&#39; with &#39;a&#39;</span>
+</span></span></code></pre></div></li></ul></li><li><p><code>-s</code>: squeeze</p><ul><li>Replace consecutive occurences by a single occurrence</li><li>eg.<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ tr -s <span style=color:#ae81ff>12</span>              <span style=color:#75715e># can convert &#39;11122abc211&#39; to &#39;12abc21&#39;</span>
+</span></span><span style=display:flex><span>$ tr -s <span style=color:#ae81ff>12</span> abc          <span style=color:#75715e># replaces then squeezes</span>
+</span></span><span style=display:flex><span>$ tr -cs 0-9a-z ’<span style=color:#f92672>[</span><span style=color:#ae81ff>\n</span>*<span style=color:#f92672>]</span>’ <span style=color:#75715e># replace everything except digits and letters with line breaks</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># then squeezes multiple line breaks -&gt; &#39;one word per line&#39;</span>
+</span></span></code></pre></div></li></ul></li><li><p><code>-d</code>: delete</p><ul><li>Remove occurence</li><li>eg.<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ tr -d <span style=color:#ae81ff>12</span>    <span style=color:#75715e># removes &#39;1&#39; and 2&#39;</span>
+</span></span><span style=display:flex><span>$ tr -ds <span style=color:#ae81ff>12</span> <span style=color:#ae81ff>3</span> <span style=color:#75715e># deletes &#39;1&#39;,&#39;2&#39; then squeezes &#39;3&#39;</span>
+</span></span></code></pre></div></li></ul></li></ul></li><li><p><code>tee</code>: <em>T</em></p><ul><li>Branching out, extra pipe (T-shaped)</li><li>Copy <code>stdin</code> to <code>stdout</code>, and also copy to file (extra branch)</li><li>eg.<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sort | tee sortedfile | uniq
+</span></span><span style=display:flex><span><span style=color:#75715e># similar to sort | uniq </span>
+</span></span><span style=display:flex><span><span style=color:#75715e># but stdout from sort is now copied to sorted file before pipelining into uniq stdin</span>
+</span></span></code></pre></div></li></ul></li><li><p><code>yes</code>:</p><ul><li>Unending lines of <code>y</code></li><li>Use case: if a program requires <code>[y/N]</code> a lot</li><li><code>[expletive]</code>: outputs <code>expletive</code> instead of <code>y</code></li></ul></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#file-management>File Management</a><ul><li><a href=#directory-tree>Directory Tree</a></li><li><a href=#paths>Paths</a></li><li><a href=#commands>Commands</a></li></ul></li><li><a href=#core-utilities>Core Utilities</a></li></ul></nav></div></aside></main><link rel=stylesheet href=/notes/katex/katex.min.css><script defer src=/notes/katex/katex.min.js></script>
+<script defer src=/notes/katex/auto-render.min.js onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})'></script></body></html>
