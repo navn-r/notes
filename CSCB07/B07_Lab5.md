@@ -1,7 +1,8 @@
 ---
 slug: "lab-5"
 title: "Lab 5"
-weight: 3
+weight: 5
+bookHidden: true
 ---
 
 # Lab 5 Notes
