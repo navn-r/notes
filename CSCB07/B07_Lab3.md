@@ -2,16 +2,22 @@
 slug: "lab-3"
 title: "Lab 3"
 weight: 3
-bookHidden: true
 ---
 
-# Lab 3 Notes
-> Lab 3, **Due 10/8/2021 23:59 EST**
-- Handy Links:
+# Lab 3 Notes  
 
-  - https://www.regextester.com/
-  - https://cheatography.com/davechild/cheat-sheets/regular-expressions/    
-  - https://www.baeldung.com/java-buffered-reader (if `Scanner` is not working)   
+> **Due 06/12/2022 23:59 EST**
+
+{{< hint info >}}
+
+**Handy Links**:
+
+- [Lab Handout PDF](https://q.utoronto.ca/courses/260774/files/21063015/)
+- [Regex Tester](https://www.regextester.com/)
+- [Regex CheatSheet](https://cheatography.com/davechild/cheat-sheets/regular-expressions/)   
+- [Using `BufferedReader`](https://www.baeldung.com/java-buffered-reader) (if `Scanner` is not working)  
+
+{{< /hint >}}
 
 - Valid Hashtag is:
 
