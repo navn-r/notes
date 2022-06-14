@@ -10,7 +10,7 @@ Lab Handout PDF Regex Tester Regex CheatSheet Using BufferedReader (if Scanner i
 Start of file: hashtag + whitespace End of file: whitespace + hashtag Everything else: whitespace + hashtag + whitespace Note: Newlines are considered white-space (\n)
 Example:
 Line: I can&amp;#39;t wait to fail POSt at #UofT #Boundless! There&amp;#39;s just #Too#Many#Proofs! #Boundless\n Hashtags: #UofT #Boundless Make sure to escape \ characters on windows</description></item><item><title>Lab 4</title><link>https://navn.me/notes/CSCB07/lab-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCB07/lab-4/</guid><description>Lab 4 Notes # Due 06/26/2022 23:59 EST (2 weeks)
-Handy Important Links:
+Important Links:
 Lab Handout PDF OOP Example from Lecture The super keyword in Java More info on equals and hashCode Eclipse Error: ...does not declare serialVersionUID fix Creating Subclasses (Inheritance) # Example:
 public class Square extends Shape { public Square(Any arg) { // Pass `arg` to the `Shape` constructor super(arg); } } The extends keyword makes Square the subclass</description></item><item><title>Lab 5</title><link>https://navn.me/notes/CSCB07/lab-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCB07/lab-5/</guid><description>Lab 5 Notes # Lab 5, Due 11/14/2021 23:59 EST
 Quick Links # https://developer.android.com/studio/install https://developer.android.com/training/basics/firstapp/creating-project https://piazza.com/class/kti52spsvua71f?cid=329 (For AMD CPUs) https://piazza.com/class/kti52spsvua71f?cid=336 (For M1 Mac Users) Files For Submission # Do not submit any code, only these screenshots are enough.
