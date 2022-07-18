@@ -2,17 +2,21 @@
 slug: "lab-5"
 title: "Lab 5"
 weight: 5
-bookHidden: true
 ---
-
 # Lab 5 Notes
-> Lab 5, **Due 11/14/2021 23:59 EST**
-### Quick Links
 
+> **Due 07/24/2022 23:59 EST**
+
+{{< hint info >}}
+
+**Important Links**:
+
+- [Lab Handout PDF](https://q.utoronto.ca/courses/260774/files/21376140)
 - https://developer.android.com/studio/install
-- https://developer.android.com/training/basics/firstapp/creating-project
-- https://piazza.com/class/kti52spsvua71f?cid=329 (For AMD CPUs)
-- https://piazza.com/class/kti52spsvua71f?cid=336 (For M1 Mac Users)
+- https://developer.android.com/training/basics/firstapp/creating-project 
+  
+
+{{< /hint >}}
 
 ### Files For Submission
 
