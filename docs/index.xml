@@ -73,4 +73,11 @@ Software Development - The Agile Mindset # Iterative approach to software develo
 Values of the Agile Manifesto: # Individuals and interactions over processes and tools Working software over comprehensive documentation Customer collaboration over contract negotiation Responding to change over following a plan User Stories # Short, simple descriptions for features as told by the end-user</description></item><item><title>Final Review</title><link>https://navn.me/notes/CSCC43/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC43/final-review/</guid><description>CSCC43 - Final Review # Fall 2021 # Thank god the SQL to this course is an elective.
 Database Management System (DBMS) # Database: A structured system to persist data over a long period of time, with certain rules imposing it
 DBMS: Software to manage databases
-Manages data from multiple databases Enforces rules on the data Types of DMBS # Relational (RDBMS) Examples: PostgreSQL, MySQL, Oracle, SQLite Hierarchical Networked Object-Oriented NoSQL Key Concepts Overview # Data Model # A collection of tools for describing data, data relationships and semantics, and consistency constraints</description></item></channel></rss>
+Manages data from multiple databases Enforces rules on the data Types of DMBS # Relational (RDBMS) Examples: PostgreSQL, MySQL, Oracle, SQLite Hierarchical Networked Object-Oriented NoSQL Key Concepts Overview # Data Model # A collection of tools for describing data, data relationships and semantics, and consistency constraints</description></item><item><title>Project Notes</title><link>https://navn.me/notes/CSCB07/project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCB07/project/</guid><description>Navinn&amp;rsquo;s Declassified B07 Project Survival Guide # Final Project, Due 08/10/2021, 20% of Final Grade
+👉 Handy Links # Resources to work on the project, make sure to start working ASAP!
+PDF of Project Description and User Stories
+Review on User Stories, Agile, Scrum and SOLID (Recommended, but the lecture material is enough)
+Online Planning Poker Tool
+Introduction to GitHub (Recommended)
+Git Cheat Sheet PDF
+Git-flow Workflow (Recommended Read but not Mandatory)</description></item></channel></rss>
