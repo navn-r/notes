@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Pages Branch
         uses: actions/checkout@v2
@@ -30,12 +30,12 @@ jobs:
           cd ./content &&
           rm -f starter.tex &&
           mv README.md _index.md &&
-          sed -i '{1d;8d;9s@.*@# Home@}' _index.md 
+          sed -i '{1d;8d;9s@.*@# Home@}' _index.md
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "latest"
+          hugo-version: 'latest'
           extended: true
 
       - uses: actions/cache@v2
