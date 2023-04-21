@@ -16,6 +16,7 @@ Course Notes thus far:
 - CSCC01: Intro to Software Engineering
 - CSCC24: Principles of Programming Languages
 - CSCC43: Introduction to Databases
+- CSCC69: Operating Systems
 
 `main` branch: 
   - Folders containing the *actual* notes, typed with Markdown  
