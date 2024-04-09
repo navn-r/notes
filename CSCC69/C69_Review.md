@@ -17,9 +17,9 @@ title: "Final Review"
 - User threads are 1:1 mapped to kernel threads (`struct thread`), can also be many:1
 - The OS also has its own kernel threads
 
-![kernel threads](https://cdn.discordapp.com/attachments/975189796412604480/1098762573832265858/image.png)
+![kernel threads](../images/kernel_threads.png)
 
-![process vs threads](https://cdn.discordapp.com/attachments/975189796412604480/1098763231507529778/image.png)
+![process vs threads](../images/process_vs_threads.png)
 
 #### Interrupts
 
@@ -78,7 +78,7 @@ title: "Final Review"
 
 #### Thread Lifecycle
 
-![thread lifecycle diagram](https://cdn.discordapp.com/attachments/975189796412604480/1098736585861759047/image.png)
+![thread lifecycle diagram](../images/thread_lifecycle.png)
 
 - **Scheduling Problem**: Given a set of processes, decide which process to run next, and for how long
 - **Starvation**: Thread is prevented from making progress because some other thread has the resources it needs
@@ -170,9 +170,9 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
    - Eliminates external fragmentation, internal fragmentation is small 
    - Each memory lookup requires two memory accesses (page table and PTE)
 
-![address lookup](https://cdn.discordapp.com/attachments/975189796412604480/1098926036168736808/image.png)
+![address lookup](../images/address_lookup.png)
 
-4. **Multi-Level Paging**
+1. **Multi-Level Paging**
    - Page directory contains one entry per page table (`pagedir`)
    - Lookup process: (happy path) 
        1. Fetch PTE from PDE
@@ -191,7 +191,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
 - Page replacement algorithms strive to minimize page fault rate
 - **Belady's Anomaly**: Having more physical memory does not automatically mean fewer page faults
 
-![page replacement](https://cdn.discordapp.com/attachments/975189796412604480/1098935002638598184/image.png)
+![page replacement](../images/page_replacement.png)
 
 #### Page Replacement Algorithms
 
@@ -256,7 +256,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
   free (a); // creates fragmentation (need to coalesce)
   ```
 
-![heap memory allocator](https://cdn.discordapp.com/attachments/975189796412604480/1099368064115544164/image.png)
+![heap memory allocator](../images/heap_memory_allocator.png)
 
 
 #### Allocator Data Structures
@@ -269,7 +269,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
 2. **Free List**: List of free pages
    - Coalescing is required to prevent fragmentation, merge adjacent blocks
 
-![free list](https://cdn.discordapp.com/attachments/975189796412604480/1099368859468824657/image.png)
+![free list](../images/free_list.png)
 
 
 #### Placement Algorithms
@@ -290,7 +290,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
    - Avoids external fragmentation
    - Physical pages are kept contiguous 
 
-![buddy allocation](https://cdn.discordapp.com/attachments/975189796412604480/1099373037352144986/image.png)
+![buddy allocation](../images/buddy_allocation.png)
 
 
 ## Storage Devices
@@ -314,7 +314,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
 
 ### Hard Disk Drives
 
-![insides](https://cdn.discordapp.com/attachments/975189796412604480/1099378387560173679/image.png)
+![insides](../images/hdd_insides.png)
 
 - Slow for random access
 
@@ -333,7 +333,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
 
 **Preventing Failures**
 
-![redundancy](https://cdn.discordapp.com/attachments/975189796412604480/1099384418310832148/image.png)
+![redundancy](../images/storage_redundancy.png)
 
 ### Solid State Drives
 
@@ -359,7 +359,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
 - GC and Wear levelling (solution to fixed number of writes) case **Write Amplification**:
   - The number of writes to the SSD is greater than the number of writes to the file system
   
-![ssd firmware](https://cdn.discordapp.com/attachments/975189796412604480/1099391690730635344/image.png)
+![ssd firmware](../images/ssd_firmware.png)
 
 ## File Systems
 
@@ -398,7 +398,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
 ### UNIX File System
 >  Simple, easy to use, but terrible performance due to lack of locality
 
-![unix](https://cdn.discordapp.com/attachments/975189796412604480/1099452505303285861/image.png)
+![unix](../images/unix_fs.png)
 
 ### Access Paths (UNIX)
 
@@ -470,12 +470,12 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
    - Write operations may be written to a buffer, closing the file flushes the buffer
 
 3. Why did we not have to open STDOUT before using `printf ()`?
-![std file desc](https://cdn.discordapp.com/attachments/975189796412604480/1099703185385476116/image.png)
+![std file desc](../images/std_file_desc.png)
 
 ### BSD Fast File System (FFS) 
 > Improves performance by exploiting locality
 
-![Cylinder Group](https://cdn.discordapp.com/attachments/975189796412604480/1099685474748080249/image.png)
+![Cylinder Group](../images/cylinder_groups.png)
 
 #### Clustering in FFS
 
@@ -504,7 +504,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
    - Use a generic block layer, so that it doesn't matter if HDD or SSD
    - Modern systems hide device details from the file system
 
-![amoritization](https://cdn.discordapp.com/attachments/975189796412604480/1099692537595306054/image.png)
+![amoritization](../images/amortization.png)
 
 ### Links
 
@@ -523,7 +523,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
 
 ### Buffer Cache
 
-![buffer cache](https://cdn.discordapp.com/attachments/975189796412604480/1099721687857119232/image.png)
+![buffer cache](../images/buffer_cache.png)
 
 #### Read Ahead
 
@@ -545,7 +545,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
   - For each file, a list of users and their permissions
   - For each user, a list of files and their permissions
 
-![ACL](https://cdn.discordapp.com/attachments/975189796412604480/1099722935754829935/image.png)
+![ACL](../images/acl.png)
 
 
 ### Crash Consistency
@@ -553,7 +553,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
 - File system data structures must persist, retain data on disk even if the system shuts down
   - Either unexpectedly (crash, power loss) or planned (graceful shutdown)
 
-![crash consistency](https://cdn.discordapp.com/attachments/975189796412604480/1099725759494496297/image.png)
+![crash consistency](../images/crash_consistency.png)
 
 - Consider appending to an already open file, this is not atomic and a crash can happen at any of these steps:
   1. Write to the inode
@@ -644,7 +644,7 @@ NESTED DONATION: "H is waiting on A held by M and M is waiting on B held by L"
    - Checksum is computed from all the data in the transaction (including TxB and TxE)
    - When replayed, the entire transaction is valid if the checksum is correct (recompute and compare)
 
-![batch journaling](https://cdn.discordapp.com/attachments/975189796412604480/1099742294594302113/image.png)
+![batch journaling](../images/batch_journaling.png)
 
 #### Metadata Journaling
 
