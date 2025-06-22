@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Pages Branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
           submodules: recursive
@@ -20,7 +20,7 @@ jobs:
         run: rm -rf docs content
 
       - name: Clone Source Files
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: main
           path: ./content
@@ -33,12 +33,12 @@ jobs:
           sed -i '{1d;8d;9s@.*@# Home@}' _index.md
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: /tmp/hugo_cache
           key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
@@ -52,7 +52,7 @@ jobs:
         run: rm -rf content
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: .
