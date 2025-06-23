@@ -5,7 +5,7 @@ theme = 'book'
 
 publishDir = "docs"
 
-ignoreFiles = ["\\.marp$"]
+ignoreFiles = ["\\.marp.md$"]
 
 # Book configuration
 disablePathToLower = true
