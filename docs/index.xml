@@ -1493,60 +1493,7 @@
  &lt;a class="anchor" href="#epoll">#&lt;/a>
 &lt;/h3>
 &lt;blockquote>
-&lt;p>Only available on Linux&lt;/p></description></item><item><title/><link>https://navn.me/notes/CSCC01/ci-cd.marp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC01/ci-cd.marp/</guid><description>&lt;style scoped>
- h1 {
- font-size: 5rem;
- }
-
- .funk {
- font-family: 'lostar';
- font-weight: 100;
- font-size: 4.75rem;
- color: #e34c26;
- }
-&lt;/style>
-&lt;!-- _class: center -->
-&lt;!-- _footer: Made with ❤️ by @navinn -->
-&lt;h1 id="cicd-and-more">
- CI/CD &lt;span class="funk">and more&lt;/span>
- &lt;a class="anchor" href="#cicd-and-more">#&lt;/a>
-&lt;/h1>
-&lt;hr>
-&lt;!-- _class: center -->
-&lt;!-- _footer: 'thanks aryan for bailing' -->
-&lt;h2 id="how-it-started">
- How it started
- &lt;a class="anchor" href="#how-it-started">#&lt;/a>
-&lt;/h2>
-&lt;p>&lt;img src="./images/chat.png" alt="bg fit right:45%" />&lt;/p>
-&lt;hr>
-&lt;style scoped>
- li {
- font-size: 0.925rem;
- }
-&lt;/style>
-&lt;!-- _footer: 'haha chatgpt meme' -->
-&lt;h1 id="about-me">
- About me
- &lt;a class="anchor" href="#about-me">#&lt;/a>
-&lt;/h1>
-&lt;ul>
-&lt;li>SWE @ Meta
-&lt;ul>
-&lt;li>Server Eng; Instagram GenAI&lt;/li>
-&lt;li>PHP/Hack 🤮, Python, React&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>UTSC CS &amp;lsquo;24
-&lt;ul>
-&lt;li>CS TA: B07 (x2), B20, &lt;strong>C01&lt;/strong>, C09, D01&lt;/li>
-&lt;li>Co-ops: CaseWare, Halo, RBC, HubSpot, AmEx&lt;/li>
-&lt;li>MLH Fellowship&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;del>been coding since i was 5&lt;/del>&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="./images/meme.png" alt="bg left:37%" />&lt;/p></description></item><item><title>Final Review</title><link>https://navn.me/notes/CSCA48/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCA48/final-review/</guid><description>&lt;h1 id="csca48---final-review">
+&lt;p>Only available on Linux&lt;/p></description></item><item><title>Final Review</title><link>https://navn.me/notes/CSCA48/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCA48/final-review/</guid><description>&lt;h1 id="csca48---final-review">
  CSCA48 - Final Review
  &lt;a class="anchor" href="#csca48---final-review">#&lt;/a>
 &lt;/h1>
