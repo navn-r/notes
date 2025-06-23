@@ -5,6 +5,8 @@ theme = 'book'
 
 publishDir = "docs"
 
+ignoreFiles = ["\\.marp$"]
+
 # Book configuration
 disablePathToLower = true
 enableGitInfo = true
