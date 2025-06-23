@@ -1,35 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCC01 on Notes</title><link>https://navn.me/notes/CSCC01/</link><description>Recent content in CSCC01 on Notes</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCC01/index.xml" rel="self" type="application/rss+xml"/><item><title>Final Review</title><link>https://navn.me/notes/CSCC01/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC01/final-review/</guid><description>&lt;h1 id="cscc01---final-review">
- CSCC01 - Final Review
- &lt;a class="anchor" href="#cscc01---final-review">#&lt;/a>
-&lt;/h1>
-&lt;h4 id="fall-2020">
- Fall 2020
- &lt;a class="anchor" href="#fall-2020">#&lt;/a>
-&lt;/h4>
-&lt;blockquote>
-&lt;p>The fix from StackOverflow isn&amp;rsquo;t working&lt;/p>&lt;/blockquote>
-&lt;h2 id="software-development---the-agile-mindset">
- Software Development - The Agile Mindset
- &lt;a class="anchor" href="#software-development---the-agile-mindset">#&lt;/a>
-&lt;/h2>
-&lt;blockquote>
-&lt;p>Iterative approach to software development&lt;/p>&lt;/blockquote>
-&lt;h3 id="values-of-the-agile-manifesto">
- Values of the Agile Manifesto:
- &lt;a class="anchor" href="#values-of-the-agile-manifesto">#&lt;/a>
-&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>Individuals&lt;/strong> &lt;strong>and&lt;/strong> &lt;strong>interactions&lt;/strong> over processes and tools&lt;/li>
-&lt;li>&lt;strong>Working&lt;/strong> &lt;strong>software&lt;/strong> over comprehensive documentation&lt;/li>
-&lt;li>&lt;strong>Customer&lt;/strong> &lt;strong>collaboration&lt;/strong> over contract negotiation&lt;/li>
-&lt;li>&lt;strong>Responding&lt;/strong> &lt;strong>to&lt;/strong> &lt;strong>change&lt;/strong> over following a plan&lt;/li>
-&lt;/ul>
-&lt;h3 id="user-stories">
- User Stories
- &lt;a class="anchor" href="#user-stories">#&lt;/a>
-&lt;/h3>
-&lt;blockquote>
-&lt;p>Short, simple descriptions for features as told by the end-user&lt;/p></description></item><item><title>Guest Lecture - CI/CD</title><link>https://navn.me/notes/CSCC01/ci-cd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC01/ci-cd/</guid><description>&lt;style scoped>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCC01 on Notes</title><link>https://navn.me/notes/CSCC01/</link><description>Recent content in CSCC01 on Notes</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCC01/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://navn.me/notes/CSCC01/ci-cd.marp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC01/ci-cd.marp/</guid><description>&lt;style scoped>
  h1 {
  font-size: 5rem;
  }
@@ -82,4 +51,35 @@
 &lt;/li>
 &lt;li>&lt;del>been coding since i was 5&lt;/del>&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="./images/meme.png" alt="bg left:37%" />&lt;/p></description></item></channel></rss>
+&lt;p>&lt;img src="./images/meme.png" alt="bg left:37%" />&lt;/p></description></item><item><title>Final Review</title><link>https://navn.me/notes/CSCC01/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC01/final-review/</guid><description>&lt;h1 id="cscc01---final-review">
+ CSCC01 - Final Review
+ &lt;a class="anchor" href="#cscc01---final-review">#&lt;/a>
+&lt;/h1>
+&lt;h4 id="fall-2020">
+ Fall 2020
+ &lt;a class="anchor" href="#fall-2020">#&lt;/a>
+&lt;/h4>
+&lt;blockquote>
+&lt;p>The fix from StackOverflow isn&amp;rsquo;t working&lt;/p>&lt;/blockquote>
+&lt;h2 id="software-development---the-agile-mindset">
+ Software Development - The Agile Mindset
+ &lt;a class="anchor" href="#software-development---the-agile-mindset">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Iterative approach to software development&lt;/p>&lt;/blockquote>
+&lt;h3 id="values-of-the-agile-manifesto">
+ Values of the Agile Manifesto:
+ &lt;a class="anchor" href="#values-of-the-agile-manifesto">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Individuals&lt;/strong> &lt;strong>and&lt;/strong> &lt;strong>interactions&lt;/strong> over processes and tools&lt;/li>
+&lt;li>&lt;strong>Working&lt;/strong> &lt;strong>software&lt;/strong> over comprehensive documentation&lt;/li>
+&lt;li>&lt;strong>Customer&lt;/strong> &lt;strong>collaboration&lt;/strong> over contract negotiation&lt;/li>
+&lt;li>&lt;strong>Responding&lt;/strong> &lt;strong>to&lt;/strong> &lt;strong>change&lt;/strong> over following a plan&lt;/li>
+&lt;/ul>
+&lt;h3 id="user-stories">
+ User Stories
+ &lt;a class="anchor" href="#user-stories">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>Short, simple descriptions for features as told by the end-user&lt;/p></description></item></channel></rss>
