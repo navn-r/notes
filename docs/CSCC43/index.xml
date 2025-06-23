@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCC43 on Notes</title><link>https://navn.me/notes/CSCC43/</link><description>Recent content in CSCC43 on Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCC43/index.xml" rel="self" type="application/rss+xml"/><item><title>Final Review</title><link>https://navn.me/notes/CSCC43/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC43/final-review/</guid><description>CSCC43 - Final Review # Fall 2021 # Thank god the SQL to this course is an elective.
-Database Management System (DBMS) # Database: A structured system to persist data over a long period of time, with certain rules imposing it
-DBMS: Software to manage databases
-Manages data from multiple databases Enforces rules on the data Types of DMBS # Relational (RDBMS) Examples: PostgreSQL, MySQL, Oracle, SQLite Hierarchical Networked Object-Oriented NoSQL Key Concepts Overview # Data Model # A collection of tools for describing data, data relationships and semantics, and consistency constraints</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCC43 on Notes</title><link>https://navn.me/notes/CSCC43/</link><description>Recent content in CSCC43 on Notes</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCC43/index.xml" rel="self" type="application/rss+xml"/><item><title>Final Review</title><link>https://navn.me/notes/CSCC43/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC43/final-review/</guid><description>&lt;h1 id="cscc43---final-review">
+ CSCC43 - Final Review
+ &lt;a class="anchor" href="#cscc43---final-review">#&lt;/a>
+&lt;/h1>
+&lt;h4 id="fall-2021">
+ Fall 2021
+ &lt;a class="anchor" href="#fall-2021">#&lt;/a>
+&lt;/h4>
+&lt;blockquote>
+&lt;p>Thank god the SQL to this course is an elective.&lt;/p>&lt;/blockquote>
+&lt;h2 id="database-management-system-dbms">
+ Database Management System (DBMS)
+ &lt;a class="anchor" href="#database-management-system-dbms">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Database&lt;/strong>: A structured system to persist data over a long period of time, with certain rules imposing it&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>DBMS&lt;/strong>: Software to manage databases&lt;/p>
+&lt;ul>
+&lt;li>Manages data from multiple databases&lt;/li>
+&lt;li>Enforces rules on the data&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="types-of-dmbs">
+ Types of DMBS
+ &lt;a class="anchor" href="#types-of-dmbs">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Relational&lt;/strong> (RDBMS)
+&lt;ul>
+&lt;li>Examples: PostgreSQL, MySQL, Oracle, SQLite&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Hierarchical&lt;/li>
+&lt;li>Networked&lt;/li>
+&lt;li>Object-Oriented&lt;/li>
+&lt;li>NoSQL&lt;/li>
+&lt;/ul>
+&lt;h2 id="key-concepts-overview">
+ Key Concepts Overview
+ &lt;a class="anchor" href="#key-concepts-overview">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="data-model">
+ Data Model
+ &lt;a class="anchor" href="#data-model">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>A collection of tools for describing data, data relationships and semantics, and consistency constraints&lt;/p></description></item></channel></rss>

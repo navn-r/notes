@@ -1,18 +1,1199 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCB09 on Notes</title><link>https://navn.me/notes/CSCB09/</link><description>Recent content in CSCB09 on Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 09 Aug 2020 23:28:18 +0000</lastBuildDate><atom:link href="https://navn.me/notes/CSCB09/index.xml" rel="self" type="application/rss+xml"/><item><title>Week 1</title><link>https://navn.me/notes/CSCB09/Week-1/</link><pubDate>Wed, 20 May 2020 14:33:50 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-1/</guid><description>Week 1 # Processes # What happens when you run a program.
-Has Input and Output ends:
-stdin: Standard Input - eg. Keyboard input goes through stdin stdout: Standard Output - eg. Terminal output (printing to screen) eg.
-Navinns-MacBook-Pro:~ home$ sort # OS connects keyboard to stdin Watermelon Apple Strawberry Mango ^D # &amp;#39;exit&amp;#39; keybind, OS connects screen to stdout Apple Mango Strawberry Watermelon Pipelining and Redirection # Routing outputs of one program to the input of another, and outputting to a file instead of the screen.</description></item><item><title>Week 2</title><link>https://navn.me/notes/CSCB09/Week-2/</link><pubDate>Tue, 26 May 2020 17:52:24 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-2/</guid><description>Week 2 # File Management # How we survived without File Explorer
-Directory Tree # / ├── Applications ├── Library ├── System ├── *Users* ├── Volumes ├── bin ├── cores ├── *dev* ├── etc -&amp;gt; private/etc ├── *home* -&amp;gt; /System/Volumes/Data/home ├── opt ├── private ├── sbin ├── tmp -&amp;gt; private/tmp ├── *usr* └── var -&amp;gt; private/var Paths # Absolute Path: from root dir
-eg. /Users/home/projects/course-notes/index.html Relative Path: from current dir</description></item><item><title>Week 3</title><link>https://navn.me/notes/CSCB09/Week-3/</link><pubDate>Tue, 02 Jun 2020 17:42:22 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-3/</guid><description>Week 3 # Introduction to Shell # More features available from man sh
-Simple Commands # 4 general cases of commands
-Built in commands: cd, ls etc. User defined functions Aliases eg. alias pls=&amp;quot;sudo&amp;quot; Commands that refer to the program name eg. tr command runs the tr program Sequential List # Multi-line commands in a single line
-$ cd projects ; sort file1 | uniq # runs cd then runs sort with pipe # equivalent to $ cd projects projects$ sort file1 | uniq Grouping: Explicit: {grep foo file1 ; ls ; } &amp;gt; file2 Exit Codes # 0 for success, non-0 for failure</description></item><item><title>Week 4</title><link>https://navn.me/notes/CSCB09/Week-4/</link><pubDate>Tue, 02 Jun 2020 19:14:38 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-4/</guid><description>Week 4 # Shell Scripting # Running Scripts # $ sh myscript Alternatively, in your myscript.sh file, do the following
-#! /bin/sh chmod u+x myscript # sets &amp;#39;executable&amp;#39; flag on the file and run it with&amp;hellip;
-$ ./myscript Positional Parameters # $ ./myscript foo bar baz # come after filename, spaced $#: Number of arguments (3) $n: Parameter name (n is the number) eg. $1 = &amp;quot;foo&amp;quot; $*: One string with all parameter names &amp;quot;foo bar baz&amp;quot; $@: Comma seperated strings for each parameter name &amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;, &amp;quot;baz&amp;quot; shift: Shifts Positional Parameters by 1 $# = 2 $1 = &amp;#34;bar&amp;#34; $2 = &amp;#34;baz&amp;#34; $* = &amp;#34;bar baz&amp;#34; # good for looping over parameters Example Script # #!</description></item><item><title>Week 5</title><link>https://navn.me/notes/CSCB09/Week-5/</link><pubDate>Wed, 10 Jun 2020 17:30:31 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-5/</guid><description>Week 5 # Programming in C # Memory Model # Array of bytes, &amp;ldquo;Addresses&amp;rdquo; are indexes Variables may occupy several consecutive bytes, its address refers to the first occupied byte &amp;ldquo;Pointer&amp;rdquo;: Variable/parameter that stores an address int i = 69; // Suppose i was occupying bytes 45 to 74 int *p = &amp;amp;i // 45 Memory Regions # Text: Stores code Pointers pointing to functions point here Global: Stores global variables Stack: Used for function calls Stores local variables Auto allocation and deallocation Heap: Manual allocation (malloc(), calloc()) and deallocation (free()) Used for dynamic data outside of functions Global Variables # Two types of varaibles int pubVar = 10; // top-level public global variable int f() { static int privVar = 1010; // function private global variable pubVar++; privVar++; .</description></item><item><title>Week 6</title><link>https://navn.me/notes/CSCB09/Week-6/</link><pubDate>Wed, 17 Jun 2020 00:06:17 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-6/</guid><description>Week 6 # Programming in C (cont.) # File I/O in C # Content can be accessed as a steam (seq. read/write) File functions work with FILE * FILE: Type rep. stream state, definition varies by platform, most likely a struct Open # FILE *fopen(const char *filename, const char *mode) Modes: &amp;quot;r&amp;quot;, &amp;quot;w&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;r+&amp;quot;, &amp;quot;w+&amp;quot;, &amp;quot;a+&amp;quot; Read, Write, Append, Read &amp;amp; Write, Write &amp;amp; Read, Append &amp;amp; Read Appending and Writing to a file will create a new one if the file does not exist Reading to a non-existent file will cause an error (returns NULL) Close # int fclose(FILE *stream) Close stream when finished with the file Returns 0 if success, EOF if error Why should you close the file as soon as you&amp;rsquo;re finished: There is a limit on how many streams are open per process Writing may be buffered until closing No two process can open the same file (Windows only) Formatted I/O # // printf and scanf but for a given stream int fprintf(FILE *stream, const char *format, .</description></item><item><title>Week 7</title><link>https://navn.me/notes/CSCB09/Week-7/</link><pubDate>Wed, 08 Jul 2020 17:41:52 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-7/</guid><description>Week 7 # Programming in C (cont.) # Compiler and Linker Stages # myProgram.c $\to$ Compiler $\to$ Machine Code (myProgram.o) $\to$ Libraries + Linker $\to$ Executable
-myProgram.o is the object code file Libraries: where methods from stdio.h/stdlib.h come from Linker: Merges object files and libraries into one executable gcc serves as a convenient linker frontend C Compiler Stages # The C compiler futher breaks down into:
-Pre-processor: For # directives, determines the actual C code seen by the compiler proper $ gcc -E .</description></item><item><title>Week 8</title><link>https://navn.me/notes/CSCB09/Week-8/</link><pubDate>Sat, 18 Jul 2020 20:09:18 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-8/</guid><description>Week 8 # File System with C # i-nodes # The file system has an array of &amp;lsquo;i-nodes&amp;rsquo;
-Every file and directory is identified using an i-node
-An i-node stores:
-Type: Regular file, dir, link, device, socket, etc. Permissions The owning user and owning group (numerical ids) Size Timestamps (created, last modified) Which disk blocks are used Other metadata You can get most metadata by using the stat command</description></item><item><title>Week 9</title><link>https://navn.me/notes/CSCB09/Week-9/</link><pubDate>Sat, 25 Jul 2020 20:45:11 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-9/</guid><description>Week 9 # Processes and Redirection # Launching a New Process # Clone the process pid_t fork(void); // child gets return value 0, parent gets child&amp;#39;s pid Both processes (child and parent) run the same code The child can switch to running another program execlp(path, arg0, arg1, ..., (char *)NULL); // &amp;#39;exec&amp;#39; family of system calls Things such as environment variables, pid, fd, current dir, etc. are preserved File descriptors can be closed before exec by marking them as close on exec Why seperate fork and exec?</description></item><item><title>Week 10</title><link>https://navn.me/notes/CSCB09/Week-10/</link><pubDate>Mon, 03 Aug 2020 18:51:53 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-10/</guid><description>Week 10 # Sockets # Another way for two processes to communicate
-Characteristics of Sockets # Has 2 sides: Server and Client Server: has a publishable address Client: contacts Server by published address Unrelated processes, even on different computers, can contact each other through sockets Socket Varieties # By Domain # Unix Domain: Local to the computer, address is a filename IPv4: Over the network, 32-bit address + 16-bit port number IPv6: 128-bit address and over the network By Abstraction Level # Datagram: Per packet Packet boundary preserved, packet order is not Unnoticed packet loss Stream: Network stack works hard to confirm, timeout, resend Preserves data order No packet boundary Stream Socket Workflow # Client # Call socket, creates the socket fd Fill in the address struct and use connect to connect to the server at the address Use the socket fd to communicate with the server Close the fd when done Server # Call socket to create the server socket fd Fill in the address struct and use bind to bind the sfd to the address Call listen Loop Call accept(sfd) to wait for client to connect, gets back a client fd Use the cfd to communicate with client, close when done Close the server socket fd if no longer waiting for clients Creating Sockets # int socket(int family, int type, int protocol); // returns socket fd &amp;gt; 0, -1 if error family: AF_UNIX, AF_INET (IPv4), AF_INET6 (IPv6) type: SOCK_DGRAM, SOCK_STREAM protocol: 0 IPv4 Addresses and Port struct # Adresses are 32-bit, and identifies network interfaces (computers) Each byte is seperated by dots.</description></item><item><title>Week 11</title><link>https://navn.me/notes/CSCB09/Week-11/</link><pubDate>Sun, 09 Aug 2020 23:28:18 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-11/</guid><description>Week 11 # Multiplexing Input and Output # Handling multiple input/output clients with select and epoll
-select # int select(int n, fd_set *read_fds, fd_set *write_fds, NULL, struct timeval *wait_timeout); Blocks until fds are ready Returns 0 if reaches the timeout, else returns positive count if some fds are ready Modifies the given fd_sets, set them again before the next call fd_set: holds a set of file descriptors n: The highest fd you specify, + 1 fd_set functions # void FD_ZERO(fd_set *s); // empties the set void FD_SET(int fd, fd_set *s); // adds an fd to the set void FD_CLR(int fd, fd_set *s); // deletes an fd int FD_ISSET(int fd, fd_set *s); // queries if fd is in the set Limitations # Max size for fd_set usually 1024 Slow when using many file descriptors epoll # Only available on Linux</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCB09 on Notes</title><link>https://navn.me/notes/CSCB09/</link><description>Recent content in CSCB09 on Notes</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 09 Aug 2020 23:28:18 +0000</lastBuildDate><atom:link href="https://navn.me/notes/CSCB09/index.xml" rel="self" type="application/rss+xml"/><item><title>Week 1</title><link>https://navn.me/notes/CSCB09/Week-1/</link><pubDate>Wed, 20 May 2020 14:33:50 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-1/</guid><description>&lt;h1 id="week-1">
+ Week 1
+ &lt;a class="anchor" href="#week-1">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="processes">
+ Processes
+ &lt;a class="anchor" href="#processes">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>What happens when you run a program.&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>Has Input and Output ends:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>stdin&lt;/code>: Standard Input - eg. Keyboard input goes through &lt;code>stdin&lt;/code>&lt;/li>
+&lt;li>&lt;code>stdout&lt;/code>: Standard Output - eg. Terminal output (printing to screen)&lt;/li>
+&lt;/ul>
+&lt;p>eg.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>Navinns-MacBook-Pro:~ home$ sort
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># OS connects keyboard to stdin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Watermelon
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Apple
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Strawberry
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mango
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>^D &lt;span style="color:#75715e"># &amp;#39;exit&amp;#39; keybind, OS connects screen to stdout&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Apple
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mango
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Strawberry
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Watermelon
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="pipelining-and-redirection">
+ Pipelining and Redirection
+ &lt;a class="anchor" href="#pipelining-and-redirection">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Routing outputs of one program &lt;strong>&lt;em>to the input of another&lt;/em>&lt;/strong>, and outputting to a file &lt;em>instead of the screen&lt;/em>.&lt;/p></description></item><item><title>Week 2</title><link>https://navn.me/notes/CSCB09/Week-2/</link><pubDate>Tue, 26 May 2020 17:52:24 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-2/</guid><description>&lt;h1 id="week-2">
+ Week 2
+ &lt;a class="anchor" href="#week-2">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="file-management">
+ File Management
+ &lt;a class="anchor" href="#file-management">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>How we survived without File Explorer&lt;/p>&lt;/blockquote>
+&lt;h3 id="directory-tree">
+ Directory Tree
+ &lt;a class="anchor" href="#directory-tree">#&lt;/a>
+&lt;/h3>
+&lt;pre tabindex="0">&lt;code>/
+├── Applications
+├── Library
+├── System
+├── *Users*
+├── Volumes
+├── bin
+├── cores
+├── *dev*
+├── etc -&amp;gt; private/etc
+├── *home* -&amp;gt; /System/Volumes/Data/home
+├── opt
+├── private
+├── sbin
+├── tmp -&amp;gt; private/tmp
+├── *usr*
+└── var -&amp;gt; private/var
+&lt;/code>&lt;/pre>&lt;h3 id="paths">
+ Paths
+ &lt;a class="anchor" href="#paths">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Absolute Path: &lt;em>from root dir&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>eg. &lt;code>/Users/home/projects/course-notes/index.html&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Relative Path: &lt;em>from current dir&lt;/em>&lt;/p></description></item><item><title>Week 3</title><link>https://navn.me/notes/CSCB09/Week-3/</link><pubDate>Tue, 02 Jun 2020 17:42:22 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-3/</guid><description>&lt;h1 id="week-3">
+ Week 3
+ &lt;a class="anchor" href="#week-3">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="introduction-to-shell">
+ Introduction to Shell
+ &lt;a class="anchor" href="#introduction-to-shell">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>More features available from &lt;code>man sh&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h3 id="simple-commands">
+ Simple Commands
+ &lt;a class="anchor" href="#simple-commands">#&lt;/a>
+&lt;/h3>
+&lt;p>4 general cases of commands&lt;/p>
+&lt;ol>
+&lt;li>Built in commands: &lt;code>cd&lt;/code>, &lt;code>ls&lt;/code> etc.&lt;/li>
+&lt;li>User defined functions&lt;/li>
+&lt;li>Aliases eg. &lt;code>alias pls=&amp;quot;sudo&amp;quot;&lt;/code>&lt;/li>
+&lt;li>Commands that refer to the program name
+&lt;ul>
+&lt;li>eg. &lt;code>tr&lt;/code> command runs the &lt;code>tr&lt;/code> program&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="sequential-list">
+ Sequential List
+ &lt;a class="anchor" href="#sequential-list">#&lt;/a>
+&lt;/h3>
+&lt;p>Multi-line commands in a single line&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ cd projects ; sort file1 | uniq &lt;span style="color:#75715e"># runs cd then runs sort with pipe&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># equivalent to&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd projects
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>projects$ sort file1 | uniq
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Grouping:
+&lt;ul>
+&lt;li>Explicit: &lt;code>{grep foo file1 ; ls ; } &amp;gt; file2&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="exit-codes">
+ Exit Codes
+ &lt;a class="anchor" href="#exit-codes">#&lt;/a>
+&lt;/h3>
+&lt;p>0 for success, non-0 for failure&lt;/p></description></item><item><title>Week 4</title><link>https://navn.me/notes/CSCB09/Week-4/</link><pubDate>Tue, 02 Jun 2020 19:14:38 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-4/</guid><description>&lt;h1 id="week-4">
+ Week 4
+ &lt;a class="anchor" href="#week-4">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="shell-scripting">
+ Shell Scripting
+ &lt;a class="anchor" href="#shell-scripting">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="running-scripts">
+ Running Scripts
+ &lt;a class="anchor" href="#running-scripts">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sh myscript
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Alternatively, in your &lt;code>myscript.sh&lt;/code> file, do the following&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#! /bin/sh
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>chmod u+x myscript &lt;span style="color:#75715e"># sets &amp;#39;executable&amp;#39; flag on the file&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>and run it with&amp;hellip;&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ./myscript
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="positional-parameters">
+ Positional Parameters
+ &lt;a class="anchor" href="#positional-parameters">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ./myscript foo bar baz &lt;span style="color:#75715e"># come after filename, spaced&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>$#&lt;/code>: Number of arguments (3)&lt;/li>
+&lt;li>&lt;code>$n&lt;/code>: Parameter name (&lt;code>n&lt;/code> is the number)
+&lt;ul>
+&lt;li>eg. &lt;code>$1 = &amp;quot;foo&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>$*&lt;/code>: One string with all parameter names
+&lt;ul>
+&lt;li>&lt;code>&amp;quot;foo bar baz&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>$@&lt;/code>: Comma seperated strings for each parameter name
+&lt;ul>
+&lt;li>&lt;code>&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;, &amp;quot;baz&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>shift&lt;/code>: Shifts Positional Parameters by 1
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$# &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$1 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;bar&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;baz&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$* &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;bar baz&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># good for looping over parameters&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="example-script">
+ Example Script
+ &lt;a class="anchor" href="#example-script">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#! /bin/sh
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>chmod u+x pydelete &lt;span style="color:#75715e"># sets exec flag on pydelete.sh&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dryrun&lt;span style="color:#f92672">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>verbose&lt;span style="color:#f92672">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span> &lt;span style="color:#f92672">[&lt;/span> $# -gt &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">]&lt;/span>; &lt;span style="color:#66d9ef">do&lt;/span> &lt;span style="color:#75715e"># while the number of params &amp;gt; 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">case&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$1&lt;span style="color:#e6db74">&amp;#34;&lt;/span> in &lt;span style="color:#75715e"># takes the first parameter/argument&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -n&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#75715e"># if the argument is -n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dryrun&lt;span style="color:#f92672">=&lt;/span>y &lt;span style="color:#75715e"># sets the program as a dryrun &amp;#34;doesnt actually delete files&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ;;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -v&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> verbose&lt;span style="color:#f92672">=&lt;/span>y &lt;span style="color:#75715e"># sets the program as verbose &amp;#34;deletes verbosely&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ;;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> *&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#75715e"># as soon as there is another different parameter, the while loop breaks&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> break
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">esac&lt;/span> &lt;span style="color:#75715e"># end of case&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> shift &lt;span style="color:#75715e"># basically $# -= 1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">done&lt;/span> &lt;span style="color:#75715e"># end of while&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> f in &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$@&lt;span style="color:#e6db74">&amp;#34;&lt;/span> ; &lt;span style="color:#66d9ef">do&lt;/span> &lt;span style="color:#75715e"># for each parameter (after remove the arguments)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">case&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$f&lt;span style="color:#e6db74">&amp;#34;&lt;/span> in &lt;span style="color:#75715e"># begins case&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> *.py&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#75715e"># if the file is .py extension&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span> -n &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$verbose&lt;span style="color:#e6db74">&amp;#34;&lt;/span> &lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;deleting &lt;/span>$f&lt;span style="color:#e6db74">&amp;#34;&lt;/span> &lt;span style="color:#75715e"># if user used `-v`&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span> -z &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$dryrun&lt;span style="color:#e6db74">&amp;#34;&lt;/span> &lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> rm &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$f&lt;span style="color:#e6db74">&amp;#34;&lt;/span> &lt;span style="color:#75715e"># if user did not use `-n`, then it will delete&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ;;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> *&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#75715e"># any other file extension&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">[&lt;/span> -n &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$verbose&lt;span style="color:#e6db74">&amp;#34;&lt;/span> &lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;not deleting &lt;/span>$f&lt;span style="color:#e6db74">&amp;#34;&lt;/span> &lt;span style="color:#75715e"># if the user set verbose&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">esac&lt;/span> &lt;span style="color:#75715e"># end of case&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">done&lt;/span> &lt;span style="color:#75715e"># end of for&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="exit">
+ &lt;code>exit&lt;/code>
+ &lt;a class="anchor" href="#exit">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Terminates script and/or shell process&lt;/li>
+&lt;li>Useful for:
+&lt;ul>
+&lt;li>Early exit&lt;/li>
+&lt;li>Non-zero exit codes: &lt;code>exit 1&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="functions">
+ Functions
+ &lt;a class="anchor" href="#functions">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Example definition
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>myfunc&lt;span style="color:#f92672">()&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo &lt;span style="color:#e6db74">&amp;#34;Hot diggity dog&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Example function call
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>myfunc foo bar baz &lt;span style="color:#75715e"># positional parameters are now function arguments&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Returning
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#75715e"># early return&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e"># with exit code&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Variable Scopes
+&lt;ul>
+&lt;li>Local variables
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>myfunc&lt;span style="color:#f92672">()&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> local x y z
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">69&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> y&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">351&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> z&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>expr $x + $y&lt;span style="color:#66d9ef">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo $z
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Dynamic Scoping
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ cat myscript
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>printnum&lt;span style="color:#f92672">()&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> local x
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo $x
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>func1&lt;span style="color:#f92672">()&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> local x
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printnum
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>func2&lt;span style="color:#f92672">()&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> local x
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printnum
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>func1 ; func2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sh myscript
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e"># from func1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#75715e"># from func2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="feeding-multi-line-text-into-stdin">
+ Feeding multi-line text into &lt;code>stdin&lt;/code>
+ &lt;a class="anchor" href="#feeding-multi-line-text-into-stdin">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ cat &lt;span style="color:#e6db74">&amp;lt;&amp;lt; EOF # could be any string
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">﹥Hi I&amp;#39;m Navinn
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">﹥Variables also work \$x=$x
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">﹥EOF&lt;/span> &lt;span style="color:#75715e"># tells shell its the end of file&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Hi I&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>m Navinn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Variables also work $x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">42069&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>if end-marker is declared in quotes, &lt;code>$&lt;/code> is no longer special.&lt;/li>
+&lt;/ul>
+&lt;h3 id="command-substitution">
+ Command Substitution
+ &lt;a class="anchor" href="#command-substitution">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Run a command and take its &lt;code>stdout&lt;/code> in-place
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> i in &lt;span style="color:#66d9ef">$(&lt;/span>cat myfile&lt;span style="color:#66d9ef">)&lt;/span> ; &lt;span style="color:#66d9ef">do&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># if wrapped in double-quotes, `cat myfile` is just one string instead of multiple&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$i&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="environment-variables">
+ Environment Variables
+ &lt;a class="anchor" href="#environment-variables">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Every process has a collection of environment variables
+&lt;ul>
+&lt;li>eg. &lt;code>PATH, CLASSPATH, USER, PWD, PS1&lt;/code> etc.&lt;/li>
+&lt;li>Convention is all caps&lt;/li>
+&lt;li>Same syntax: eg. &lt;code>$PATH, PATH=...&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>printenv&lt;/code>: prints current env. vars.
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ printenv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>HOME&lt;span style="color:#f92672">=&lt;/span>/Users/home
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PWD&lt;span style="color:#f92672">=&lt;/span>/Users/home/desktop
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PATH&lt;span style="color:#f92672">=&lt;/span>/usr/local/cms/jdk1.8.0_31/bin:/usr/bin:/bin &lt;span style="color:#75715e"># colon-seperated list of directories&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ANDROID_HOME&lt;span style="color:#f92672">=&lt;/span>/Users/home/Library/Android/sdk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>SHELL&lt;span style="color:#f92672">=&lt;/span>/bin/bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Creating a new env. var. is &lt;em>different&lt;/em>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>LOGNAME&lt;span style="color:#f92672">=&lt;/span>navn &lt;span style="color:#75715e"># same init&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export LOGNAME &lt;span style="color:#75715e"># different&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export LOGNAME&lt;span style="color:#f92672">=&lt;/span>navinn &lt;span style="color:#75715e"># alt&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="file-attributes">
+ File Attributes
+ &lt;a class="anchor" href="#file-attributes">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="general-attributes">
+ General Attributes
+ &lt;a class="anchor" href="#general-attributes">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Size&lt;/li>
+&lt;li>Type&lt;/li>
+&lt;li>Last modified time&lt;/li>
+&lt;li>Last access time&lt;/li>
+&lt;li>Last change time&lt;/li>
+&lt;li>Owning user&lt;/li>
+&lt;li>Owning group
+&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;h3 id="unix-account-organization">
+ Unix Account Organization
+ &lt;a class="anchor" href="#unix-account-organization">#&lt;/a>
+&lt;/h3>
+&lt;p>Two main accounts: &lt;code>user&lt;/code>, &lt;code>groups&lt;/code>&lt;/p></description></item><item><title>Week 5</title><link>https://navn.me/notes/CSCB09/Week-5/</link><pubDate>Wed, 10 Jun 2020 17:30:31 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-5/</guid><description>&lt;h1 id="week-5">
+ Week 5
+ &lt;a class="anchor" href="#week-5">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="programming-in-c">
+ Programming in C
+ &lt;a class="anchor" href="#programming-in-c">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="memory-model">
+ Memory Model
+ &lt;a class="anchor" href="#memory-model">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Array of bytes, &amp;ldquo;Addresses&amp;rdquo; are indexes&lt;/li>
+&lt;li>Variables may occupy several consecutive bytes, its address refers to the &lt;em>first&lt;/em> occupied byte&lt;/li>
+&lt;li>&amp;ldquo;Pointer&amp;rdquo;: Variable/parameter that stores an address&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">69&lt;/span>; &lt;span style="color:#75715e">// Suppose i was occupying bytes 45 to 74
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>p &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>i &lt;span style="color:#75715e">// 45
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="memory-regions">
+ Memory Regions
+ &lt;a class="anchor" href="#memory-regions">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Text:
+&lt;ul>
+&lt;li>Stores code&lt;/li>
+&lt;li>Pointers pointing to functions point here&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Global:
+&lt;ul>
+&lt;li>Stores global variables&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Stack:
+&lt;ul>
+&lt;li>Used for function calls&lt;/li>
+&lt;li>Stores local variables&lt;/li>
+&lt;li>Auto allocation and deallocation&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Heap:
+&lt;ul>
+&lt;li>Manual allocation (&lt;code>malloc(), calloc()&lt;/code>) and deallocation (&lt;code>free()&lt;/code>)&lt;/li>
+&lt;li>Used for dynamic data outside of functions&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="global-variables">
+ Global Variables
+ &lt;a class="anchor" href="#global-variables">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Two types of varaibles
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> pubVar &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>; &lt;span style="color:#75715e">// top-level public global variable
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> privVar &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1010&lt;/span>; &lt;span style="color:#75715e">// function private global variable
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> pubVar&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> privVar&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="integer-types">
+ Integer Types
+ &lt;a class="anchor" href="#integer-types">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>All possible combinations: {&lt;code>signed, unsigned&lt;/code> $\times$ &lt;code>char, short, int, long, long long&lt;/code>}&lt;/li>
+&lt;li>Byte size depends on platform
+&lt;ul>
+&lt;li>eg. &lt;code>x86-64&lt;/code>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">Type&lt;/th>
+ &lt;th style="text-align: right">Size (bytes)&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;code>char&lt;/code> (default &lt;code>signed&lt;/code>)&lt;/td>
+ &lt;td style="text-align: right">1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;code>short&lt;/code>&lt;/td>
+ &lt;td style="text-align: right">2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;code>int&lt;/code>&lt;/td>
+ &lt;td style="text-align: right">4&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;code>long&lt;/code>&lt;/td>
+ &lt;td style="text-align: right">8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">&lt;code>long long&lt;/code>&lt;/td>
+ &lt;td style="text-align: right">8&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="integer-literal-notation">
+ Integer Literal Notation
+ &lt;a class="anchor" href="#integer-literal-notation">#&lt;/a>
+&lt;/h3>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">Literal&lt;/th>
+ &lt;th style="text-align: right">Type&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">3&lt;/td>
+ &lt;td style="text-align: right">&lt;code>int&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">c&lt;/td>
+ &lt;td style="text-align: right">&lt;code>char&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">3U&lt;/td>
+ &lt;td style="text-align: right">&lt;code>unsigned int&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">3L&lt;/td>
+ &lt;td style="text-align: right">&lt;code>long&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">3UL&lt;/td>
+ &lt;td style="text-align: right">&lt;code>unsigned long&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">3LL&lt;/td>
+ &lt;td style="text-align: right">&lt;code>long long&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">3ULL&lt;/td>
+ &lt;td style="text-align: right">&lt;code>unsigned long long&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%lu&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">3UL&lt;/span>) &lt;span style="color:#75715e">// Good usage
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%lu&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>) &lt;span style="color:#75715e">// Bad since 3 is `int`
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="type-casting-with-numbers">
+ Type Casting with Numbers
+ &lt;a class="anchor" href="#type-casting-with-numbers">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Larger size type to smaller:
+&lt;ul>
+&lt;li>Automatic conversion&lt;/li>
+&lt;li>Lose some information in a natural way (&lt;code>double&lt;/code> to &lt;code>int&lt;/code> removes decimal place)&lt;/li>
+&lt;li>Better to explicitly typecast:
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">double&lt;/span> d &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">420.69&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span>)d;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Smaller size type to larger:
+&lt;ul>
+&lt;li>Automatic conversion&lt;/li>
+&lt;li>Completely lossless&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="implicit-number-promotion">
+ Implicit Number Promotion
+ &lt;a class="anchor" href="#implicit-number-promotion">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>The smaller operand type gets &lt;em>promoted&lt;/em> to the larger operand type
+&lt;ul>
+&lt;li>Note: &lt;code>char&lt;/code> and &lt;code>short&lt;/code> are &lt;strong>&lt;em>always&lt;/em>&lt;/strong> promoted to &lt;code>int&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>eg.
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Suppose the following
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">double&lt;/span> d &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">65.0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">65&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">char&lt;/span> c &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;A&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">i / c -&amp;gt; promotes c to `int` and preforms integer division
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">d / j -&amp;gt; promotes j to `double` and preforms floating-point division
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">**/&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="enumeration-types">
+ Enumeration Types
+ &lt;a class="anchor" href="#enumeration-types">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>New &amp;ldquo;types&amp;rdquo; and integer constant names
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">enum&lt;/span> rps {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ROCK, &lt;span style="color:#75715e">// ROCK = 0 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> PAPER, &lt;span style="color:#75715e">// PAPER = 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> SCISSORS &lt;span style="color:#75715e">// SCISSORS = 2
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">enum&lt;/span> coin {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> HEAD, &lt;span style="color:#75715e">// HEAD = 0
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> TAIL &lt;span style="color:#75715e">// TAIL = 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">enum&lt;/span> rps a &lt;span style="color:#f92672">=&lt;/span> PAPER; &lt;span style="color:#75715e">// a = 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">enum&lt;/span> coin c &lt;span style="color:#f92672">=&lt;/span> HEAD; &lt;span style="color:#75715e">// c = 0
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>&amp;ldquo;Types&amp;rdquo; are simply &lt;code>int&lt;/code>, are mixable and not checked&lt;/li>
+&lt;li>Practically useful for meaningful names only&lt;/li>
+&lt;/ul>
+&lt;h3 id="union-types">
+ Union Types
+ &lt;a class="anchor" href="#union-types">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Overlapping &amp;ldquo;fields&amp;rdquo; that share the same space
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">union&lt;/span> myUnion { &lt;span style="color:#75715e">// sizeof(myUnion) = &amp;#34;largest field size&amp;#34; = 4 (for this example)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">short&lt;/span> s;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> i;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> b[&lt;span style="color:#ae81ff">4&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">union&lt;/span> myUnion u; &lt;span style="color:#75715e">// can use u.s, u.i, u.b[j] etc.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Use Cases:
+&lt;ul>
+&lt;li>High-level: Data has multiple mutually exclusive cases&lt;/li>
+&lt;li>Low-level:
+&lt;ol>
+&lt;li>Store an &lt;code>int&lt;/code> in &lt;code>i&lt;/code>&lt;/li>
+&lt;li>Read &lt;code>b[0]&lt;/code> to &lt;code>b[3]&lt;/code> to discover how &lt;code>i&lt;/code> splits&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="tagged-union-idiom">
+ Tagged Union Idiom
+ &lt;a class="anchor" href="#tagged-union-idiom">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Example: Suppose you wanted an array that holds &lt;strong>&lt;em>both&lt;/em>&lt;/strong> &lt;code>int&lt;/code> and &lt;code>double&lt;/code>&lt;/li>
+&lt;li>Idiom: Make an outer &lt;code>struct&lt;/code>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> int_or_double {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">enum&lt;/span> { INT, DOUBLE } tag; &lt;span style="color:#75715e">// remembers which case you are in
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">union&lt;/span> { &lt;span style="color:#75715e">// shares the same space in memory regardless of int or double
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> i; &lt;span style="color:#75715e">// case value is an int
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">double&lt;/span> d; &lt;span style="color:#75715e">// case value is a double
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> } data;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> int_or_double a[&lt;span style="color:#ae81ff">10&lt;/span>]; &lt;span style="color:#75715e">// as wanted
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="type-alias-with-typedef">
+ Type Alias with &lt;code>typedef&lt;/code>
+ &lt;a class="anchor" href="#type-alias-with-typedef">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Very general, i.e can use with &lt;code>struct&lt;/code>, &lt;code>enum&lt;/code>, &lt;code>int&lt;/code>, &lt;code>double&lt;/code> etc.
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">typedef&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> node {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> i;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">struct&lt;/span> node &lt;span style="color:#f92672">*&lt;/span>next;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>} nodetype; &lt;span style="color:#75715e">// use `nodetype` instead of `struct node`
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Cannot use the same &lt;code>typedef&lt;/code> name for more than one thing
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">typedef&lt;/span> coin { HEAD, TAIL } coin;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">typedef&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> coin; &lt;span style="color:#75715e">// illegal since `typedef coin` is already defined
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>Week 6</title><link>https://navn.me/notes/CSCB09/Week-6/</link><pubDate>Wed, 17 Jun 2020 00:06:17 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-6/</guid><description>&lt;h1 id="week-6">
+ Week 6
+ &lt;a class="anchor" href="#week-6">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="programming-in-c-cont">
+ Programming in &lt;code>C&lt;/code> (cont.)
+ &lt;a class="anchor" href="#programming-in-c-cont">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="file-io-in-c">
+ File I/O in &lt;code>C&lt;/code>
+ &lt;a class="anchor" href="#file-io-in-c">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Content can be accessed as a steam (seq. read/write)&lt;/li>
+&lt;li>File functions work with &lt;code>FILE *&lt;/code>
+&lt;ul>
+&lt;li>&lt;code>FILE&lt;/code>: Type rep. stream state, definition varies by platform, most likely a &lt;code>struct&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="open">
+ Open
+ &lt;a class="anchor" href="#open">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>FILE &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">fopen&lt;/span>(&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>filename, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>mode)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Modes: &lt;code>&amp;quot;r&amp;quot;, &amp;quot;w&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;r+&amp;quot;, &amp;quot;w+&amp;quot;, &amp;quot;a+&amp;quot;&lt;/code>
+&lt;ul>
+&lt;li>Read, Write, Append, Read &amp;amp; Write, Write &amp;amp; Read, Append &amp;amp; Read&lt;/li>
+&lt;li>Appending and Writing to a file will create a new one if the file does not exist&lt;/li>
+&lt;li>Reading to a non-existent file will cause an error (returns &lt;code>NULL&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="close">
+ Close
+ &lt;a class="anchor" href="#close">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">fclose&lt;/span>(FILE &lt;span style="color:#f92672">*&lt;/span>stream)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Close stream when finished with the file&lt;/li>
+&lt;li>Returns &lt;code>0&lt;/code> if success, &lt;code>EOF&lt;/code> if error&lt;/li>
+&lt;li>Why should you close the file as soon as you&amp;rsquo;re finished:
+&lt;ul>
+&lt;li>There is a limit on how many streams are open per process&lt;/li>
+&lt;li>Writing may be buffered until closing&lt;/li>
+&lt;li>No two process can open the same file (Windows only)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="formatted-io">
+ Formatted I/O
+ &lt;a class="anchor" href="#formatted-io">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// printf and scanf but for a given stream
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">fprintf&lt;/span>(FILE &lt;span style="color:#f92672">*&lt;/span>stream, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>format, ...) 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">fscanf&lt;/span>(FILE &lt;span style="color:#f92672">*&lt;/span>stream, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>format, ...)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>printf&lt;/code> is just &lt;code>fprintf&lt;/code> but &lt;code>stdout&lt;/code> is specified
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">scanf&lt;/span>(format, args) &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#a6e22e">fscanf&lt;/span>(stdin, format, args) &lt;span style="color:#75715e">//same for scanf
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>You do not need to manually close &lt;code>stdin, stdout, stderr&lt;/code> streams&lt;/li>
+&lt;/ul>
+&lt;h3 id="character-and-string-io">
+ Character and String I/O
+ &lt;a class="anchor" href="#character-and-string-io">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>One single character: returns &lt;code>EOF&lt;/code> if error or not found
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">putchar&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> c) &lt;span style="color:#75715e">/* stdout */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">putc&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> c, FILE &lt;span style="color:#f92672">*&lt;/span>stream)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">getchar&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>) &lt;span style="color:#75715e">/* stdin */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">getc&lt;/span>(FILE &lt;span style="color:#f92672">*&lt;/span>stream)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>String:
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">fputs&lt;/span>(&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>string, FILE &lt;span style="color:#f92672">*&lt;/span>stream) &lt;span style="color:#75715e">// does not put a newline at the end
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">fgets&lt;/span>(&lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>dest, &lt;span style="color:#66d9ef">int&lt;/span> n, FILE &lt;span style="color:#f92672">*&lt;/span>stream) &lt;span style="color:#75715e">// Reads at most (n-1) chars or until (and including) newline
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="arbitrary-data-io">
+ Arbitrary Data I/O
+ &lt;a class="anchor" href="#arbitrary-data-io">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">size_t&lt;/span> &lt;span style="color:#a6e22e">fread&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>dest, &lt;span style="color:#66d9ef">size_t&lt;/span> s, &lt;span style="color:#66d9ef">size_t&lt;/span> n, FILE &lt;span style="color:#f92672">*&lt;/span>stream)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">size_t&lt;/span> &lt;span style="color:#a6e22e">fwrite&lt;/span>(&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>data, &lt;span style="color:#66d9ef">size_t&lt;/span> s, &lt;span style="color:#66d9ef">size_t&lt;/span> n,FILE &lt;span style="color:#f92672">*&lt;/span>stream)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Reads/Writes &lt;code>n&lt;/code> items, each of &lt;code>s&lt;/code> bytes&lt;/li>
+&lt;li>Returns how many items have been read/written&lt;/li>
+&lt;li>Potential Use Cases:
+&lt;ul>
+&lt;li>A whole array&lt;/li>
+&lt;li>&lt;code>struct&lt;/code>&lt;/li>
+&lt;li>Raw bytes (array of &lt;code>unsigned char&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="error-versus-end-of-stream-disambiguation">
+ Error versus End-of-Stream Disambiguation
+ &lt;a class="anchor" href="#error-versus-end-of-stream-disambiguation">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>getc&lt;/code>, &lt;code>scanf&lt;/code> return &lt;code>EOF&lt;/code> on error&lt;/li>
+&lt;li>&lt;code>fgets&lt;/code> returns &lt;code>NULL&lt;/code>&lt;/li>
+&lt;li>&lt;code>fread&lt;/code> returns &amp;lt; &lt;code>n&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">feof&lt;/span>(FILE &lt;span style="color:#f92672">*&lt;/span>stream) &lt;span style="color:#75715e">// returns true if end-of-stream
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ferror&lt;/span>(FILE &lt;span style="color:#f92672">*&lt;/span>stream) &lt;span style="color:#75715e">// returns true if error
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">clearerr&lt;/span>(FILE &lt;span style="color:#f92672">*&lt;/span>stream) &lt;span style="color:#75715e">// clears end-of-stream and error status
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="error-information">
+ Error Information
+ &lt;a class="anchor" href="#error-information">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;errno.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Global variable stores error reason of most recent error
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> errno;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Many possible values:
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>ENOENT &lt;span style="color:#75715e">// File does not exist
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>EACCESS &lt;span style="color:#75715e">// No permission
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>EDOM &lt;span style="color:#75715e">// sqrt(-3.0)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Usually, we just use &lt;code>perror&lt;/code> to print the error message to stderr:
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">perror&lt;/span>(&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>prefix)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="buffering">
+ Buffering
+ &lt;a class="anchor" href="#buffering">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>C&lt;/code> delays file writing
+&lt;ul>
+&lt;li>Accumulates data in a buffer until it is large, then requests the kernel to write that chunk&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Also hastens reading
+&lt;ul>
+&lt;li>Requests kernel to read a large chunk into the buffer, then serves read requests from said buffer&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="buffer-operations">
+ Buffer Operations
+ &lt;a class="anchor" href="#buffer-operations">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">fflush&lt;/span>(FILE &lt;span style="color:#f92672">*&lt;/span>stream) &lt;span style="color:#75715e">// Returns 0 if success, EOF if error
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Writes the buffer for the output stream&lt;/li>
+&lt;li>Clears the buffer for the input stream&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">setvbuf&lt;/span>(FILE &lt;span style="color:#f92672">*&lt;/span>stream, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>buf, &lt;span style="color:#66d9ef">int&lt;/span> mode, &lt;span style="color:#66d9ef">size_t&lt;/span> n)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">mode&lt;/th>
+ &lt;th style="text-align: center">meaning&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>_IOFBF&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">full buffering&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>_IOLBF&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">line buffering&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>_IONBF&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">no buffering&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="default-buffering-of-stdin-stdout-stderr">
+ Default Buffering of &lt;code>stdin&lt;/code>, &lt;code>stdout&lt;/code>, &lt;code>stderr&lt;/code>
+ &lt;a class="anchor" href="#default-buffering-of-stdin-stdout-stderr">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>If Terminal:&lt;/p></description></item><item><title>Week 7</title><link>https://navn.me/notes/CSCB09/Week-7/</link><pubDate>Wed, 08 Jul 2020 17:41:52 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-7/</guid><description>&lt;h1 id="week-7">
+ Week 7
+ &lt;a class="anchor" href="#week-7">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="programming-in-c-cont">
+ Programming in &lt;code>C&lt;/code> (cont.)
+ &lt;a class="anchor" href="#programming-in-c-cont">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="compiler-and-linker-stages">
+ Compiler and Linker Stages
+ &lt;a class="anchor" href="#compiler-and-linker-stages">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;code>myProgram.c&lt;/code> $\to$ &lt;strong>Compiler&lt;/strong> $\to$ &lt;strong>Machine Code&lt;/strong> (&lt;code>myProgram.o&lt;/code>) $\to$ Libraries + &lt;strong>Linker&lt;/strong> $\to$ &lt;strong>Executable&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>myProgram.o&lt;/code> is the &lt;em>object code file&lt;/em>&lt;/li>
+&lt;li>Libraries: where methods from &lt;code>stdio.h/stdlib.h&lt;/code> come from&lt;/li>
+&lt;li>Linker: Merges object files and libraries into one executable
+&lt;ul>
+&lt;li>&lt;code>gcc&lt;/code> serves as a convenient linker frontend&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="c-compiler-stages">
+ &lt;code>C&lt;/code> Compiler Stages
+ &lt;a class="anchor" href="#c-compiler-stages">#&lt;/a>
+&lt;/h3>
+&lt;p>The &lt;code>C&lt;/code> compiler futher breaks down into:&lt;/p></description></item><item><title>Week 8</title><link>https://navn.me/notes/CSCB09/Week-8/</link><pubDate>Sat, 18 Jul 2020 20:09:18 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-8/</guid><description>&lt;h1 id="week-8">
+ Week 8
+ &lt;a class="anchor" href="#week-8">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="file-system-with-c">
+ File System with &lt;code>C&lt;/code>
+ &lt;a class="anchor" href="#file-system-with-c">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="i-nodes">
+ i-nodes
+ &lt;a class="anchor" href="#i-nodes">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>The file system has an array of &amp;lsquo;i-nodes&amp;rsquo;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Every file and directory is identified using an i-node&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>An i-node stores:&lt;/p>
+&lt;ul>
+&lt;li>Type: Regular file, dir, link, device, socket, etc.&lt;/li>
+&lt;li>Permissions&lt;/li>
+&lt;li>The owning user and owning group (numerical ids)&lt;/li>
+&lt;li>Size&lt;/li>
+&lt;li>Timestamps (created, last modified)&lt;/li>
+&lt;li>Which disk blocks are used&lt;/li>
+&lt;li>Other metadata&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>You can get most metadata by using the &lt;code>stat&lt;/code> command&lt;/p></description></item><item><title>Week 9</title><link>https://navn.me/notes/CSCB09/Week-9/</link><pubDate>Sat, 25 Jul 2020 20:45:11 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-9/</guid><description>&lt;h1 id="week-9">
+ Week 9
+ &lt;a class="anchor" href="#week-9">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="processes-and-redirection">
+ Processes and Redirection
+ &lt;a class="anchor" href="#processes-and-redirection">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="launching-a-new-process">
+ Launching a New Process
+ &lt;a class="anchor" href="#launching-a-new-process">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>Clone the process
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">pid_t&lt;/span> &lt;span style="color:#a6e22e">fork&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>); &lt;span style="color:#75715e">// child gets return value 0, parent gets child&amp;#39;s pid 
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Both processes (child and parent) run the same code&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The child can switch to running another program
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">execlp&lt;/span>(path, arg0, arg1, ..., (&lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>)NULL); &lt;span style="color:#75715e">// &amp;#39;exec&amp;#39; family of system calls
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Things such as environment variables, pid, fd, current dir, etc. are preserved&lt;/li>
+&lt;li>File descriptors can be closed before exec by marking them as &lt;code>close on exec&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="why-seperate-fork-and-exec">
+ Why seperate &lt;code>fork&lt;/code> and &lt;code>exec&lt;/code>?
+ &lt;a class="anchor" href="#why-seperate-fork-and-exec">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Some use cases do not require &lt;code>exec&lt;/code>&lt;/li>
+&lt;li>The child process can do some prep before &lt;code>exec&lt;/code> (file redirection and pipelining)&lt;/li>
+&lt;/ul>
+&lt;h3 id="the-only-parent-less-process-init">
+ The only &amp;lsquo;parent-less&amp;rsquo; process: &lt;code>init&lt;/code>
+ &lt;a class="anchor" href="#the-only-parent-less-process-init">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>fork&lt;/code> is the only way to launch new processes&lt;/li>
+&lt;li>As the kernel boots, it launches &lt;code>init&lt;/code>, with pid 1&lt;/li>
+&lt;/ul>
+&lt;h3 id="process-commands">
+ Process Commands
+ &lt;a class="anchor" href="#process-commands">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>ps&lt;/code>: List processes&lt;/li>
+&lt;li>&lt;code>pgrep&lt;/code>: Find processes by name, users, etc.&lt;/li>
+&lt;li>&lt;code>top&lt;/code>: Process list that periodically refreshes (think of it as a terminal task manager)&lt;/li>
+&lt;li>&lt;code>htop&lt;/code>: &lt;code>top&lt;/code>, but better (more features)&lt;/li>
+&lt;li>&lt;code>kill&lt;/code> and &lt;code>pkill&lt;/code>: Terminates a process if allowed (&lt;code>pkill&lt;/code> finds like &lt;code>pgrep&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;h3 id="waiting-for-a-child-process">
+ Waiting for a Child process
+ &lt;a class="anchor" href="#waiting-for-a-child-process">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">pid_t&lt;/span> &lt;span style="color:#a6e22e">wait&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>status); &lt;span style="color:#75715e">// status is for child&amp;#39;s exit code
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">pid_t&lt;/span> &lt;span style="color:#a6e22e">waitpid&lt;/span>(&lt;span style="color:#66d9ef">pid_t&lt;/span> pid, &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>status, &lt;span style="color:#66d9ef">int&lt;/span> options);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// pid &amp;gt; 0 -&amp;gt; wait for the given child
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// pid == -1 -&amp;gt; wait for any child
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// options == WNOHANG -&amp;gt; don&amp;#39;t hang waiting
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="useful-macros">
+ Useful macros
+ &lt;a class="anchor" href="#useful-macros">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Normal Termination:
+&lt;ul>
+&lt;li>&lt;code>WIFEXITED&lt;/code>, &lt;code>WEXITSTATUS&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Killed by signal:
+&lt;ul>
+&lt;li>&lt;code>WIFSIGNALED&lt;/code>, &lt;code>WTERMSIG&lt;/code>, &lt;code>WCOREDUMP&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Stopped and continued by signal:
+&lt;ul>
+&lt;li>&lt;code>WIFSTOPPED&lt;/code>, &lt;code>WIFCONTINUED&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="termination-of-parent-before-child">
+ Termination of Parent before Child
+ &lt;a class="anchor" href="#termination-of-parent-before-child">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>If the child terminates first and the parent process is still running and does not call &lt;code>wait&lt;/code>
+&lt;ul>
+&lt;li>A &amp;lsquo;zombie&amp;rsquo; process of the child retains the entry of the child, but is not actually running&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>If the parent terminates but the child is still running
+&lt;ul>
+&lt;li>The child is now an &amp;lsquo;orphan&amp;rsquo; process and gets the parent pid of &lt;code>init&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>If the child terminates and the parent calls &lt;code>wait&lt;/code>
+&lt;ul>
+&lt;li>Just regular termination and no &amp;lsquo;zombie&amp;rsquo;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="file-redirection">
+ File Redirection
+ &lt;a class="anchor" href="#file-redirection">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Before &lt;code>exec&lt;/code> and &lt;code>fork&lt;/code>, open the file&lt;/li>
+&lt;li>Duplicate the file descriptor with &lt;code>dup2(curr_fd, new_fd)&lt;/code>&lt;/li>
+&lt;li>Close the file descriptor or request &lt;code>close on exec&lt;/code>&lt;/li>
+&lt;li>Then call &lt;code>exec&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="pipes">
+ Pipes
+ &lt;a class="anchor" href="#pipes">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">pipe&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> pipefd[&lt;span style="color:#ae81ff">2&lt;/span>]); &lt;span style="color:#75715e">// creates a unidirectional pipe
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// pipefd[0] is for read end
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// pipefd[1] is for write end
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>This is how shells do pipelining&lt;/li>
+&lt;li>Usually, only one process at both ends&lt;/li>
+&lt;li>For &lt;code>dup/dup2&lt;/code>, &lt;code>stdout&lt;/code> for write end, and &lt;code>stdin&lt;/code> for read end.&lt;/li>
+&lt;li>Close fds you do not need as soon as possible&lt;/li>
+&lt;li>Kernel has a buffer for unread data if the &lt;code>write end&lt;/code> is writing faster than the &lt;code>read end&lt;/code> can handle&lt;/li>
+&lt;/ul>
+&lt;h2 id="signals">
+ Signals
+ &lt;a class="anchor" href="#signals">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>How the kernel notifies processes of some events and severe errors&lt;/p></description></item><item><title>Week 10</title><link>https://navn.me/notes/CSCB09/Week-10/</link><pubDate>Mon, 03 Aug 2020 18:51:53 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-10/</guid><description>&lt;h1 id="week-10">
+ Week 10
+ &lt;a class="anchor" href="#week-10">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="sockets">
+ Sockets
+ &lt;a class="anchor" href="#sockets">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Another way for two processes to communicate&lt;/p>&lt;/blockquote>
+&lt;h3 id="characteristics-of-sockets">
+ Characteristics of Sockets
+ &lt;a class="anchor" href="#characteristics-of-sockets">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Has 2 sides: Server and Client
+&lt;ul>
+&lt;li>Server: has a publishable address&lt;/li>
+&lt;li>Client: contacts Server by published address&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Unrelated processes, even on different computers, can contact each other through sockets&lt;/li>
+&lt;/ul>
+&lt;h3 id="socket-varieties">
+ Socket Varieties
+ &lt;a class="anchor" href="#socket-varieties">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="by-domain">
+ By Domain
+ &lt;a class="anchor" href="#by-domain">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Unix Domain: Local to the computer, address is a filename&lt;/li>
+&lt;li>IPv4: Over the network, 32-bit address + 16-bit port number&lt;/li>
+&lt;li>IPv6: 128-bit address and over the network&lt;/li>
+&lt;/ul>
+&lt;h4 id="by-abstraction-level">
+ By Abstraction Level
+ &lt;a class="anchor" href="#by-abstraction-level">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Datagram:
+&lt;ul>
+&lt;li>Per packet&lt;/li>
+&lt;li>Packet boundary preserved, packet order is not&lt;/li>
+&lt;li>Unnoticed packet loss&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Stream:
+&lt;ul>
+&lt;li>Network stack works hard to confirm, timeout, resend&lt;/li>
+&lt;li>Preserves data order&lt;/li>
+&lt;li>No packet boundary&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="stream-socket-workflow">
+ Stream Socket Workflow
+ &lt;a class="anchor" href="#stream-socket-workflow">#&lt;/a>
+&lt;/h3>
+&lt;h4 id="client">
+ Client
+ &lt;a class="anchor" href="#client">#&lt;/a>
+&lt;/h4>
+&lt;ol>
+&lt;li>Call &lt;code>socket&lt;/code>, creates the socket fd&lt;/li>
+&lt;li>Fill in the address struct and use &lt;code>connect&lt;/code> to connect to the server at the address&lt;/li>
+&lt;li>Use the socket fd to communicate with the server&lt;/li>
+&lt;li>Close the fd when done&lt;/li>
+&lt;/ol>
+&lt;h4 id="server">
+ Server
+ &lt;a class="anchor" href="#server">#&lt;/a>
+&lt;/h4>
+&lt;ol>
+&lt;li>Call &lt;code>socket&lt;/code> to create the server socket fd&lt;/li>
+&lt;li>Fill in the address struct and use &lt;code>bind&lt;/code> to bind the sfd to the address&lt;/li>
+&lt;li>Call &lt;code>listen&lt;/code>&lt;/li>
+&lt;li>Loop
+&lt;ol>
+&lt;li>Call &lt;code>accept(sfd)&lt;/code> to wait for client to connect, gets back a client fd&lt;/li>
+&lt;li>Use the cfd to communicate with client, close when done&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Close the server socket fd if no longer waiting for clients&lt;/li>
+&lt;/ol>
+&lt;h3 id="creating-sockets">
+ Creating Sockets
+ &lt;a class="anchor" href="#creating-sockets">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">socket&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> family, &lt;span style="color:#66d9ef">int&lt;/span> type, &lt;span style="color:#66d9ef">int&lt;/span> protocol); &lt;span style="color:#75715e">// returns socket fd &amp;gt; 0, -1 if error
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>family&lt;/code>: &lt;code>AF_UNIX&lt;/code>, &lt;code>AF_INET&lt;/code> (IPv4), &lt;code>AF_INET6&lt;/code> (IPv6)&lt;/li>
+&lt;li>&lt;code>type&lt;/code>: &lt;code>SOCK_DGRAM&lt;/code>, &lt;code>SOCK_STREAM&lt;/code>&lt;/li>
+&lt;li>&lt;code>protocol&lt;/code>: &lt;code>0&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ipv4-addresses-and-port-struct">
+ IPv4 Addresses and Port struct
+ &lt;a class="anchor" href="#ipv4-addresses-and-port-struct">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Adresses are 32-bit, and identifies network interfaces (computers)&lt;/li>
+&lt;li>Each byte is seperated by dots. (ex &lt;code>142.1.96.164&lt;/code>)&lt;/li>
+&lt;li>&lt;code>dig&lt;/code> can look up IP Addresses from domain names by asking Domain Name Servers (DNS)&lt;/li>
+&lt;li>Port struct:
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> sockaddr_in {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">sa_family_t&lt;/span> sin_family; &lt;span style="color:#75715e">// AF_INET
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">in_port_t&lt;/span> sin_port; &lt;span style="color:#75715e">// port, need to be in network byte order
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> in_addr sin_addr; &lt;span style="color:#75715e">// IPv4 address, also in NBO
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> in_addr {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">uint32_t&lt;/span> s_addr;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Special addresses
+&lt;ul>
+&lt;li>&lt;code>127.0.0.1&lt;/code>: Loopback (You can see this example when using &lt;code>localhost&lt;/code> or any web server running on your computer)&lt;/li>
+&lt;li>&lt;code>0.0.0.0&lt;/code>: Request binding to all network interfaces&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="endians-and-network-byte-order">
+ Endians and Network Byte Order
+ &lt;a class="anchor" href="#endians-and-network-byte-order">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Big Endian (Network Byte Order): Left to right (ex. 772 in decimal = 03 04)&lt;/li>
+&lt;li>Little Endian: Bytes are swapped (ex. 772 in decimal = 04 03)&lt;/li>
+&lt;li>Use the library functions &lt;code>htonl&lt;/code> (32-bit) and &lt;code>htons&lt;/code> (16-bit) to convert from Little to Big Endian&lt;/li>
+&lt;/ul>
+&lt;h3 id="bind-accept-and-connect">
+ &lt;code>bind&lt;/code>, &lt;code>accept&lt;/code> and &lt;code>connect&lt;/code>
+ &lt;a class="anchor" href="#bind-accept-and-connect">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">bind&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> fd, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> sockaddr &lt;span style="color:#f92672">*&lt;/span>addr, &lt;span style="color:#66d9ef">socklen_t&lt;/span> addrlen);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>sockaddr&lt;/code>: &lt;code>sockaddr_in&lt;/code> (IPv4), &lt;code>sockaddr_in6&lt;/code> (IPv6), &lt;code>sockaddr_un&lt;/code> (UNIX)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">accept&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> fd, &lt;span style="color:#66d9ef">struct&lt;/span> sockaddr &lt;span style="color:#f92672">*&lt;/span>client_addr, &lt;span style="color:#66d9ef">socklen_t&lt;/span> addrlen);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Returns new socket cfd for talking to client&lt;/li>
+&lt;li>&lt;code>client_addr&lt;/code> will recieve the address of client&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">connect&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> fd, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> sockaddr &lt;span style="color:#f92672">*&lt;/span>server_addr, &lt;span style="color:#66d9ef">socklen_t&lt;/span> addrlen);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Returns 0 if success, -1 on error&lt;/li>
+&lt;li>&lt;code>fd&lt;/code> can now talk to the server&lt;/li>
+&lt;/ul>
+&lt;h3 id="broken-pipes">
+ Broken Pipes
+ &lt;a class="anchor" href="#broken-pipes">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>If one end of the pipe is closed before the other one, the processes gets &lt;code>SIGPIPE&lt;/code>&lt;/li>
+&lt;li>The default action is the processes gets killed&lt;/li>
+&lt;li>Eg.
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ uniq longFile.txt | head -1 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># &amp;#39;head&amp;#39; end of pipe closes after the first line&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># but &amp;#39;uniq&amp;#39; is still running, hence the process just ends&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>To override the default, set action to &lt;code>SIG_IGN&lt;/code> (ignore)&lt;/li>
+&lt;/ul></description></item><item><title>Week 11</title><link>https://navn.me/notes/CSCB09/Week-11/</link><pubDate>Sun, 09 Aug 2020 23:28:18 +0000</pubDate><guid>https://navn.me/notes/CSCB09/Week-11/</guid><description>&lt;h1 id="week-11">
+ Week 11
+ &lt;a class="anchor" href="#week-11">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="multiplexing-input-and-output">
+ Multiplexing Input and Output
+ &lt;a class="anchor" href="#multiplexing-input-and-output">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Handling multiple input/output clients with &lt;code>select&lt;/code> and &lt;code>epoll&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h3 id="select">
+ &lt;code>select&lt;/code>
+ &lt;a class="anchor" href="#select">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">select&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> n, fd_set &lt;span style="color:#f92672">*&lt;/span>read_fds, fd_set &lt;span style="color:#f92672">*&lt;/span>write_fds, NULL, &lt;span style="color:#66d9ef">struct&lt;/span> timeval &lt;span style="color:#f92672">*&lt;/span>wait_timeout);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Blocks until fds are ready&lt;/li>
+&lt;li>Returns 0 if reaches the timeout, else returns positive count if some fds are ready&lt;/li>
+&lt;li>Modifies the given &lt;code>fd_set&lt;/code>s, set them again before the next call&lt;/li>
+&lt;li>&lt;code>fd_set&lt;/code>: holds a set of file descriptors&lt;/li>
+&lt;li>&lt;code>n&lt;/code>: The highest fd you specify, + 1&lt;/li>
+&lt;/ul>
+&lt;h4 id="fd_set-functions">
+ &lt;code>fd_set&lt;/code> functions
+ &lt;a class="anchor" href="#fd_set-functions">#&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">FD_ZERO&lt;/span>(fd_set &lt;span style="color:#f92672">*&lt;/span>s); &lt;span style="color:#75715e">// empties the set
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">FD_SET&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> fd, fd_set &lt;span style="color:#f92672">*&lt;/span>s); &lt;span style="color:#75715e">// adds an fd to the set
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">FD_CLR&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> fd, fd_set &lt;span style="color:#f92672">*&lt;/span>s); &lt;span style="color:#75715e">// deletes an fd
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">FD_ISSET&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> fd, fd_set &lt;span style="color:#f92672">*&lt;/span>s); &lt;span style="color:#75715e">// queries if fd is in the set
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="limitations">
+ Limitations
+ &lt;a class="anchor" href="#limitations">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>Max size for &lt;code>fd_set&lt;/code> usually 1024&lt;/li>
+&lt;li>Slow when using many file descriptors&lt;/li>
+&lt;/ul>
+&lt;h3 id="epoll">
+ &lt;code>epoll&lt;/code>
+ &lt;a class="anchor" href="#epoll">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>Only available on Linux&lt;/p></description></item></channel></rss>

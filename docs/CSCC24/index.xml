@@ -1,33 +1,298 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCC24 on Notes</title><link>https://navn.me/notes/CSCC24/</link><description>Recent content in CSCC24 on Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCC24/index.xml" rel="self" type="application/rss+xml"/><item><title>Week 1</title><link>https://navn.me/notes/CSCC24/Week-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-1/</guid><description>Week 1 # Translation # The process of converting high-level source code into machine code.
-A Programming Language (PL) is neither compiled or interpreted, it&amp;rsquo;s implementation can be.
-Types of Translation # Compilation: translated before execution
-[Source Code] -&amp;gt; {Compiler} -&amp;gt; (Target Code) Target code optimises for speed and security verification (potential memory leaks) for the specific machine
-&amp;lsquo;Heavy&amp;rsquo; information (i.e. variable types) only needed during compilation Can expose potential errors/bugs before run-time</description></item><item><title>Week 2</title><link>https://navn.me/notes/CSCC24/Week-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-2/</guid><description>Week 2 # Programming Languages define syntax formally.
-Lexical Rules: specify the form of the &amp;lsquo;building blocks&amp;rsquo; of a PL
-i.e. Comment Syntax, Tokens (keywords, literals, operators, etc.) and delimiters, White space Syntax: specifies how the &amp;lsquo;building blocks&amp;rsquo; are put together
-Regular Expressions # Notation # Kleene Star (*): 0 or more repetitions
-Alternation (+ or |): denotes choice
-Grouping: marked by parentheses ()
-Empty/Null String: denoted by epsilon: $\epsilon$</description></item><item><title>Week 3</title><link>https://navn.me/notes/CSCC24/Week-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-3/</guid><description>Week 3 # Higher-Order Procedures # Procedures as returned values.
-All modern functional PLs manipulates functions as values.
-; f, g are functions and (f (g)) is well-defined (define (compose f g) (lambda x (f (g x)))) ; returns the composed function map # Usage:
-(map proc l1 l2 ... ln) proc: n-ary procedure (expects n arguments)
-l1, ..., ln: lists of length m
-Returns (e1 ... em) where ei = proc(l1[i], l2[i], .</description></item><item><title>Week 4</title><link>https://navn.me/notes/CSCC24/Week-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-4/</guid><description>Week 4 # Local Bindings # Creating variables with a local scope, and bind them to the result of expressions
-Scope: Visibility of variables let # Usage:
-(let ([var1 expr1] ... [varn exprn]) body) expr1, ..., exprn are evaluated in an undefined order, has the appearance of running in parallel
-The scope of var1, ..., varn is body
-Note: vari is not in the scope of [varj, exprj] when i !</description></item><item><title>Week 5</title><link>https://navn.me/notes/CSCC24/Week-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-5/</guid><description>Week 5 # Tail Recursion # Consider the following function
-(define (len xs) (if (empty? xs) 0 (+ 1 (len (rest xs))))) ; trace (len &amp;#39;(1 2)) (+ 1 (len &amp;#39;(2))) (+ 1 (+ 1 (len &amp;#39;()))) (+ 1 (+ 1 0)) (+ 1 1) 2 The space complexity for this is precisely $O(n)$, where $n$ is the length of xs.
-For a small enough stack space, and large enough list, this function can result in a Stack Overflow.</description></item><item><title>Week 6</title><link>https://navn.me/notes/CSCC24/Week-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-6/</guid><description>Week 6 # Pure Functional Languages # Programs: collections of functions Execution: view as evaluation Referential Transparency # The value of applying a function is independent of its context
-Consider the program
-# Top part of program f(a, b, c) # well-formed expression # Bottom part of program A program exhibits Referential Transparency, if it behaves the exact same, when the expression f(a, b, c) is replaced with its value.</description></item><item><title>Week 7</title><link>https://navn.me/notes/CSCC24/Week-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-7/</guid><description>Week 7 # Type Systems # Type: Name of a set of values and operations which can be performed on the set
-Alternate: Collection of computational entities that share some common property What is or is not a type, is language dependent A PL is Type Safe if it won&amp;rsquo;t execute a function if it&amp;rsquo;s not applicable to the arguments
-Type Checking:
-Static: at compile-time Dynamic: at run-time Motivation # Catch all errors at compile-time (impossible, even in theory) Solution: Guarantee to catch only a certain class of errors Type safety without explicit declaration Benefits of Type Systems # Easier to debug</description></item><item><title>Week 8</title><link>https://navn.me/notes/CSCC24/Week-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-8/</guid><description>Week 8 # Pattern Matching # Input parameters for a function are matched from top down
-len :: [a] -&amp;gt; Integer len [] = 0 -- if the input is null, returns 0 len (_ : xs) = 1 + len xs The _ represents a &amp;lsquo;do not care&amp;rsquo; value, as its not bound to a variable
-this.handle((_, event) =&amp;gt; ...); Value Matching in Haskell # reverse xs = rev xs [] where rev [] rs = rs rev (y : ys) rs = rev ys (y : rs) abs x = if x &amp;gt;= 0 then x else =x abs x | x &amp;gt;= 0 = x | otherwise = -x Type Classes # Offer a controlled approach to overloading</description></item><item><title>Week 9</title><link>https://navn.me/notes/CSCC24/Week-9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-9/</guid><description>Week 9 # Infix Operators # Any curried function that takes 2 parameters can be converted, and vice versa
-x = 3 + 2 -- infix x = (+) 3 2 -- function y = elem 3 [1,2,3] y = 3 `elem` [1,2,3] -- infix Type Synonyms # Giving existing types an alias or new name
-type NewType = OldType Useful for readability (String instead of [Char]) User Defined Data Types # General Syntax:</description></item><item><title>Week 10</title><link>https://navn.me/notes/CSCC24/Week-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-10/</guid><description>Week 10 # Short Circuiting # Defined in most if not all programing languages
-Consider the expression
-if x &amp;gt; 0 and 69 / x &amp;lt; 1: print(&amp;#39;hoe&amp;#39;) If x happened to be 0, evaluating 69 / x only would result in a division by 0 error The second comparison would only be evaluated if the first was not false i.e. if x was non-positive, then the rest wouldn&amp;rsquo;t be evaluated, acts as a &amp;lsquo;guard&amp;rsquo; Laziness # Only evaluate things when you need to</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCC24 on Notes</title><link>https://navn.me/notes/CSCC24/</link><description>Recent content in CSCC24 on Notes</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCC24/index.xml" rel="self" type="application/rss+xml"/><item><title>Week 1</title><link>https://navn.me/notes/CSCC24/Week-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-1/</guid><description>&lt;h1 id="week-1">
+ Week 1
+ &lt;a class="anchor" href="#week-1">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="translation">
+ Translation
+ &lt;a class="anchor" href="#translation">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>The process of converting high-level source code into machine code.&lt;/p>&lt;/blockquote>
+&lt;p>A Programming Language (PL) is &lt;strong>&lt;em>neither&lt;/em>&lt;/strong> compiled or interpreted, it&amp;rsquo;s &lt;strong>implementation&lt;/strong> &lt;em>can&lt;/em> be.&lt;/p>
+&lt;h3 id="types-of-translation">
+ Types of Translation
+ &lt;a class="anchor" href="#types-of-translation">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Compilation&lt;/strong>: translated &lt;em>before&lt;/em> execution&lt;/p>
+&lt;pre tabindex="0">&lt;code>[Source Code] -&amp;gt; {Compiler} -&amp;gt; (Target Code)
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>
+&lt;p>Target code optimises for speed and security verification (potential memory leaks) &lt;em>for the specific machine&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>&amp;lsquo;Heavy&amp;rsquo; information (i.e. variable types) only needed during compilation&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Can expose potential errors/bugs before run-time&lt;/p></description></item><item><title>Week 2</title><link>https://navn.me/notes/CSCC24/Week-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-2/</guid><description>&lt;h1 id="week-2">
+ Week 2
+ &lt;a class="anchor" href="#week-2">#&lt;/a>
+&lt;/h1>
+&lt;blockquote>
+&lt;p>Programming Languages define syntax &lt;strong>formally&lt;/strong>.&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Lexical Rules&lt;/strong>: specify the form of the &amp;lsquo;building blocks&amp;rsquo; of a PL&lt;/p>
+&lt;ul>
+&lt;li>i.e. Comment Syntax, Tokens (keywords, literals, operators, etc.) and delimiters, White space&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Syntax&lt;/strong>: specifies &lt;em>how&lt;/em> the &amp;lsquo;building blocks&amp;rsquo; are put together&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="regular-expressions">
+ Regular Expressions
+ &lt;a class="anchor" href="#regular-expressions">#&lt;/a>
+&lt;/h2>
+&lt;h4 id="notation">
+ Notation
+ &lt;a class="anchor" href="#notation">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Kleene Star&lt;/strong> (&lt;code>*&lt;/code>): 0 or more repetitions&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Alternation&lt;/strong> (&lt;code>+&lt;/code> or &lt;code>|&lt;/code>): denotes choice&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Grouping&lt;/strong>: marked by parentheses &lt;code>()&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Empty/Null String&lt;/strong>: denoted by epsilon: $\epsilon$&lt;/p></description></item><item><title>Week 3</title><link>https://navn.me/notes/CSCC24/Week-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-3/</guid><description>&lt;h1 id="week-3">
+ Week 3
+ &lt;a class="anchor" href="#week-3">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="higher-order-procedures">
+ Higher-Order Procedures
+ &lt;a class="anchor" href="#higher-order-procedures">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Procedures as returned values.&lt;/p>&lt;/blockquote>
+&lt;p>All modern functional PLs manipulates functions as values.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scheme" data-lang="scheme">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; f, g are functions and (f (g)) is well-defined&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&lt;span style="color:#66d9ef">define &lt;/span>(&lt;span style="color:#a6e22e">compose&lt;/span> f g) (&lt;span style="color:#66d9ef">lambda &lt;/span>x (&lt;span style="color:#a6e22e">f&lt;/span> (&lt;span style="color:#a6e22e">g&lt;/span> x))))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; returns the composed function&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="map">
+ &lt;code>map&lt;/code>
+ &lt;a class="anchor" href="#map">#&lt;/a>
+&lt;/h3>
+&lt;p>Usage:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scheme" data-lang="scheme">&lt;span style="display:flex;">&lt;span>(map proc l1 l2 &lt;span style="color:#f92672">...&lt;/span> ln)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>&lt;code>proc&lt;/code>: n-ary procedure (expects n arguments)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>l1, ..., ln&lt;/code>: lists of length &lt;code>m&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Returns &lt;code>(e1 ... em)&lt;/code> where &lt;code>ei = proc(l1[i], l2[i], ... ln[i])&lt;/code>&lt;/p></description></item><item><title>Week 4</title><link>https://navn.me/notes/CSCC24/Week-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-4/</guid><description>&lt;h1 id="week-4">
+ Week 4
+ &lt;a class="anchor" href="#week-4">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="local-bindings">
+ Local Bindings
+ &lt;a class="anchor" href="#local-bindings">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Creating variables with a local scope, and bind them to the result of expressions&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>Scope&lt;/strong>: Visibility of variables&lt;/li>
+&lt;/ul>
+&lt;h3 id="let">
+ &lt;code>let&lt;/code>
+ &lt;a class="anchor" href="#let">#&lt;/a>
+&lt;/h3>
+&lt;p>Usage:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scheme" data-lang="scheme">&lt;span style="display:flex;">&lt;span>(&lt;span style="color:#66d9ef">let &lt;/span>([var1 expr1] &lt;span style="color:#f92672">...&lt;/span> [varn exprn]) body)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>&lt;code>expr1, ..., exprn&lt;/code> are evaluated in an &lt;strong>undefined&lt;/strong> order, has the appearance of running in parallel&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The scope of &lt;code>var1, ..., varn&lt;/code> is &lt;code>body&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Note&lt;/strong>: &lt;code>vari&lt;/code> is not in the scope of &lt;code>[varj, exprj]&lt;/code> when &lt;code>i != j&lt;/code>, due to the parallel nature&lt;/p></description></item><item><title>Week 5</title><link>https://navn.me/notes/CSCC24/Week-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-5/</guid><description>&lt;h1 id="week-5">
+ Week 5
+ &lt;a class="anchor" href="#week-5">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="tail-recursion">
+ Tail Recursion
+ &lt;a class="anchor" href="#tail-recursion">#&lt;/a>
+&lt;/h2>
+&lt;p>Consider the following function&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scheme" data-lang="scheme">&lt;span style="display:flex;">&lt;span>(&lt;span style="color:#66d9ef">define &lt;/span>(&lt;span style="color:#a6e22e">len&lt;/span> xs) 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#66d9ef">if &lt;/span>(&lt;span style="color:#a6e22e">empty?&lt;/span> xs) 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">0&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (+ &lt;span style="color:#ae81ff">1&lt;/span> (&lt;span style="color:#a6e22e">len&lt;/span> (&lt;span style="color:#a6e22e">rest&lt;/span> xs)))))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; trace&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&lt;span style="color:#a6e22e">len&lt;/span> &lt;span style="color:#f92672">&amp;#39;&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(+ &lt;span style="color:#ae81ff">1&lt;/span> (&lt;span style="color:#a6e22e">len&lt;/span> &lt;span style="color:#f92672">&amp;#39;&lt;/span>(&lt;span style="color:#ae81ff">2&lt;/span>)))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(+ &lt;span style="color:#ae81ff">1&lt;/span> (+ &lt;span style="color:#ae81ff">1&lt;/span> (&lt;span style="color:#a6e22e">len&lt;/span> &lt;span style="color:#f92672">&amp;#39;&lt;/span>())))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(+ &lt;span style="color:#ae81ff">1&lt;/span> (+ &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(+ &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The space complexity for this is precisely $O(n)$, where $n$ is the length of &lt;code>xs&lt;/code>.&lt;/p>
+&lt;p>For a small enough stack space, and large enough list, this function can result in a &lt;a href="https://navn.me/notes/CSCA48/final-review/#the-memory-model">&lt;strong>Stack Overflow&lt;/strong>&lt;/a>. To fix this issue, we must implement this function using tail recursion.&lt;/p></description></item><item><title>Week 6</title><link>https://navn.me/notes/CSCC24/Week-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-6/</guid><description>&lt;h1 id="week-6">
+ Week 6
+ &lt;a class="anchor" href="#week-6">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="pure-functional-languages">
+ Pure Functional Languages
+ &lt;a class="anchor" href="#pure-functional-languages">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Programs&lt;/strong>: collections of &lt;em>functions&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Execution&lt;/strong>: view as &lt;em>evaluation&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;h3 id="referential-transparency">
+ Referential Transparency
+ &lt;a class="anchor" href="#referential-transparency">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>The value of applying a function is &lt;em>independent&lt;/em> of its context&lt;/p>&lt;/blockquote>
+&lt;p>Consider the program&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Top part of program&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>f&lt;span style="color:#f92672">(&lt;/span>a, b, c&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#75715e"># well-formed expression&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Bottom part of program&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>A program exhibits &lt;strong>Referential Transparency&lt;/strong>, if it behaves the exact same, when the expression &lt;code>f(a, b, c)&lt;/code> is replaced with its value.&lt;/p></description></item><item><title>Week 7</title><link>https://navn.me/notes/CSCC24/Week-7/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-7/</guid><description>&lt;h1 id="week-7">
+ Week 7
+ &lt;a class="anchor" href="#week-7">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="type-systems">
+ Type Systems
+ &lt;a class="anchor" href="#type-systems">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Type&lt;/strong>: Name of a set of values and operations which can be performed on the set&lt;/p>
+&lt;ul>
+&lt;li>Alternate: Collection of computational entities that share some common property&lt;/li>
+&lt;li>What is or &lt;em>is not&lt;/em> a type, is language dependent&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>A PL is &lt;strong>Type Safe&lt;/strong> if it won&amp;rsquo;t execute a function if it&amp;rsquo;s not applicable to the arguments&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Type Checking&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Static&lt;/strong>: at compile-time&lt;/li>
+&lt;li>&lt;strong>Dynamic&lt;/strong>: at run-time&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="motivation">
+ Motivation
+ &lt;a class="anchor" href="#motivation">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Catch &lt;em>all&lt;/em> errors at compile-time (impossible, even in theory)
+&lt;ul>
+&lt;li>Solution: Guarantee to catch only a certain class of errors&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Type safety without explicit declaration&lt;/li>
+&lt;/ul>
+&lt;h3 id="benefits-of-type-systems">
+ Benefits of Type Systems
+ &lt;a class="anchor" href="#benefits-of-type-systems">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Easier to debug&lt;/p></description></item><item><title>Week 8</title><link>https://navn.me/notes/CSCC24/Week-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-8/</guid><description>&lt;h1 id="week-8">
+ Week 8
+ &lt;a class="anchor" href="#week-8">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="pattern-matching">
+ Pattern Matching
+ &lt;a class="anchor" href="#pattern-matching">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Input parameters for a function are matched from top down&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-haskell" data-lang="haskell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">len&lt;/span> &lt;span style="color:#f92672">::&lt;/span> [a] &lt;span style="color:#f92672">-&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">len&lt;/span> &lt;span style="color:#66d9ef">[]&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#75715e">-- if the input is null, returns 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">len&lt;/span> (&lt;span style="color:#66d9ef">_&lt;/span> &lt;span style="color:#66d9ef">:&lt;/span> xs) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">+&lt;/span> len xs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The &lt;code>_&lt;/code> represents a &amp;lsquo;do not care&amp;rsquo; value, as its not bound to a variable&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ts" data-lang="ts">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">handle&lt;/span>((&lt;span style="color:#a6e22e">_&lt;/span>, &lt;span style="color:#a6e22e">event&lt;/span>) &lt;span style="color:#f92672">=&amp;gt;&lt;/span> ...);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="value-matching-in-haskell">
+ Value Matching in Haskell
+ &lt;a class="anchor" href="#value-matching-in-haskell">#&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-haskell" data-lang="haskell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">reverse&lt;/span> xs &lt;span style="color:#f92672">=&lt;/span> rev xs &lt;span style="color:#66d9ef">[]&lt;/span> &lt;span style="color:#66d9ef">where&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	rev &lt;span style="color:#66d9ef">[]&lt;/span> rs &lt;span style="color:#f92672">=&lt;/span> rs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	rev (y &lt;span style="color:#66d9ef">:&lt;/span> ys) rs &lt;span style="color:#f92672">=&lt;/span> rev ys (y &lt;span style="color:#66d9ef">:&lt;/span> rs)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">abs&lt;/span> x &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> x &lt;span style="color:#f92672">&amp;gt;=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#66d9ef">then&lt;/span> x &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#f92672">=&lt;/span>x
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">abs&lt;/span> x 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">|&lt;/span> x &lt;span style="color:#f92672">&amp;gt;=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">=&lt;/span> x
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">|&lt;/span> otherwise &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">-&lt;/span>x
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="type-classes">
+ Type Classes
+ &lt;a class="anchor" href="#type-classes">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Offer a controlled approach to overloading&lt;/p></description></item><item><title>Week 9</title><link>https://navn.me/notes/CSCC24/Week-9/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-9/</guid><description>&lt;h1 id="week-9">
+ Week 9
+ &lt;a class="anchor" href="#week-9">#&lt;/a>
+&lt;/h1>
+&lt;h3 id="infix-operators">
+ Infix Operators
+ &lt;a class="anchor" href="#infix-operators">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>Any curried function that takes 2 parameters can be converted, and vice versa&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-haskell" data-lang="haskell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">x&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#75715e">-- infix&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">x&lt;/span> &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#f92672">+&lt;/span>) &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#75715e">-- function&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">y&lt;/span> &lt;span style="color:#f92672">=&lt;/span> elem &lt;span style="color:#ae81ff">3&lt;/span> [&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">y&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> `elem` [&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>] &lt;span style="color:#75715e">-- infix&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="type-synonyms">
+ Type Synonyms
+ &lt;a class="anchor" href="#type-synonyms">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>Giving existing types an alias or new name&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-haskell" data-lang="haskell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">type&lt;/span> &lt;span style="color:#66d9ef">NewType&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">OldType&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Useful for readability (&lt;code>String&lt;/code> instead of &lt;code>[Char]&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;h2 id="user-defined-data-types">
+ User Defined Data Types
+ &lt;a class="anchor" href="#user-defined-data-types">#&lt;/a>
+&lt;/h2>
+&lt;p>General Syntax:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-haskell" data-lang="haskell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">data&lt;/span> &lt;span style="color:#66d9ef">NewType&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">Constructor1&lt;/span> &lt;span style="color:#66d9ef">Type1&lt;/span> &lt;span style="color:#f92672">|&lt;/span> &lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#f92672">|&lt;/span> &lt;span style="color:#66d9ef">ConstructorN&lt;/span> &lt;span style="color:#66d9ef">TypeN&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>&lt;code>|&lt;/code>: represents union of the constructor and types&lt;/p></description></item><item><title>Week 10</title><link>https://navn.me/notes/CSCC24/Week-10/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC24/Week-10/</guid><description>&lt;h1 id="week-10">
+ Week 10
+ &lt;a class="anchor" href="#week-10">#&lt;/a>
+&lt;/h1>
+&lt;h3 id="short-circuiting">
+ Short Circuiting
+ &lt;a class="anchor" href="#short-circuiting">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>Defined in most if not all programing languages&lt;/p>&lt;/blockquote>
+&lt;p>Consider the expression&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> x &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">and&lt;/span> &lt;span style="color:#ae81ff">69&lt;/span> &lt;span style="color:#f92672">/&lt;/span> x &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#39;hoe&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>If &lt;code>x&lt;/code> happened to be 0, evaluating &lt;code>69 / x&lt;/code> only would result in a division by 0 error&lt;/li>
+&lt;li>The second comparison would only be evaluated &lt;em>if the first was not false&lt;/em>
+&lt;ul>
+&lt;li>i.e. if &lt;code>x&lt;/code> was non-positive, then the rest wouldn&amp;rsquo;t be evaluated, acts as a &amp;lsquo;guard&amp;rsquo;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="laziness">
+ Laziness
+ &lt;a class="anchor" href="#laziness">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Only evaluate things when you need to&lt;/p></description></item></channel></rss>

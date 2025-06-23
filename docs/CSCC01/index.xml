@@ -1,3 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCC01 on Notes</title><link>https://navn.me/notes/CSCC01/</link><description>Recent content in CSCC01 on Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCC01/index.xml" rel="self" type="application/rss+xml"/><item><title>Final Review</title><link>https://navn.me/notes/CSCC01/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC01/final-review/</guid><description>CSCC01 - Final Review # Fall 2020 # The fix from StackOverflow isn&amp;rsquo;t working
-Software Development - The Agile Mindset # Iterative approach to software development
-Values of the Agile Manifesto: # Individuals and interactions over processes and tools Working software over comprehensive documentation Customer collaboration over contract negotiation Responding to change over following a plan User Stories # Short, simple descriptions for features as told by the end-user</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCC01 on Notes</title><link>https://navn.me/notes/CSCC01/</link><description>Recent content in CSCC01 on Notes</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCC01/index.xml" rel="self" type="application/rss+xml"/><item><title>Final Review</title><link>https://navn.me/notes/CSCC01/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC01/final-review/</guid><description>&lt;h1 id="cscc01---final-review">
+ CSCC01 - Final Review
+ &lt;a class="anchor" href="#cscc01---final-review">#&lt;/a>
+&lt;/h1>
+&lt;h4 id="fall-2020">
+ Fall 2020
+ &lt;a class="anchor" href="#fall-2020">#&lt;/a>
+&lt;/h4>
+&lt;blockquote>
+&lt;p>The fix from StackOverflow isn&amp;rsquo;t working&lt;/p>&lt;/blockquote>
+&lt;h2 id="software-development---the-agile-mindset">
+ Software Development - The Agile Mindset
+ &lt;a class="anchor" href="#software-development---the-agile-mindset">#&lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Iterative approach to software development&lt;/p>&lt;/blockquote>
+&lt;h3 id="values-of-the-agile-manifesto">
+ Values of the Agile Manifesto:
+ &lt;a class="anchor" href="#values-of-the-agile-manifesto">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Individuals&lt;/strong> &lt;strong>and&lt;/strong> &lt;strong>interactions&lt;/strong> over processes and tools&lt;/li>
+&lt;li>&lt;strong>Working&lt;/strong> &lt;strong>software&lt;/strong> over comprehensive documentation&lt;/li>
+&lt;li>&lt;strong>Customer&lt;/strong> &lt;strong>collaboration&lt;/strong> over contract negotiation&lt;/li>
+&lt;li>&lt;strong>Responding&lt;/strong> &lt;strong>to&lt;/strong> &lt;strong>change&lt;/strong> over following a plan&lt;/li>
+&lt;/ul>
+&lt;h3 id="user-stories">
+ User Stories
+ &lt;a class="anchor" href="#user-stories">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>Short, simple descriptions for features as told by the end-user&lt;/p></description></item><item><title>Guest Lecture - CI/CD</title><link>https://navn.me/notes/CSCC01/ci-cd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC01/ci-cd/</guid><description>&lt;style scoped>
+ h1 {
+ font-size: 5rem;
+ }
+
+ .funk {
+ font-family: 'lostar';
+ font-weight: 100;
+ font-size: 4.75rem;
+ color: #e34c26;
+ }
+&lt;/style>
+&lt;!-- _class: center -->
+&lt;!-- _footer: Made with ❤️ by @navinn -->
+&lt;h1 id="cicd-and-more">
+ CI/CD &lt;span class="funk">and more&lt;/span>
+ &lt;a class="anchor" href="#cicd-and-more">#&lt;/a>
+&lt;/h1>
+&lt;hr>
+&lt;!-- _class: center -->
+&lt;!-- _footer: 'thanks aryan for bailing' -->
+&lt;h2 id="how-it-started">
+ How it started
+ &lt;a class="anchor" href="#how-it-started">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="./images/chat.png" alt="bg fit right:45%" />&lt;/p>
+&lt;hr>
+&lt;style scoped>
+ li {
+ font-size: 0.925rem;
+ }
+&lt;/style>
+&lt;!-- _footer: 'haha chatgpt meme' -->
+&lt;h1 id="about-me">
+ About me
+ &lt;a class="anchor" href="#about-me">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>SWE @ Meta
+&lt;ul>
+&lt;li>Server Eng; Instagram GenAI&lt;/li>
+&lt;li>PHP/Hack 🤮, Python, React&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>UTSC CS &amp;lsquo;24
+&lt;ul>
+&lt;li>CS TA: B07 (x2), B20, &lt;strong>C01&lt;/strong>, C09, D01&lt;/li>
+&lt;li>Co-ops: CaseWare, Halo, RBC, HubSpot, AmEx&lt;/li>
+&lt;li>MLH Fellowship&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;del>been coding since i was 5&lt;/del>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="./images/meme.png" alt="bg left:37%" />&lt;/p></description></item></channel></rss>

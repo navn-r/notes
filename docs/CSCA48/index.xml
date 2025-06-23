@@ -1,3 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCA48 on Notes</title><link>https://navn.me/notes/CSCA48/</link><description>Recent content in CSCA48 on Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCA48/index.xml" rel="self" type="application/rss+xml"/><item><title>Final Review</title><link>https://navn.me/notes/CSCA48/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCA48/final-review/</guid><description>CSCA48 - Final Review # Winter 2020 # If you think it won&amp;rsquo;t work in C, it probably will.
-Units 1 + 2: # Variables and lockers: # Uniquely numbered in increasing order, reserved only for the program using the box to store and access information in said box.
-Three ways to get a locker: # Variable Declaration int boostMyMark = 420; // locker has been created Return Values return boostMyMark; // new locker has been created, (copied value) Input Parameters void killAverage(double currentAvg, double midtermMark) {.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCA48 on Notes</title><link>https://navn.me/notes/CSCA48/</link><description>Recent content in CSCA48 on Notes</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCA48/index.xml" rel="self" type="application/rss+xml"/><item><title>Final Review</title><link>https://navn.me/notes/CSCA48/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCA48/final-review/</guid><description>&lt;h1 id="csca48---final-review">
+ CSCA48 - Final Review
+ &lt;a class="anchor" href="#csca48---final-review">#&lt;/a>
+&lt;/h1>
+&lt;h4 id="winter-2020">
+ Winter 2020
+ &lt;a class="anchor" href="#winter-2020">#&lt;/a>
+&lt;/h4>
+&lt;blockquote>
+&lt;p>If you think it won&amp;rsquo;t work in C, it probably will.&lt;/p>&lt;/blockquote>
+&lt;h2 id="units-1--2">
+ Units 1 + 2:
+ &lt;a class="anchor" href="#units-1--2">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;h3 id="variables-and-lockers">
+ Variables and lockers:
+ &lt;a class="anchor" href="#variables-and-lockers">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>Uniquely numbered in increasing order, reserved &lt;em>&lt;strong>only&lt;/strong>&lt;/em> for the program using the box to store and access information in said box.&lt;/p>&lt;/blockquote>
+&lt;h4 id="three-ways-to-get-a-locker">
+ Three ways to get a locker:
+ &lt;a class="anchor" href="#three-ways-to-get-a-locker">#&lt;/a>
+&lt;/h4>
+&lt;ol>
+&lt;li>Variable Declaration
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> boostMyMark &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">420&lt;/span>; &lt;span style="color:#75715e">// locker has been created
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Return Values
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">return&lt;/span> boostMyMark; &lt;span style="color:#75715e">// new locker has been created, (copied value)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Input Parameters
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">killAverage&lt;/span>(&lt;span style="color:#66d9ef">double&lt;/span> currentAvg, &lt;span style="color:#66d9ef">double&lt;/span> midtermMark) {...} &lt;span style="color:#75715e">// lockers created to store currentAvg, midtermMark
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;h3 id="arrays">
+ Arrays:
+ &lt;a class="anchor" href="#arrays">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>&lt;em>&lt;strong>Fixed&lt;/strong>&lt;/em> length and data type, &lt;em>&lt;strong>consecutive&lt;/strong>&lt;/em> boxes allocated in memory and are &lt;strong>Passed-By-Reference&lt;/strong> for function calls.&lt;/p></description></item></channel></rss>

@@ -1,3 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCC69 on Notes</title><link>https://navn.me/notes/CSCC69/</link><description>Recent content in CSCC69 on Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCC69/index.xml" rel="self" type="application/rss+xml"/><item><title>Final Review</title><link>https://navn.me/notes/CSCC69/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC69/final-review/</guid><description>CSCC69 - Final Review # Winter 2023 # We both know I shouldn&amp;rsquo;t be writing a review for this course.
-Threads and Processes # Concurrency # Running multiple processes at the same time
-Able to run more processes than the number of cores Serial execution results in more CPU idle time waiting for I/O User threads are 1:1 mapped to kernel threads (struct thread), can also be many:1 The OS also has its own kernel threads Interrupts # CPU stops running current process, saves its state, and runs interrupt handler (threads/interrupt.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSCC69 on Notes</title><link>https://navn.me/notes/CSCC69/</link><description>Recent content in CSCC69 on Notes</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://navn.me/notes/CSCC69/index.xml" rel="self" type="application/rss+xml"/><item><title>Final Review</title><link>https://navn.me/notes/CSCC69/final-review/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://navn.me/notes/CSCC69/final-review/</guid><description>&lt;h1 id="cscc69---final-review">
+ CSCC69 - Final Review
+ &lt;a class="anchor" href="#cscc69---final-review">#&lt;/a>
+&lt;/h1>
+&lt;h4 id="winter-2023">
+ Winter 2023
+ &lt;a class="anchor" href="#winter-2023">#&lt;/a>
+&lt;/h4>
+&lt;!-- Copilot is a joke -->
+&lt;blockquote>
+&lt;p>We both know I shouldn&amp;rsquo;t be writing a review for this course.&lt;/p>&lt;/blockquote>
+&lt;h2 id="threads-and-processes">
+ Threads and Processes
+ &lt;a class="anchor" href="#threads-and-processes">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="concurrency">
+ Concurrency
+ &lt;a class="anchor" href="#concurrency">#&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>Running multiple processes at the same time&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>Able to run more processes than the number of cores&lt;/li>
+&lt;li>Serial execution results in more CPU idle time waiting for I/O&lt;/li>
+&lt;li>User threads are 1:1 mapped to kernel threads (&lt;code>struct thread&lt;/code>), can also be many:1&lt;/li>
+&lt;li>The OS also has its own kernel threads&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="../images/kernel_threads.png" alt="kernel threads" />&lt;/p></description></item></channel></rss>
