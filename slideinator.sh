@@ -24,5 +24,7 @@ SLIDE_NAME="$2"
 
 {
   sed -n '1p;2p;3p' "./content/$COURSE_CODE/$SLIDE_NAME.marp/index.marp.md"
-  echo "---\n\n<iframe src=\"./$SLIDE_NAME.pdf\" width=\"100%\" height=\"700\"></iframe>"
+  echo "---"
+  echo ""
+  echo "<iframe src=\"./$SLIDE_NAME.pdf\" width=\"100%\" height=\"700\"></iframe>"
 } > "./content/$COURSE_CODE/$SLIDE_NAME.md"
