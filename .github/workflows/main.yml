@@ -45,11 +45,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-hugomod-
 
-      - name: Build
+      - name: Setup Presentation Content Page
+        run: |
+          chmod +x ./slideinator.sh
+          ./slideinator.sh CSCC01 C01_CI-CD
+
+      - name: Build Pages
         run: hugo --minify
 
+      - name: Build Presentation PDF
+        uses: docker://marpteam/marp-cli:v4.2.0
+        with:
+          args: --no-browser-timeout  --allow-local-files content/CSCC01/C01_CI-CD.marp/index.marp.md -o docs/CSCC01/ci-cd/C01_CI-CD.pdf
+        env:
+          MARP_USER: root:root
+
       - name: Cleanup
-        run: rm -rf content
+        run: rm -rf content && rm -rf ./docs/**/*.marp
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
